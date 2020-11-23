@@ -1,4 +1,6 @@
-@foreach ($service as $type)
-    <p>{{$type->name_serv}}</p>
-    <img src="{{$type->path_icon}}" alt="">
-@endforeach
+@php
+$randNum = rand(1, 20);
+$path = 'images/testfaker-images/test-'.$randNum.'.jpg';
+
+dd($path);
+@endphp

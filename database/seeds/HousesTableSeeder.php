@@ -19,9 +19,9 @@ class HousesTableSeeder extends Seeder
             $user = User::inRandomOrder()->first();
 
             $newHouse = new House;
-            $newHouse->latitude = $faker->latitude();
-            $newHouse->longitude = $faker->longitude();
-            $newHouse->address = $faker->streetAddress();
+            $newHouse->latitude = $faker->latitude();  //CHIEDERE
+            $newHouse->longitude = $faker->longitude();  //CHIEDERE
+            $newHouse->address = $faker->streetAddress();  //CHIEDERE
             $newHouse->description = $faker->paragraph(5, true);
             $newHouse->title = $faker->sentence(5, true);
             $newHouse->rooms = $faker->randomDigitNotNull();
