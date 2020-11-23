@@ -15,6 +15,24 @@ class CreateHousesTable extends Migration
     {
         Schema::create('houses', function (Blueprint $table) {
             $table->id();
+            $table->foreignId('user_id')->constrained()->onDelete('cascade');
+            $table->foreignId('service_id')->constrained()->onDelete('cascade');
+            $table->foreignId('type_id')->constrained();
+            $table->string('latitude', 15);
+            $table->string('longitude', 15);
+            $table->string('address');
+            $table->text('description', 500);
+            $table->string('title', 70);
+            $table->tinyInteger('rooms');
+            $table->tinyInteger('guests');
+            $table->tinyInteger('bedrooms');
+            $table->tinyInteger('beds');
+            $table->tinyInteger('bathrooms');
+            $table->smallInteger('mq');
+            $table->float('price', 6,2);
+            $table->boolean('visible')->default(true);
+            $table->string('slug')->unique();
+            $table->string('cover_img')->nullable();
             $table->timestamps();
         });
     }
