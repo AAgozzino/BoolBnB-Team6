@@ -13,6 +13,10 @@ class HousesTableSeeder extends Seeder
      */
     public function run(Faker $faker)
     {
-        //
+        for($i = 0; $i < 2; $i++) {
+            $newHouse = new House;
+            $newHouse->email = $faker->freeEmail();
+             
+        }
     }
 }
