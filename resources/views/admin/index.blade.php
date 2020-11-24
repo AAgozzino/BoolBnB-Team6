@@ -10,9 +10,10 @@
                     <h6 class="card-subtitle mb-2 text-muted">{{$house->type->type}}</h6>
                     <p class="card-text">{{$house->description}}</p>
                     {{-- Bottone per show --}}
-                    <a href="#" class="btn btn-primary">More</a>
+                    <a href="{{route('admin.houses.show',  $house->slug)}}" class="btn btn-primary">More</a>
                 </div>
             </div>
+            
         @endforeach
         
     </div>

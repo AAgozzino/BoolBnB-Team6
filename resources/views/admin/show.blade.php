@@ -33,9 +33,14 @@
                 <h3>STATISTICHE</h3>
             </div>
             <div class="card-body">
-              <a href="#" class="card-link">Modifica</a>
-              <a href="#" class="card-link">Sponsorizza</a>
-              <a href="#" class="card-link">Elimina</a>
+                <a href="{{route('admin.houses.edit',  $house->slug)}}" class="card-link">Modifica</a>
+                <a href="#" class="card-link">Sponsorizza</a>
+                <form action="{{route('admin.houses.destroy', $house->slug)}}" method="POST">
+                    @csrf
+                    @method('DELETE')
+
+                    <a href="{{route('admin.houses.destroy', $house->slug)}}" class="card-link">Elimina</a>
+                </form>
             </div>
           </div>
     </div>
