@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class CreateHousesServicesTable extends Migration
+class CreateHouseSponsorTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,9 +13,11 @@ class CreateHousesServicesTable extends Migration
      */
     public function up()
     {
-        Schema::create('houses_services', function (Blueprint $table) {
+        Schema::create('house_sponsor', function (Blueprint $table) {
             $table->foreignId('house_id')->constrained()->onDelete('cascade');
-            $table->foreignId('service_id')->constrained()->onDelete('cascade');
+            $table->foreignId('sponsor_id')->constrained();
+            $table->date('start_date');
+            $table->date('end_date');
         });
     }
 
@@ -26,6 +28,6 @@ class CreateHousesServicesTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('houses_services');
+        Schema::dropIfExists('houses_sponsors');
     }
 }

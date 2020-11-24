@@ -16,10 +16,9 @@ class CreateHousesTable extends Migration
         Schema::create('houses', function (Blueprint $table) {
             $table->id();
             $table->foreignId('user_id')->constrained()->onDelete('cascade');
-            $table->foreignId('service_id')->constrained()->onDelete('cascade');
             $table->foreignId('type_id')->constrained();
-            $table->string('latitude', 15);
-            $table->string('longitude', 15);
+            $table->float('latitude', 8,6);
+            $table->float('longitude', 9,6);
             $table->string('address');
             $table->text('description', 500);
             $table->string('title', 70);

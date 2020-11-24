@@ -14,8 +14,14 @@ class ImagesTableSeeder extends Seeder
      */
     public function run(Faker $faker)
     {
-        $randNum = rand(1, 20);
-        $path = 'images/testfaker-images/test-'.$randNum.'.jpg';
-        // LANCIARE SEEDER
+        $houses = House::all();
+
+        foreach ($houses as $house) {
+            $image = new Image;
+            $image->house_id = $house->id;
+            $image->path_img = 'images/images.jpeg';
+            $image->descr_img = $faker->sentence(2);
+            $image->save();
+        }
     }
 }
