@@ -21,4 +21,11 @@ Route::get('/', function () {
 Auth::routes();
 Route::get('/home', 'HomeController@index')->name('home');
 
+
+
+Route::resource('houses', 'HouseController');
+
+Auth::routes();
+
+
 Route::get('/home', 'HomeController@index')->name('home');
