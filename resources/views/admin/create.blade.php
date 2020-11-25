@@ -2,9 +2,16 @@
 
 @section('main-section')
 {{-- CONTROLLARE NOMI ROTTE --}}
-<form action="{{route('houses.store')}}" method="POST" enctype="multipart/form-data">
+<form action="{{route('admin.houses.store')}}" method="POST" enctype="multipart/form-data">
     @csrf
     @method('POST')
+
+    {{-- Title --}}
+    <div class="form-group">
+        <label for="title">Inserisci il titolo</label>
+        <input type="title" id="title" placeholder="Inserisci titolo del tuo alloggio" value="{{old('title')}}">
+    </div>
+    {{-- /Title --}}
 
     {{-- House Type --}}
     <div class="form-group">
@@ -38,11 +45,11 @@
 
     {{-- Latitudine Longitudine- DA CANCELLARE IN FUTURO --}}
     <div class="form-group">
-        <label for="latitude">Indirizzo</label>
+        <label for="latitude">Latitude</label>
         <input type="latitude" id="latitude" placeholder="Latitudine" value="{{old('latitude')}}">
     </div>
     <div class="form-group">
-        <label for="longitude">Indirizzo</label>
+        <label for="longitude">Longitude</label>
         <input type="longitude" id="longitude" placeholder="Longitudine" value="{{old('longitude')}}">
     </div>
     {{-- /Latitude Longitudine --}}
@@ -83,15 +90,15 @@
     <div class="form-group">
         <label for="price">Prezzo</label>
         <small class="form-text text-muted">Seleziona il prezzo per il tuo alloggio</small>
-        <input type="number" id="price" name="price" min="1" step="0.01" value="{{old('price')}}">
+        <input type="number" id="price" name="price" min="1" max="999" step="0.01" value="{{old('price')}}">
     </div>
     {{-- /Price --}}
 
     {{-- Services --}}
     <div class="form-group">
         @foreach ($services as $service)
-            <input type="checkbox" id="{{$services->name_serv}}" name="services[]" value="{{$services->id}} {{old('service_id')}}"> {{--Controllare old--}}
-            <label for="{{$services->name_serv}}">{{$services->path_icon}}</label>
+            <input type="checkbox" id="{{$service->name_serv}}" name="{{$service->name_serv}}" value="{{$service->id}}"> {{--Controllare old--}}
+            <label for="{{$service->name_serv}}">{{$service->path_icon}}</label>
         @endforeach
     </div>
     {{-- /Services --}}
@@ -106,7 +113,7 @@
     {{-- Decrizione --}}
     <div class="form-group">
         <label for="description">Inserisci descrizione</label>
-         <textarea name="description" class="form-control" id="description" name="description" cols="30" rows="10"> {{old('description')}}</textarea>
+         <textarea name="description" class="form-control" id="description" name="description" cols="30" rows="10" maxlength="500"> {{old('description')}}</textarea>
     </div>
     {{-- /Descrizione --}}
     

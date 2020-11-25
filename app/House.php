@@ -8,6 +8,7 @@ class House extends Model
 {
 
     protected $fillable = [
+        'title',
         'type',
         'guests',
         'address',
@@ -18,7 +19,7 @@ class House extends Model
         'bathrooms',
         'mq',
         'price',
-        'name_serv',
+        // 'service_id',
         // 'slug',    CONTROLLO
         'description',
         'image'

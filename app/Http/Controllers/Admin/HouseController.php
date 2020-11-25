@@ -31,7 +31,9 @@ class HouseController extends Controller
      */
     public function create()
     {
-        return view('admin.create');
+        $types = Type::all();
+        $services = Service::all();
+        return view('admin.create', compact('types', 'services'));
     }
 
     /**
@@ -55,11 +57,12 @@ class HouseController extends Controller
             'bathrooms' => 'required',
             'mq' => 'required',
             'price' => 'required',
-            'service_id' => 'required',
+            // 'service_id' => 'required',
             // 'slug' => 'required',    CONTROLLO
             'description' => 'required',
             'image' => 'image'
         ]);
+        dd($data);
         
         $id = Auth::id();
         $og_file_img = $data['image']->getClientOriginalName();
@@ -78,16 +81,16 @@ class HouseController extends Controller
         $newHouse->bathrooms = $data['bathrooms'];
         $newHouse->mq = $data['mq'];
         $newHouse->price = $data['price'];
-        $newHouse->service_id = $data['service_id'];
+        // $newHouse->service_id = $data['service_id'];
         $newHouse->content = $data['content'];
         // $newHouse->slug = $data['slug'];
         $newHouse->description = $data['description'];
         $newHouse->image = $path;
         $newHouse->save();
 
-        if (count($data['service_id']) > 0) {
-            $newHouse->service_id()->sync($data['service_id']);
-        }
+        // if (count($data['service_id']) > 0) {
+        //     $newHouse->service_id()->sync($data['service_id']);
+        // }
 
         return redirect()->route('admin.show', $newHouse->slug);
     }
@@ -137,7 +140,7 @@ class HouseController extends Controller
             'bathrooms' => 'required',
             'mq' => 'required',
             'price' => 'required',
-            'service_id' => 'required',
+            // 'service_id' => 'required',
             // 'slug' => 'required',    CONTROLLO
             'description' => 'required',
             'image' => 'image'
