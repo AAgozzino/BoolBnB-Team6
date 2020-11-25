@@ -25,6 +25,8 @@ class House extends Model
         'cover_img'
     ];
 
+    protected $guarded = ["service"];
+
     public function images()
     {
         return $this->hasMany('App\Image');

@@ -54,6 +54,14 @@
     </div>
     {{-- /Latitude Longitudine --}}
 
+    {{-- Rooms --}}
+    <div class="form-group">
+        <label for="rooms">Numero di stanze</label>
+        <small class="form-text text-muted">Seleziona il numero di camere da letto.</small>
+        <input type="number" id="rooms" name="rooms" min="1" max="20" value="{{old('rooms')}}">
+    </div>
+    {{-- /Rooms --}}
+
     {{-- Bedrooms --}}
     <div class="form-group">
         <label for="bedrooms">Numero di camere da letto</label>
@@ -97,7 +105,7 @@
     {{-- Services --}}
     <div class="form-group">
         @foreach ($services as $service)
-            <input type="checkbox" id="{{$service->name_serv}}" name="service[]" value="{{$service->id}}"> {{--Controllare old--}}
+            <input type="checkbox" id="{{$service->id}}" name="service_id[]" value="{{$service->id}}"> {{--Controllare old--}}
             <label for="{{$service->name_serv}}">{{$service->path_icon}}</label>
         @endforeach
     </div>

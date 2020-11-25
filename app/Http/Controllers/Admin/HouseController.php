@@ -52,12 +52,13 @@ class HouseController extends Controller
             'address' => 'required',
             'latitude' => 'required',
             'longitude' => 'required',
+            'rooms' => 'required',
             'bedrooms' => 'required',
             'beds' => 'required',
             'bathrooms' => 'required',
             'mq' => 'required',
             'price' => 'required',
-            'service' => 'nullable',
+            'service_id' => 'nullable',
             'slug' => 'required',
             'description' => 'required',
             'cover_img' => 'image'
@@ -76,22 +77,24 @@ class HouseController extends Controller
         $newHouse->address = $data['address'];
         $newHouse->latitude = $data['latitude'];
         $newHouse->longitude = $data['longitude'];
+        $newHouse->rooms = $data['rooms'];
         $newHouse->bedrooms = $data['bedrooms'];
         $newHouse->beds = $data['beds'];
         $newHouse->bathrooms = $data['bathrooms'];
         $newHouse->mq = $data['mq'];
         $newHouse->price = $data['price'];
-        $newHouse->service_id = $data['service'];
+        // $newHouse->service= $data['service'];
         $newHouse->slug = $data['slug'];
         $newHouse->description = $data['description'];
         $newHouse->cover_img = $path;
         $newHouse->save();
 
-        // if (count($data['service_id']) > 0) {
-        //     $newHouse->service_id()->sync($data['service_id']);
-        // }
+        if (count($data['service_id']) > 0) {
+            $newHouse->services()->sync($data['service_id']);
+            
+        }
 
-        return redirect()->route('admin.show', $newHouse->slug);
+        return redirect()->route('admin.houses.show', $newHouse->slug);
     }
 
     /**
