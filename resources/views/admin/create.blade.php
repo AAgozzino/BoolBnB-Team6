@@ -9,17 +9,17 @@
     {{-- Title --}}
     <div class="form-group">
         <label for="title">Inserisci il titolo</label>
-        <input type="title" id="title" placeholder="Inserisci titolo del tuo alloggio" value="{{old('title')}}">
+        <input type="text" name="title" id="title" placeholder="Inserisci titolo del tuo alloggio" value="">
     </div>
     {{-- /Title --}}
 
     {{-- House Type --}}
     <div class="form-group">
-        <label for="type">Tipologia di alloggio</label>
+        <label for="type_id">Tipologia di alloggio</label>
         <small class="form-text text-muted">Scegli la tipologia di alloggio.</small>
-        <select name="type" id="type">
+        <select name="type_id" id="type_id">
             @foreach ($types as $type)
-            <option value="{{$type->id}} {{old('type_id')}}"> {{--Controllare old--}}
+                <option value="{{$type->id}}"> {{--Controllare old--}}
                     <h3>{{$type->type}}</h3>
                     <p>{{$type->descr_type}}</p>
                 </option>
@@ -39,18 +39,18 @@
     {{-- Address --}}
     <div class="form-group">
         <label for="address">Indirizzo</label>
-        <input type="address" id="address" placeholder="Inserisci indirizzo del tuo alloggio" value="{{old('address')}}">
+        <input type="text" name="address" id="address" placeholder="Inserisci indirizzo del tuo alloggio" value="{{old('address')}}">
     </div>
     {{-- /Address --}}
 
     {{-- Latitudine Longitudine- DA CANCELLARE IN FUTURO --}}
     <div class="form-group">
         <label for="latitude">Latitude</label>
-        <input type="latitude" id="latitude" placeholder="Latitudine" value="{{old('latitude')}}">
+        <input type="number" name="latitude" id="latitude" step="0.000001" placeholder="Latitudine" value="{{old('latitude')}}">
     </div>
     <div class="form-group">
         <label for="longitude">Longitude</label>
-        <input type="longitude" id="longitude" placeholder="Longitudine" value="{{old('longitude')}}">
+        <input type="number" name="longitude" id="longitude" step="0.000001" placeholder="Longitudine" value="{{old('longitude')}}">
     </div>
     {{-- /Latitude Longitudine --}}
 
@@ -97,7 +97,7 @@
     {{-- Services --}}
     <div class="form-group">
         @foreach ($services as $service)
-            <input type="checkbox" id="{{$service->name_serv}}" name="{{$service->name_serv}}" value="{{$service->id}}"> {{--Controllare old--}}
+            <input type="checkbox" id="{{$service->name_serv}}" name="service[]" value="{{$service->id}}"> {{--Controllare old--}}
             <label for="{{$service->name_serv}}">{{$service->path_icon}}</label>
         @endforeach
     </div>
@@ -106,7 +106,7 @@
     {{-- Slug non modificabile dall'utente perchè creato in automatico con js a partire dal titolo (aggiungere readonly alla input) --}}
     <div class="form-group">
         <label for="slug">Slug</label>
-        <input type="slug" id="slug" placeholder="Inserisci lo slug" value="{{old('slug')}}">
+        <input type="text" name="slug" id="slug" placeholder="Inserisci lo slug" value="">
     </div>
     {{-- /Slug --}}
 
@@ -119,8 +119,8 @@
     
     {{-- Cover image --}}
     <div class="form-group">
-        <label for="cover_image">Inserisci immagine di copertina</label>
-        <input type="file" name="cover_image" id="cover_image" accept="image/*" placeholder="Inserisci immagine" value="{{old('cover_image')}}">
+        <label for="cover_img">Inserisci immagine di copertina</label>
+        <input type="file" name="cover_img" id="cover_img" accept="image/*" placeholder="Inserisci immagine" value="{{old('cover_img')}}">
     </div>
     {{-- /Cover image --}}
 

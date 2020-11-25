@@ -47,45 +47,44 @@ class HouseController extends Controller
         $data = $request->all();
         $request->validate([
             'title' => 'required',
-            'type' => 'required',
+            'type_id' => 'required',
             'guests' => 'required',
             'address' => 'required',
-            // 'latitude' => 'required',    CONTROLLO
-            // 'longitude' => 'required',   CONTROLLO
+            'latitude' => 'required',
+            'longitude' => 'required',
             'bedrooms' => 'required',
             'beds' => 'required',
             'bathrooms' => 'required',
             'mq' => 'required',
             'price' => 'required',
-            // 'service_id' => 'required',
-            // 'slug' => 'required',    CONTROLLO
+            'service' => 'nullable',
+            'slug' => 'required',
             'description' => 'required',
-            'image' => 'image'
+            'cover_img' => 'image'
         ]);
-        dd($data);
         
+        // dd($data);
         $id = Auth::id();
-        $og_file_img = $data['image']->getClientOriginalName();
-        $path = Storage::disk('public')->putFileAs("image/$id", $data['image'], $og_file_img);
+        $og_file_img = $data['cover_img'];
+        $path = Storage::disk('public')->put("images/$id", $data['cover_img'], $og_file_img);
 
         $newHouse = new House;
         $newHouse->user_id = Auth::id();
         $newHouse->title = $data['title'];
-        $newHouse->type = $data['type'];
+        $newHouse->type_id = $data['type_id'];
         $newHouse->guests = $data['guests'];
         $newHouse->address = $data['address'];
-        // $newHouse->latitude = $data['latitude'];     CONTROLLO
-        // $newHouse->longitude = $data['longitude'];   CONTROLLO
+        $newHouse->latitude = $data['latitude'];
+        $newHouse->longitude = $data['longitude'];
         $newHouse->bedrooms = $data['bedrooms'];
         $newHouse->beds = $data['beds'];
         $newHouse->bathrooms = $data['bathrooms'];
         $newHouse->mq = $data['mq'];
         $newHouse->price = $data['price'];
-        // $newHouse->service_id = $data['service_id'];
-        $newHouse->content = $data['content'];
-        // $newHouse->slug = $data['slug'];
+        $newHouse->service_id = $data['service'];
+        $newHouse->slug = $data['slug'];
         $newHouse->description = $data['description'];
-        $newHouse->image = $path;
+        $newHouse->cover_img = $path;
         $newHouse->save();
 
         // if (count($data['service_id']) > 0) {
@@ -141,9 +140,9 @@ class HouseController extends Controller
             'mq' => 'required',
             'price' => 'required',
             // 'service_id' => 'required',
-            // 'slug' => 'required',    CONTROLLO
+            'slug' => 'required',
             'description' => 'required',
-            'image' => 'image'
+            'cover_img' => 'image'
         ]);
 
         $house = House::where('slug', $slug)->first();

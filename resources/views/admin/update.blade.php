@@ -2,7 +2,7 @@
 
 @section('main-section')
 {{-- CONTROLLARE NOMI ROTTE --}}
-<form action="{{route('houses.update')}}" method="POST" enctype="multipart/form-data">
+<form action="{{route('admin.houses.update')}}" method="POST" enctype="multipart/form-data">
     @csrf
     @method('PUT')
 
@@ -10,7 +10,7 @@
     <div class="form-group">
         <label for="type">Tipologia di alloggio</label>
         <small class="form-text text-muted">Scegli la tipologia di alloggio.</small>
-        <select name="type" id="type" value="{{$}}">
+        <select name="type" id="type" value="">
             @foreach ($types as $type)
                 <option value="{{$type->id}}">
                     <h3>{{$type->type}}</h3>
@@ -112,8 +112,8 @@
 
     {{-- Cover image --}}
     <div class="form-group">
-        <label for="cover_image">Inserisci immagine di copertina</label>
-        <input type="file" name="cover_image" id="cover_image" accept="image/*" placeholder="Inserisci immagine" value="{{old('cover_image') ? old('cover_image') : $house->cover_image}}">
+        <label for="cover_img">Inserisci immagine di copertina</label>
+        <input type="file" name="cover_img" id="cover_img" accept="image/*" placeholder="Inserisci immagine" value="{{old('cover_img') ? old('cover_img') : $house->cover_img}}">
     </div>
     {{-- /Cover image --}}
 

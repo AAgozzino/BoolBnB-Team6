@@ -12,17 +12,17 @@ class House extends Model
         'type',
         'guests',
         'address',
-        // 'latitude',    CONTROLLO
-        // 'longitude',   CONTROLLO
+        'latitude',
+        'longitude',
         'bedrooms',
         'beds',
         'bathrooms',
         'mq',
         'price',
-        // 'service_id',
-        // 'slug',    CONTROLLO
+        'service',
+        'slug',
         'description',
-        'image'
+        'cover_img'
     ];
 
     public function images()
