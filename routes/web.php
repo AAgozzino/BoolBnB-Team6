@@ -29,5 +29,12 @@ Route::prefix('admin')
         Route::resource('houses', 'HouseController');
     });
 
+
+
+Route::resource('houses', 'HouseController');
+
+Auth::routes();
+
+
 Route::get('/home', 'HomeController@index')->name('home');
 Route::get('houses/{slug}', 'HouseController@show')->name('houses.show');
