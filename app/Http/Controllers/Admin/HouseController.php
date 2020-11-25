@@ -33,7 +33,7 @@ class HouseController extends Controller
     {
         $types = Type::all();
         $services = Service::all();
-        return view('admin.create', compact('types', 'services'));
+        return view(' admin.create', compact('types', 'services'));
     }
 
     /**
@@ -67,7 +67,7 @@ class HouseController extends Controller
         // dd($data);
         $id = Auth::id();
         $og_file_img = $data['cover_img'];
-        $path = Storage::disk('public')->put("images/$id", $data['cover_img'], $og_file_img);
+        $path = Storage::disk('public')->put($id, $data['cover_img'], $og_file_img);
 
         $newHouse = new House;
         $newHouse->user_id = Auth::id();
@@ -113,12 +113,17 @@ class HouseController extends Controller
      * Show the form for editing the specified resource.
      *
      * @param  \App\House  $house
+     * @param  \App\Type  $types
+     * @param  \App\Service  $services
      * @return \Illuminate\Http\Response
      */
     public function edit($slug)
-    {
+        {
         $house = House::where('slug', $slug)->first();
-        return view('admin.update', compact('house'));
+        $types = Type::all();
+        $services = Service::all();
+
+        return view('admin.edit', compact('house', 'types', 'services'));
     }
 
     /**
@@ -126,31 +131,40 @@ class HouseController extends Controller
      *
      * @param  \Illuminate\Http\Request  $request
      * @param  \App\House  $house
+     * @param  \App\Type  $types
+     * @param  \App\Service  $services
      * @return \Illuminate\Http\Response
      */
     public function update(Request $request, $slug)
-    {
+
+       {
+
         $data = $request->all();
-        $request->validate([
-            'type' => 'required',
+        $request->validate(
+            [
+            'title' => 'required',
+            'type_id' => 'required',
             'guests' => 'required',
             'address' => 'required',
-            // 'latitude' => 'required',    CONTROLLO
-            // 'longitude' => 'required',   CONTROLLO
+            'latitude' => 'required',
+            'longitude' => 'required',
+            'rooms' => 'required',
             'bedrooms' => 'required',
             'beds' => 'required',
             'bathrooms' => 'required',
             'mq' => 'required',
             'price' => 'required',
-            // 'service_id' => 'required',
+            'service_id' => 'nullable',
             'slug' => 'required',
             'description' => 'required',
             'cover_img' => 'image'
         ]);
 
-        $house = House::where('slug', $slug)->first();
+        $types = Type::all();
+        $services = Service::all();
+        $house = House::find($slug);
         $house->update($data);
-        return redirect()->route('admin.index', compact('house'));
+        return redirect()->route('admin.houses.index', compact('houses'));
     }
 
     /**
@@ -163,6 +177,6 @@ class HouseController extends Controller
     {
         $house = House::where('slug', $slug)->first();
         $house->delete();
-        return redirect()->route('admin.index');
+        return redirect()->route('admin.houses.index');
     }
 }

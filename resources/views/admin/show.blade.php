@@ -3,7 +3,7 @@
 @section('main-section')
     <div class="container">        
         <div class="card">
-            <img class="card-img-top" src="{{asset($house->cover_img)}}" alt="Card image cap">
+            <img class="card-img-top" src="{{asset('storage/'.$house->cover_img)}}" alt="Card image cap">
             <div class="card-body">
                 <h5 class="card-title">{{$house->title}}</h5>
                 {{-- Controllare i due type uguali(nome tabella e colonna) r10 --}}
@@ -39,7 +39,8 @@
                     @csrf
                     @method('DELETE')
 
-                    <a href="{{route('admin.houses.destroy', $house->slug)}}" class="card-link">Elimina</a>
+                    <input type="submit" value="Delete">
+
                 </form>
             </div>
           </div>

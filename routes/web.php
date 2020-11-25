@@ -31,3 +31,4 @@ Route::prefix('admin')
 
 Route::get('houses', 'HouseController@index')->name('houses');
 Route::get('houses/{slug}', 'HouseController@show')->name('houses.show');
+

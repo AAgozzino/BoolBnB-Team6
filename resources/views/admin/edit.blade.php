@@ -2,7 +2,7 @@
 
 @section('main-section')
 {{-- CONTROLLARE NOMI ROTTE --}}
-<form action="{{route('admin.houses.update')}}" method="POST" enctype="multipart/form-data">
+<form action="{{route('admin.houses.update', $house->slug)}}" method="POST" enctype="multipart/form-data">
     @csrf
     @method('PUT')
 
@@ -47,6 +47,14 @@
     </div>
     {{-- /Latitude Longitudine --}}
 
+        {{-- Rooms --}}
+    <div class="form-group">
+        <label for="rooms">Numero di stanze</label>
+        <small class="form-text text-muted">Seleziona il numero di camere da letto.</small>
+        <input type="number" id="rooms" name="rooms" min="1" max="20" value="{{old('bedrooms') ? old('rooms') : $house->rooms}}">
+    </div>
+    {{-- /Rooms --}}
+
     {{-- Bedrooms --}}
     <div class="form-group">
         <label for="bedrooms">Numero di camere da letto</label>
@@ -89,9 +97,12 @@
 
     {{-- Services --}}
     <div class="form-group">
+        @foreach ($house->service as $id)
+            @dd($id)
+        @endforeach
         @foreach ($services as $service)
-            <input type="checkbox" id="{{$services->name_serv}}" name="services[]" value="{{$services->id}}">
-            <label for="{{$services->name_serv}}">{{$services->path_icon}}</label>
+            <input type="checkbox" id="{{$service->name_serv}}" name="service_id[]" value="on" {{ old($service->id) == 'on' ? 'checked' : '' }}>
+            <label for="{{$service->name_serv}}">{{$service->name_serv}} {{$service->path_icon}}</label>           
         @endforeach
     </div>
     {{-- /Services --}}
