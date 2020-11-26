@@ -162,9 +162,20 @@ class HouseController extends Controller
 
         $types = Type::all();
         $services = Service::all();
-        $house = House::find($slug);
-        $house->update($data);
-        return redirect()->route('admin.houses.index', compact('houses'));
+        $house = House::where('slug', $slug)->first();
+
+        $id = Auth::id();
+        $og_file_img = $data['cover_img'];
+        $path = Storage::disk('public')->put($id, $data['cover_img'], $og_file_img);
+
+        $house->fill($data)->update();
+
+        if (count($data['service_id']) > 0) {
+            $house->services()->sync($data['service_id']);
+        }
+        
+
+        return redirect()->route('admin.houses.index', $house);
     }
 
     /**
@@ -176,6 +187,7 @@ class HouseController extends Controller
     public function destroy($slug)
     {
         $house = House::where('slug', $slug)->first();
+        $house->services()->detach();
         $house->delete();
         return redirect()->route('admin.houses.index');
     }
