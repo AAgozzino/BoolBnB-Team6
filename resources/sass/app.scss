@@ -2,7 +2,16 @@
 @import url('https://fonts.googleapis.com/css?family=Nunito');
 
 // Variables
-@import 'variables';
+@import 'Partials/_variables';
 
 // Bootstrap
 @import '~bootstrap/scss/bootstrap';
+
+// Commons
+@import 'Partials/_commons';
+
+// Mixins
+@import 'Partials/_mixins';
+
+//Header
+@import 'Partials/_header';
