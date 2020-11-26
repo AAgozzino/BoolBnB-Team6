@@ -97,12 +97,10 @@
 
     {{-- Services --}}
     <div class="form-group">
-        @foreach ($house->service as $id)
-            @dd($id)
-        @endforeach
+
         @foreach ($services as $service)
-            <input type="checkbox" id="{{$service->name_serv}}" name="service_id[]" value="on" {{ old($service->id) == 'on' ? 'checked' : '' }}>
-            <label for="{{$service->name_serv}}">{{$service->name_serv}} {{$service->path_icon}}</label>           
+            <input type="checkbox" id="{{$service->name_serv}}" name="service_id[]" value="on" type={{ old($house->) == 'on' ? 'checked' : '' }} >
+            <label for="{{$service->name_serv}}">{{$service->name_serv}} {{$service->path_icon}}</label>     
         @endforeach
     </div>
     {{-- /Services --}}
