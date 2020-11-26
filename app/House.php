@@ -6,6 +6,27 @@ use Illuminate\Database\Eloquent\Model;
 
 class House extends Model
 {
+
+    protected $fillable = [
+        'title',
+        'type',
+        'guests',
+        'address',
+        'latitude',
+        'longitude',
+        'bedrooms',
+        'beds',
+        'bathrooms',
+        'mq',
+        'price',
+        'service',
+        'slug',
+        'description',
+        'cover_img'
+    ];
+
+    protected $guarded = ["service"];
+
     public function images()
     {
         return $this->hasMany('App\Image');

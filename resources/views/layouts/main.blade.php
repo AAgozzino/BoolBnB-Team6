@@ -6,7 +6,7 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>BoolBnB</title>
     {{-- Link Style CSS --}}
-    <link rel="stylesheet" href="{{asset(app.css)}}">
+    <link rel="stylesheet" href="{{asset('css/app.css')}}">
 </head>
 <body>
     {{-- Partial Header --}}
@@ -16,6 +16,6 @@
     @yield('main-section')
 
     {{-- Partial Footer --}}
-    @include('layouts.partials.footer')
+    @include('layouts.partials.admin__footer')
 </body>
 </html>
