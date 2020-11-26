@@ -135,12 +135,18 @@
 
     {{-- Cover image --}}
     <div class="form-group">
+        @if($house->cover_img)
+            <div>
+                <img src="{{asset('storage/'.$house->cover_img)}}" alt="">
+            </div>
+        @endif
         <label for="cover_img">Inserisci immagine di copertina</label>
-        <input type="file" name="cover_img" id="cover_img" accept="image/*" placeholder="Inserisci immagine" value="{{old('cover_img') ?? $house->cover_img}}">
+        <input type="file" class="form-control" name="cover_img" id="cover_img" accept="image/*" placeholder="Inserisci un'immagine" value="cover_img">
     </div>
     {{-- /Cover image --}}
 
     <button type="submit" class="btn btn-primary">Submit</button>
+    {{-- @dd($house) --}}
 
     @if ($errors->any())
         <div class="alert alert-danger">
@@ -151,6 +157,5 @@
             </ul>
         </div>
     @endif
-
   </form>
 @endsection
