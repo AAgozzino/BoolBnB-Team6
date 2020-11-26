@@ -17,5 +17,6 @@
 
     {{-- Partial Footer --}}
     @include('layouts.partials.admin__footer')
+    <script src="{{asset('js/app.js')}}"></script>
 </body>
 </html>

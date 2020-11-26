@@ -2,6 +2,7 @@
 
 @section('main-section')
     <div class="container">
+        <input type="search" id="address-input" placeholder="Where are we going?" />
         @foreach ($houses as $house)
             <div class="card">
                 <img class="card-img-top" src="{{asset('storage/'.$house->cover_img)}}" alt="Card image cap">
