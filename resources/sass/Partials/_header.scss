@@ -1,20 +1,39 @@
 header{
+    height: 50px;
+    width: 100%;
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 1;
+    background-color: $bg-lgrey;
     
     .header_logo{
-        background-color: red;
         height: 100%;
-    }
-    .header_menu{
-        background-color: green;
 
-        &_nav{
+        img{
+            height: 100%;
+        }
+    }
+    .header_menu{       
+        height: 100%;
+
+        .menu_nav{
             
-            .nav-item{
-                padding-left: 5px;
+            &_list{
+                @include listInLine;
+
+                &_item{
+                    padding-left: 10px;
+                    line-height: 50px;
+                }
             }
+
+            
         }
     }
     .header_login{
-        background-color: blue;
+        @include displayFlex;
+        justify-content: flex-end;
+        line-height: 50px;
     }
 }

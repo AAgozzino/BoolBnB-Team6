@@ -9,13 +9,16 @@
 
             {{-- Header menu --}}
             <div class="header_menu col">
-                <div class="nav">
-                    <ul class="nav_list">
-                        <li class="nav_list_item active">
-                            <a href="#">Appartamenti</a>
+                <div class="menu_nav">
+                    <ul class="menu_nav_list">
+                        <li class="menu_nav_list_item active">
+                            <a href="{{route('admin.houses.index')}}">Appartamenti</a>
                         </li>
-                        <li class="nav_list_item">
+                        <li class="menu_nav_list_item">
                             <a href="#">Sponsorizzazioni</a>
+                        </li>
+                        <li class="menu_nav_list_item">
+                            <a href="{{route('admin.houses.create')}}">Aggiungi appartamento</a>
                         </li>
                     </ul>
                 </div>

@@ -5,7 +5,7 @@
 @import 'Partials/_variables';
 
 // Bootstrap
-@import '~bootstrap/scss/bootstrap';
+@import '~bootstrap/scss/bootstrap-grid.scss';
 
 // Commons
 @import 'Partials/_commons';
@@ -15,3 +15,9 @@
 
 //Header
 @import 'Partials/_header';
+
+// Main
+@import 'Partials/_main';
+
+// Footer
+@import 'Partials/_footer';

@@ -11,11 +11,11 @@
 <body>
     {{-- Partial Header --}}
     @include('layouts.partials.header')
-
-    {{-- Yeld main --}}
-    @yield('main-section')
-
+    <main>
+        {{-- Yeld main --}}
+        @yield('main-section')
+    </main>
     {{-- Partial Footer --}}
-    @include('layouts.partials.admin__footer')
+    @include('layouts.partials.footer')
 </body>
 </html>

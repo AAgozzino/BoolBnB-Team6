@@ -1,0 +1,9 @@
+footer{
+    background-color: $bg-lgrey;
+
+    .box{
+        &-list{
+            list-style: none;
+        }
+    }
+}
