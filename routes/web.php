@@ -27,6 +27,9 @@ Route::prefix('admin')
     ->group(function () {
         Route::get('/', 'HomeController@index')->name('home');
         Route::resource('houses', 'HouseController');
+
+        // Route::get('/', 'HouseController@ajaxRequest');
+        // Route::post('ajax', 'HouseController@ajaxResponse');
     });
 
 Route::get('houses', 'HouseController@index')->name('houses');

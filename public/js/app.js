@@ -47822,23 +47822,42 @@ window.axios.defaults.headers.common['X-Requested-With'] = 'XMLHttpRequest';
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
-var places = __webpack_require__(/*! places.js */ "./node_modules/places.js/index.js");
+var places = __webpack_require__(/*! places.js */ "./node_modules/places.js/index.js"); // Funzione per ricerca e visualizzazione della latitudine e longitudine
 
-var options = {
-  appId: 'plMMPUODJ2PK',
-  apiKey: '0337776886165fd5d9d75984ac961fa9',
-  container: '#address-input' // aroundRadius: 20000
 
-};
-places(options);
-var placesAutocomplete = places({
-  appId: 'plMMPUODJ2PK',
-  apiKey: '0337776886165fd5d9d75984ac961fa9',
-  container: document.querySelector('#address-input')
-});
-placesAutocomplete.on('change', function (e) {
-  return console.log(e.latlng);
-});
+(function () {
+  var placesAutocomplete = places({
+    appId: 'plMMPUODJ2PK',
+    apiKey: '0337776886165fd5d9d75984ac961fa9',
+    container: document.querySelector('#address-input')
+  });
+  var $address = document.querySelector('#address-value');
+  placesAutocomplete.on('change', function (e) {
+    $address.textContent = e.suggestion.value;
+    var latitudine = e.suggestion.latlng.lat;
+    var inputLat = $("#latitude").val(latitudine); // console.log(latitudine);
+
+    var longitudine = e.suggestion.latlng.lng;
+    var inputLng = $("#longitude").val(longitudine); // console.log(longitudine);
+  });
+  placesAutocomplete.on('clear', function () {
+    $address.textContent = 'none';
+  });
+})(); // --------------------------------------------
+
+
+slug();
+
+function slug() {
+  $(document).on("keyup", "#title", function () {
+    var titolo = $("#title").val();
+    var userId = $("#slug").attr("data-id");
+    var titolo2 = titolo.split(" ");
+    titolo2.push(userId);
+    var slugComplete = titolo2.join('-');
+    var slug = $("#slug").val(slugComplete);
+  });
+}
 
 /***/ }),
 
@@ -47860,8 +47879,8 @@ placesAutocomplete.on('change', function (e) {
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
-__webpack_require__(/*! C:\Users\User\Desktop\Boolean\boolbnb-team6\resources\js\app.js */"./resources/js/app.js");
-module.exports = __webpack_require__(/*! C:\Users\User\Desktop\Boolean\boolbnb-team6\resources\sass\app.scss */"./resources/sass/app.scss");
+__webpack_require__(/*! D:\Boolean\Progetto finale\boolbnb-team6\resources\js\app.js */"./resources/js/app.js");
+module.exports = __webpack_require__(/*! D:\Boolean\Progetto finale\boolbnb-team6\resources\sass\app.scss */"./resources/sass/app.scss");
 
 
 /***/ }),

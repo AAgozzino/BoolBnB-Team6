@@ -39,18 +39,19 @@
     {{-- Address --}}
     <div class="form-group">
         <label for="address">Indirizzo</label>
-        <input type="text" name="address" id="address" placeholder="Inserisci indirizzo del tuo alloggio" value="{{old('address')}}">
+        <input type="text" name="address" id="address-input" placeholder="Inserisci indirizzo del tuo alloggio" value="{{old('address')}}">
+        <p>Selected: <strong id="address-value">none</strong></p>
     </div>
     {{-- /Address --}}
 
     {{-- Latitudine Longitudine- DA CANCELLARE IN FUTURO --}}
     <div class="form-group">
         <label for="latitude">Latitude</label>
-        <input type="number" name="latitude" id="latitude" step="0.000001" placeholder="Latitudine" value="{{old('latitude')}}">
+        <input type="hidden" name="latitude" id="latitude" step="0.000001" placeholder="Latitudine" value="{{old('latitude')}}">
     </div>
     <div class="form-group">
         <label for="longitude">Longitude</label>
-        <input type="number" name="longitude" id="longitude" step="0.000001" placeholder="Longitudine" value="{{old('longitude')}}">
+        <input type="hidden" name="longitude" id="longitude" step="0.000001" placeholder="Longitudine" value="{{old('longitude')}}">
     </div>
     {{-- /Latitude Longitudine --}}
 
@@ -114,7 +115,7 @@
     {{-- Slug non modificabile dall'utente perchè creato in automatico con js a partire dal titolo (aggiungere readonly alla input) --}}
     <div class="form-group">
         <label for="slug">Slug</label>
-        <input type="text" name="slug" id="slug" placeholder="Inserisci lo slug" value="">
+        <input type="text" name="slug" id="slug" data-id="{{$user_id}}" placeholder="Inserisci lo slug" value="">
     </div>
     {{-- /Slug --}}
 
