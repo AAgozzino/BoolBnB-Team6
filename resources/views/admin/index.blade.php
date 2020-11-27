@@ -2,7 +2,17 @@
 
 @section('main-section')
     <div class="container">
+        
         <input type="search" id="address-input" placeholder="Where are we going?" />
+
+        raggio ricerca
+        <input type="radio" id="30km" name="radius" value="30">
+        <label for="30km">30 KM</label>  
+        <input type="radio" id="50km" name="radius" value="50">
+        <label for="50km">50 KM</label> 
+        <input type="radio" id="100km" name="radius" value="100">
+        <label for="100km">100 KM</label> 
+
         @foreach ($houses as $house)
             <div class="card">
                 <img class="card-img-top" src="{{asset('storage/'.$house->cover_img)}}" alt="Card image cap">

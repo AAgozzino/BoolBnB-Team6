@@ -218,4 +218,19 @@ class HouseController extends Controller
         $house->delete();
         return redirect()->route('admin.houses.index');
     }
+
+    public function ajaxRequest()
+    {
+        return view('ajaxRequest');
+    }
+
+    public function ajaxRequestPost(Request $request)
+    {
+        $response = array(
+            'status' => 'success',
+            'address' => $request->address,
+        );
+        return response()->json($response);
+    }
+
 }

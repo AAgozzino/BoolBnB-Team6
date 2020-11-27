@@ -47768,6 +47768,8 @@ __webpack_require__(/*! ./bootstrap */ "./resources/js/bootstrap.js");
 
 __webpack_require__(/*! ./places */ "./resources/js/places.js");
 
+__webpack_require__(/*! ./create-house */ "./resources/js/create-house.js");
+
 /***/ }),
 
 /***/ "./resources/js/bootstrap.js":
@@ -47815,6 +47817,36 @@ window.axios.defaults.headers.common['X-Requested-With'] = 'XMLHttpRequest';
 
 /***/ }),
 
+/***/ "./resources/js/create-house.js":
+/*!**************************************!*\
+  !*** ./resources/js/create-house.js ***!
+  \**************************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+// AUTOCOMPILAZIONE FORM
+// (function() {
+//     var placesAutocomplete = places({
+//       appId: '<YOUR_PLACES_APP_ID>',
+//       apiKey: '<YOUR_PLACES_API_KEY>',
+//       container: document.querySelector('#form-address'),
+//       templates: {
+//         value: function(suggestion) {
+//           return suggestion.name;
+//         }
+//       }
+//     }).configure({
+//       type: 'address'
+//     });
+//     placesAutocomplete.on('change', function resultSelected(e) {
+//       document.querySelector('#form-address2').value = e.suggestion.administrative  '';
+//       document.querySelector('#form-city').value = e.suggestion.city  '';
+//       document.querySelector('#form-zip').value = e.suggestion.postcode || '';
+//     });
+//   })();
+
+/***/ }),
+
 /***/ "./resources/js/places.js":
 /*!********************************!*\
   !*** ./resources/js/places.js ***!
@@ -47824,21 +47856,38 @@ window.axios.defaults.headers.common['X-Requested-With'] = 'XMLHttpRequest';
 
 var places = __webpack_require__(/*! places.js */ "./node_modules/places.js/index.js");
 
-var options = {
-  appId: 'plMMPUODJ2PK',
-  apiKey: '0337776886165fd5d9d75984ac961fa9',
-  container: '#address-input' // aroundRadius: 20000
-
-};
-places(options);
 var placesAutocomplete = places({
   appId: 'plMMPUODJ2PK',
   apiKey: '0337776886165fd5d9d75984ac961fa9',
   container: document.querySelector('#address-input')
+}); // placesAutocomplete.on('change', function () {
+// });
+
+$("#address-input").keydown(function (e) {
+  if (e.which == 13) {
+    searchPlace();
+  }
 });
-placesAutocomplete.on('change', function (e) {
-  return console.log(e.latlng);
-});
+
+function searchPlace() {
+  var search = $("#address-input").val();
+
+  if (search != "") {
+    $.ajax({
+      "url": "/ajaxRequest",
+      "data": {
+        "query": search
+      },
+      "method": "GET",
+      "success": function success(data) {
+        var dataResults = data.success;
+        console.log(dataResults);
+      },
+      "error": function error(_error) {// alert("errore");
+      }
+    });
+  }
+}
 
 /***/ }),
 
