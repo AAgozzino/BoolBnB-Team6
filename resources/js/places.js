@@ -3,7 +3,10 @@ var places = require('places.js');
 
 // Funzione per ricerca e visualizzazione della latitudine e longitudine
 
+
+    
             (function () {
+                var selectRadius = $('#radius').val();
                 var placesAutocomplete = places({
                     appId: 'plMMPUODJ2PK',
                     apiKey: '0337776886165fd5d9d75984ac961fa9',
@@ -25,6 +28,8 @@ var places = require('places.js');
                 placesAutocomplete.on('clear', function () {
                     $address.textContent = 'none';
                 });
+
+
 
             })();
  
