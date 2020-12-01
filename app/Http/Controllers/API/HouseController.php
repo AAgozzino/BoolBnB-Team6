@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers\API;
 
+use Illuminate\Support\Facades\DB;
 use Illuminate\Http\Request;
 use App\House;
 use App\Type;
@@ -15,16 +16,18 @@ class HouseController extends Controller
         $houses = House::all();
         return response()->json($houses);
 
+
     }
 
     public function search(Request $request)
 
     {
+
         $coordinate = json_decode($request);
         $lat1 = $coordinate->latitudine;
         $lon1 = $coordinate->longitudine;
-        
-        
+
+
         $houses = House::all();
 
         $resoults = [];
@@ -36,37 +39,45 @@ class HouseController extends Controller
 
             $distance = distance($lat1, $lon1, $lat2, $lon2, "K");
 
-            if ($distance < 20){
+            if ($distance < 20) {
                 $resoults[] = $house;
             }
-            
         };
 
 
-         function distance($lat1, $lon1, $lat2, $lon2, $unit) {
-            if (($lat1 == $lat2) && ($lon1 == $lon2)) {
-                return 0;
-            }
-            else {
-                $theta = $lon1 - $lon2;
-                $dist = sin(deg2rad($lat1)) * sin(deg2rad($lat2)) +  cos(deg2rad($lat1)) * cos(deg2rad($lat2)) * cos(deg2rad($theta));
-                $dist = acos($dist);
-                $dist = rad2deg($dist);
-                $miles = $dist * 60 * 1.1515;
-                $unit = strtoupper($unit);
-
-                if ($unit == "K") {
-                return ($miles * 1.609344);
-                } 
-            }
-         }
-
-        // echo distance(32.9697, -96.80322, 29.46786, -98.53506, "M") . " Miles<br>";
-        // echo distance(32.9697, -96.80322, 29.46786, -98.53506, "K") . " Kilometers<br>";
-        // echo distance(32.9697, -96.80322, 29.46786, -98.53506, "N") . " Nautical Miles<br>";
-         dd($resoults);
+        dd($resoults);
 
         return view('houses.search');
-        // return response()->json($resoults);
+        return response()->json($resoults);
+    }
+
+    function distance($lat1, $lon1, $lat2, $lon2, $unit)
+    {
+        if (($lat1 == $lat2) && ($lon1 == $lon2)) {
+            return 0;
+        } else {
+            $theta = $lon1 - $lon2;
+            $dist = sin(deg2rad($lat1)) * sin(deg2rad($lat2)) +  cos(deg2rad($lat1)) * cos(deg2rad($lat2)) * cos(deg2rad($theta));
+            $dist = acos($dist);
+            $dist = rad2deg($dist);
+            $miles = $dist * 60 * 1.1515;
+            $unit = strtoupper($unit);
+
+            if ($unit == "K") {
+                return ($miles * 1.609344);
+            }
+        }
     }
 }
+        
+
+    //     if($request->ajax())
+    //     {
+    //         $houses=DB::table('houses')->where('longitude', 'latitude','%'.$request->search.'%')->get();
+
+    //         if($houses)
+    //         {
+    //             return Response($houses);
+    //         }
+    //     }
+    // 
