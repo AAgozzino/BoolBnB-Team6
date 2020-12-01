@@ -1,8 +1,10 @@
 const $ = require("jquery");
 var places = require('places.js');
 const Handlebars = require("handlebars");
+
 $(document).ready(function(){
     // callHouses();
+    var latlong = [];
 
     (function () {
         
@@ -12,36 +14,34 @@ $(document).ready(function(){
             container: document.querySelector('#address-input')
         });
 
-        var $address = document.querySelector('#address-value')
+        var $address = document.querySelector('#address-value');
+
         placesAutocomplete.on('change', function (e) {
             $address.textContent = e.suggestion.value
             var latitudine = e.suggestion.latlng.lat;
-            var inputLat = $("#latitude").val(latitudine);
-            console.log(latitudine);
+            //var inputLat = $("#latitude").val(latitudine);
+            //console.log(latitudine);
             var longitudine = e.suggestion.latlng.lng;
-            var inputLng = $("#longitude").val(longitudine);
-            console.log(longitudine);
+            //var inputLng = $("#longitude").val(longitudine);
+            //console.log(longitudine);
 
-            var latlong = [];
+            latlong = [];
             latlong.push(latitudine);
             latlong.push(longitudine);
-
-            console.log(latlong);
-
-            return latlong;            
-
+            console.log(latitudine);
+            console.log(longitudine);
+            
         });
 
         placesAutocomplete.on('clear', function () {
             $address.textContent = 'none';
-        });
-
-         
+        });         
     })();
 
     function search() {
         searchbarr = $('#address-input').val();
         searchHouses(searchbarr);
+        console.log(latlong);
     }
 
     $('#address-input').keydown(
@@ -54,33 +54,35 @@ $(document).ready(function(){
 
 
 
-    function callHouses(searchbarr){
-        $.ajax(
-            {
-                "url": "http://localhost:8000/api/houses",
-                "method": "GET",
-                "data": {
-                    // 'latitudine': latitudine,
-                    // 'longitudine': longitudine,
-                    'query': searchbarr
-                },
-                "success": function (data) {
-                    
-                    for (i = 0; i < data.length; i++){
-                        if (searchbarr == data[i].address)
-                        {
-                            renderHouse(data);
-                        }
-                    }
-                },
-                "error": function (error) {
-                    alert("ERRORE!");
-                }
-            }
-        );
-    };
+// ------------Chiamate----------    
 
-    function searchHouses(searchbarr, latlong ) {
+    // function callHouses(searchbarr){
+    //     $.ajax(
+    //         {
+    //             "url": "http://localhost:8000/api/houses",
+    //             "method": "GET",
+    //             "data": {
+    //                 'latitudine': latitudine,
+    //                 'longitudine': longitudine,
+    //                 'query': searchbarr
+    //             },
+    //             "success": function (data) {
+                    
+    //             //     for (i = 0; i < data.length; i++){
+    //             //         if (searchbarr == data[i].address)
+    //             //         {
+    //             //             renderHouse(data);
+    //             //         }
+    //             //     }
+    //             },
+    //             "error": function (error) {
+    //                 alert("ERRORE!");
+    //             }
+    //         }
+    //     );
+    // };
+
+    function searchHouses() {
         $.ajax(
             {
                 "url": "http://localhost:8000/api/houses",
@@ -88,17 +90,12 @@ $(document).ready(function(){
                 "data": {
                     'latitudine': latlong[0],
                     'longitudine': latlong[1],
-                    'query': searchbarr
                 },
                 "success": function (data) {
-                    // console.log(data);
+                    console.log('gli indirizzi sono:');
+                    console.log(data);
+                    console.log(latlong);
                     
-                 
-                    for (i = 0; i < data.length; i++) {
-                        if (searchbarr == data[i].address) {
-                            renderHouse(data);
-                        }
-                    }
                 },
                 "error": function (error) {
                     alert("ERRORE!");
@@ -108,8 +105,10 @@ $(document).ready(function(){
     };
 
 
-});
-    
+});    
+
+
+// -------------Handlebars------------------
 
 function renderHouse(data) {
     var source = $('#houses-template').html();
