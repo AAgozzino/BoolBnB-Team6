@@ -3,7 +3,9 @@
 namespace App\Http\Controllers;
 
 use App\House;
+use App\Service;
 use Illuminate\Http\Request;
+use App\Http\Controllers\Controller;
 
 class HouseController extends Controller
 {
@@ -24,26 +26,28 @@ class HouseController extends Controller
      * @param  \App\House  $house
      * @return \Illuminate\Http\Response
      */
-    public function show(House $house)
+    public function show()
     {
         //
     }
 
     public function index()
     {
-        return view("houses.index");
+        // TODO SPONSORIZED HOUSES FILTER
+        return view('houses.index');
     }
 
     public function search(Request $request)
     {
         $data = $request->all();
         $houses = House::all();
+        $services = Service::all();
 
         $houses_filtered = $houses->filter(function ($house) use($data) {
-            return $this->distance($data["lat"], $data["lon"], $house->latitude, $house->longitude) < 10000;
+            return $this->distance($data['lat'], $data['lon'], $house->latitude, $house->longitude) < 20;
         });
         
-        return view("houses.search", compact("houses_filtered", "data"));
+        return view('houses.search', compact('houses_filtered', 'data', 'services'));
     }
 
     private function distance($lat1, $lon1, $lat2, $lon2) 

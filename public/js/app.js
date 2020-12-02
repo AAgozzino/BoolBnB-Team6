@@ -52903,32 +52903,37 @@ window.axios.defaults.headers.common['X-Requested-With'] = 'XMLHttpRequest';
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
-var places = __webpack_require__(/*! places.js */ "./node_modules/places.js/index.js"); // Funzione per ricerca e visualizzazione della latitudine e longitudine
+var _require = __webpack_require__(/*! lodash */ "./node_modules/lodash/lodash.js"),
+    create = _require.create;
 
+var places = __webpack_require__(/*! places.js */ "./node_modules/places.js/index.js");
 
-(function () {
-  var selectRadius = $('#radius').val();
-  var placesAutocomplete = places({
-    appId: 'plMMPUODJ2PK',
-    apiKey: '0337776886165fd5d9d75984ac961fa9',
-    container: document.querySelector('#address-input')
-  });
-  var $address = document.querySelector('#address-value');
-  placesAutocomplete.on('change', function (e) {
-    $address.textContent = e.suggestion.value;
-    var latitudine = e.suggestion.latlng.lat;
-    var inputLat = $("#latitude").val(latitudine); // console.log(latitudine);
+$(document).ready(function () {
+  // Funzione per ricerca e visualizzazione della latitudine e longitudine   
+  (function () {
+    var selectRadius = $('#radius').val();
+    var placesAutocomplete = places({
+      appId: 'plMMPUODJ2PK',
+      apiKey: '0337776886165fd5d9d75984ac961fa9',
+      container: document.querySelector('#address-input')
+    });
+    var $address = document.querySelector('#address-value');
+    placesAutocomplete.on('change', function (e) {
+      $address.textContent = e.suggestion.value;
+      var latitudine = e.suggestion.latlng.lat;
+      var inputLat = $("#latitude").val(latitudine); // console.log(latitudine);
 
-    var longitudine = e.suggestion.latlng.lng;
-    var inputLng = $("#longitude").val(longitudine); // console.log(longitudine);
-  });
-  placesAutocomplete.on('clear', function () {
-    $address.textContent = 'none';
-  });
-})(); // --------------------------------------------
+      var longitudine = e.suggestion.latlng.lng;
+      var inputLng = $("#longitude").val(longitudine); // console.log(longitudine);
+    });
+    placesAutocomplete.on('clear', function () {
+      $address.textContent = 'none';
+    });
+  })();
 
-
-slug();
+  slug();
+}); // --------------------------------------------
+// FUNZIONE AUTOCOMPLETE SLUG - CREATE.BLADE.PHP
 
 function slug() {
   $(document).on("keyup", "#title", function () {
@@ -52957,100 +52962,30 @@ var places = __webpack_require__(/*! places.js */ "./node_modules/places.js/inde
 var Handlebars = __webpack_require__(/*! handlebars */ "./node_modules/handlebars/dist/cjs/handlebars.js");
 
 $(document).ready(function () {
-  // callHouses();
-  var latlong = []; // searchHouses();
-
-  (function () {
-    var placesAutocomplete = places({
-      appId: 'plMMPUODJ2PK',
-      apiKey: '0337776886165fd5d9d75984ac961fa9',
-      container: document.querySelector('#address-input')
+  // CHIAMATA AJAX - RICERCA CON FILTRI
+  $('#search-advance').submit(function (e) {
+    e.preventDefault();
+    var serv_id = [];
+    $("input:checkbox[name=service_id]:checked").each(function () {
+      serv_id.push($(this).val());
     });
-    var $address = document.querySelector('#address-value');
-    placesAutocomplete.on('change', function (e) {
-      $address.textContent = e.suggestion.value;
-      var latitudine = e.suggestion.latlng.lat; //var inputLat = $("#latitude").val(latitudine);
-      //console.log(latitudine);
-
-      var longitudine = e.suggestion.latlng.lng; //var inputLng = $("#longitude").val(longitudine);
-      //console.log(longitudine);
-
-      latlong = [];
-      latlong.push(latitudine);
-      latlong.push(longitudine);
+    console.log(serv_id);
+    var query = $(this).serialize();
+    console.log(query);
+    $.ajax({
+      "url": "http://localhost:8000/api/houses?" + query,
+      "method": "GET",
+      "success": function success(data) {
+        $('#houses-list').html("");
+        renderHouse(data.response);
+        console.log(data);
+      },
+      "error": function error(_error) {
+        alert("ERRORE!");
+      }
     });
-    placesAutocomplete.on('clear', function () {
-      $address.textContent = 'none';
-    });
-  })();
-
-  function searching() {
-    // searchbarr = $('#address-input').val();
-    searchHouses();
-    console.log(latlong);
-  }
-
-  $('#address-input').keydown(function (e) {
-    if (e.which == 13) {
-      searching();
-    }
-  }); // ------------Chiamate----------    
-  // function callHouses(searchbarr){
-  //     $.ajax(
-  //         {
-  //             "url": "http://localhost:8000/api/houses",
-  //             "method": "GET",
-  //             "data": {
-  //                 'latitudine': latitudine,
-  //                 'longitudine': longitudine,
-  //                 'query': searchbarr
-  //             },
-  //             "success": function (data) {
-  //             //     for (i = 0; i < data.length; i++){
-  //             //         if (searchbarr == data[i].address)
-  //             //         {
-  //             //             renderHouse(data);
-  //             //         }
-  //             //     }
-  //             },
-  //             "error": function (error) {
-  //                 alert("ERRORE!");
-  //             }
-  //         }
-  //     );
-  // };
-
-  function searchHouses() {
-    $("#address-input").on("keyup", function () {
-      var input = $(this).val();
-      $.ajax({
-        "url": "http://localhost:8000/api/houses",
-        "method": "GET",
-        "data": {
-          'latitudine': latlong[0],
-          'longitudine': latlong[1],
-          'search': input
-        },
-        "success": function success(data) {
-          // renderHouse(data);
-          var distanza;
-          console.log('le latitudini e le longitudini sono:');
-
-          for (i = 0; i < data.length; i++) {
-            var lat = data[i].latitude;
-            var lon = data[i].longitude;
-            console.log(lat, lon, i);
-            distanza = distance(lat, lon, latlong[0], latlong[1]);
-            console.log(distanza);
-          }
-        },
-        "error": function error(_error) {
-          alert("ERRORE!");
-        }
-      });
-    });
-  }
-}); // -------------Handlebars------------------
+  });
+}); // FUNZIONE TEMPLATE HOUSE
 
 function renderHouse(data) {
   var source = $('#houses-template').html();
@@ -53060,30 +52995,6 @@ function renderHouse(data) {
     var house = data[i];
     var html = template(house);
     $('#houses-list').append(html);
-  }
-} // ------------Distanza tra due punti--------------
-
-
-function distance(lat1, lon1, lat2, lon2) {
-  if (lat1 == lat2 && lon1 == lon2) {
-    var dist = 0;
-    return dist;
-  } else {
-    var radlat1 = Math.PI * lat1 / 180;
-    var radlat2 = Math.PI * lat2 / 180;
-    var theta = lon1 - lon2;
-    var radtheta = Math.PI * theta / 180;
-    var dist = Math.sin(radlat1) * Math.sin(radlat2) + Math.cos(radlat1) * Math.cos(radlat2) * Math.cos(radtheta);
-
-    if (dist > 1) {
-      dist = 1;
-    }
-
-    dist = Math.acos(dist);
-    dist = dist * 180 / Math.PI;
-    dist = dist * 60 * 1.1515;
-    dist = dist * 1.609344;
-    return dist;
   }
 }
 
@@ -53107,8 +53018,8 @@ function distance(lat1, lon1, lat2, lon2) {
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
-__webpack_require__(/*! D:\Boolean\Progetto finale\boolbnb-team6\resources\js\app.js */"./resources/js/app.js");
-module.exports = __webpack_require__(/*! D:\Boolean\Progetto finale\boolbnb-team6\resources\sass\app.scss */"./resources/sass/app.scss");
+__webpack_require__(/*! C:\Users\User\Desktop\Boolean\boolbnb-team6\resources\js\app.js */"./resources/js/app.js");
+module.exports = __webpack_require__(/*! C:\Users\User\Desktop\Boolean\boolbnb-team6\resources\sass\app.scss */"./resources/sass/app.scss");
 
 
 /***/ }),

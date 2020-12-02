@@ -4,29 +4,30 @@ namespace App\Http\Controllers\API;
 
 use Illuminate\Http\Request;
 use App\House;
-use App\Type;
+use App\Service;
 use App\Http\Controllers\Controller;
 
 class HouseController extends Controller
 {
-    // public function ajaxRequest()
-
-    // {
-    //     $houses = House::all();
-    //     return response()->json($houses);
-
-    // }
     public function ajaxRequest(Request $request)
     {
-        $data = $request->all();    
+        $data = $request->all();
 
-        $houses = House::all();
+        $services = Service::all();
+
+        $houses = House::where('guests', '>=', $data['guests'])
+                  // ->whereIn('service_id', $data['service_id'])
+                  ->where('rooms', '>=', $data['rooms'])
+                  ->where('bedrooms', '>=', $data['bedrooms'])
+                  ->where('beds', '>=', $data['beds'])
+                  ->where('price', '<=', $data['price'])
+                  ->get();
 
         $houses_filtered = $houses->filter(function ($house) use($data) {
-            return $this->distance($data["lat"], $data["lon"], $house->latitude, $house->longitude) < 10000;
+          return $this->distance($data['lat'], $data['lon'], $house->latitude, $house->longitude) < $data['radius'];
         });
 
-        return response()->json(["response" => array_values($houses_filtered->toArray())]);
+        return response()->json(['response' => array_values($houses_filtered->toArray())]);
     }
 
     private function distance($lat1, $lon1, $lat2, $lon2) 
