@@ -6,9 +6,16 @@
 
 
     <label for="address">Indirizzo</label>
-        <input type="text" name="address" id="address-input" placeholder="Inserisci indirizzo del tuo alloggio" value="{{old('address')}}">
-        <p>Selected: <strong id="address-value">none</strong></p>
-        <input type="number" placeholder="20" id="radius">
+        <form action="{{route("houses.search")}}" method="POST">
+            @csrf
+            @method("POST")
+            <input type="text" name="address" id="address-input" placeholder="Inserisci indirizzo del tuo alloggio" value="{{old('address')}}">
+            <p>Selected: <strong id="address-value">none</strong></p>
+            <input id="latitude" type="hidden" name="lat" value="">
+            <input id="longitude" type="hidden" name="lon" value="">
+            {{-- <input type="number" placeholder="20" id="radius"> --}}
+            <input type="submit" value="Invia">
+        </form>
     <div class="container" id="houses-list">
 
     </div>
