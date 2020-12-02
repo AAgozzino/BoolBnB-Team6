@@ -18,3 +18,4 @@ use Illuminate\Support\Facades\Route;
 //     return $request->user();
 // });
  Route::get('houses', 'API\HouseController@ajaxRequest');
+ Route::get('/search', 'API\HouseController@search');

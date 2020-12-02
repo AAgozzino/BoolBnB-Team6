@@ -107,11 +107,30 @@ $(document).ready(function(){
         );
     };
 
+    $('#search-advance').submit(function(e){
+        e.preventDefault();
+        
+        var query = $( this ).serialize();
+
+        $.ajax(
+            {
+                "url": "http://localhost:8000/api/houses?"+query,
+                "method": "GET",
+                "success": function (data) {
+                    renderHouse(data.response);
+                },
+                "error": function (error) {
+                    alert("ERRORE!");
+                }
+            }
+        );
+    });
 
 });
     
 
 function renderHouse(data) {
+
     var source = $('#houses-template').html();
     var template = Handlebars.compile(source);
 
