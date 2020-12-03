@@ -1,0 +1,14 @@
+.footer_cl {
+    background-color: #bfbfbf;
+    .container{
+        #copywright{
+            border-top: 1px solid black;
+
+            .col:not(:first-child):before{
+                content: "&middot;";
+            }
+
+        }
+    }
+
+}

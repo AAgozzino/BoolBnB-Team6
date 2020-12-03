@@ -4303,3 +4303,11 @@ html {
   background-color: #bfbfbf;
 }
 
+.footer_cl .container #copywright {
+  border-top: 1px solid black;
+}
+
+.footer_cl .container #copywright .col:not(:first-child):before {
+  content: "&middot;";
+}
+
