@@ -4293,6 +4293,12 @@ html {
   }
 }
 
+* {
+  box-sizing: border-box;
+  padding: 0;
+  margin: 0;
+}
+
 .footer_cl {
   background-color: #bfbfbf;
 }
