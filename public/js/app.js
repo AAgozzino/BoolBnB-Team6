@@ -52967,14 +52967,26 @@ $(document).ready(function () {
     e.preventDefault();
     var serv_id = [];
     $("input:checkbox[name=service_id]:checked").each(function () {
-      serv_id.push($(this).val());
+      serv_id.push(parseInt($(this).val()));
     });
-    console.log(serv_id);
-    var query = $(this).serialize();
-    console.log(query);
+    console.log(serv_id); // var query = $(this).serialize();
+    // console.log(query);
+    // console.log($("#price").val());
+
     $.ajax({
-      "url": "http://localhost:8000/api/houses?" + query,
+      "url": "http://localhost:8000/api/houses",
       "method": "GET",
+      "data": {
+        "guests": $("#guests").val(),
+        "radius": $(".radius_radio").val(),
+        "rooms": $("#rooms").val(),
+        "bedrooms": $("#bedrooms").val(),
+        "beds": $("#beds").val(),
+        "price": $("#price").val(),
+        "lat": $("#latitude").val(),
+        "lon": $("#longitude").val(),
+        "services": serv_id
+      },
       "success": function success(data) {
         $('#houses-list').html("");
         renderHouse(data.response);

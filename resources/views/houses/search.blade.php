@@ -11,11 +11,11 @@
     {{-- <input type="number" placeholder="20" id="radius"> --}}
 
     {{-- radius --}}
-    <input type="radio" name="radius" id="20km" value="20" checked>
+    <input type="radio" name="radius" id="20km" class="radius_radio" value="20" checked>
     <label for="radius">20KM</label>
-    <input type="radio" name="radius" id="50km" value="50">
+    <input type="radio" name="radius" id="50km" class="radius_radio" value="50">
     <label for="radius">50KM</label>
-    <input type="radio" name="radius" id="100km" value="100">
+    <input type="radio" name="radius" id="100km" class="radius_radio" value="100">
     <label for="radius">100KM</label>
     {{-- /radius --}}
 
@@ -23,7 +23,7 @@
     <div class="form-group">
         @foreach ($services as $service)
             <input type="checkbox" id="{{$service->id}}" name="service_id" value="{{$service->id}}">
-            <label for="{{$service->name_serv}}">{{$service->path_icon}}</label>
+            <label for="{{$service->name_serv}}">{{$service->name_serv}}</label>
         @endforeach
     </div>
     {{-- /services --}}

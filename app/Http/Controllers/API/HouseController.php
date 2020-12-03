@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 use App\House;
 use App\Service;
 use App\Http\Controllers\Controller;
+use Illuminate\Database\Eloquent\Builder;
 
 class HouseController extends Controller
 {
@@ -16,12 +17,15 @@ class HouseController extends Controller
         $services = Service::all();
 
         $houses = House::where('guests', '>=', $data['guests'])
-                  // ->whereIn('service_id', $data['service_id'])
                   ->where('rooms', '>=', $data['rooms'])
                   ->where('bedrooms', '>=', $data['bedrooms'])
                   ->where('beds', '>=', $data['beds'])
                   ->where('price', '<=', $data['price'])
+                  ->whereHas('services', function($query) use($data) {
+                    $query->where('service_id', $data['services']);
+                  })
                   ->get();
+       
 
         $houses_filtered = $houses->filter(function ($house) use($data) {
           return $this->distance($data['lat'], $data['lon'], $house->latitude, $house->longitude) < $data['radius'];
