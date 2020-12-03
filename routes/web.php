@@ -15,7 +15,7 @@ use Illuminate\Support\Facades\Auth;
 */
 
 Route::get('/', function () {
-    return view('layouts.main');
+    return view('houses.index');
 });
 
 Auth::routes();
@@ -29,7 +29,7 @@ Route::prefix('admin')
         Route::resource('houses', 'HouseController');
     });
 
-Route::get('houses', 'HouseController@index')->name('houses');
+Route::get('houses.index', 'HouseController@index')->name('houses');
 Route::get('houses/{slug}', 'HouseController@show')->name('houses.show');
 Route::post('houses/search', 'HouseController@search')->name('houses.search');
 

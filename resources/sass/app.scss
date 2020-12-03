@@ -5,10 +5,13 @@
 @import 'variables';
 
 // Bootstrap
-@import '~bootstrap/scss/bootstrap';
+@import '~bootstrap/scss/bootstrap-grid';
 
 // Mixins
 @import 'Partials/mixins';
 
 // Commons
 @import 'Partials/commons';
+
+// Footer
+@import 'Partials/footer';

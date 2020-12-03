@@ -8,25 +8,13 @@
                 <span class="navbar-toggler-icon"></span>
             </button>
 
-            <div class="collapse navbar-collapse" id="navbarSupportedContent">
+            
                 <!-- Left Side Of Navbar -->
                 <ul class="navbar-nav mr-auto">
 
                 </ul>
-
-                <!-- Central Side Of Navbar/ Input search -->
-                <form action="{{route("houses.search")}}" method="POST">
-                    @csrf
-                    @method("POST")
-                    <input type="text" name="address" id="address-input" placeholder="Inserisci indirizzo del tuo alloggio" value="{{old('address')}}">
-                    <p>Hai cercato: <strong id="address-value"></strong></p>
-                    <input id="latitude" type="hidden" name="lat" value="">
-                    <input id="longitude" type="hidden" name="lon" value="">
-                    {{-- <input type="number" placeholder="20" id="radius"> --}}
-                    <input type="submit" value="Invia">
-                </form>
-
-
+                <input type="number" name="" id="">
+                <div class="collapse navbar-collapse" id="navbarSupportedContent">
                 <!-- Right Side Of Navbar -->
                 <ul class="navbar-nav ml-auto">
                     <!-- Authentication Links -->

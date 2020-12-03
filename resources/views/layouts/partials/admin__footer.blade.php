@@ -1,3 +1,5 @@
-<footer>
-    <h2>Footer</h2>
+<footer class="footer_cl">
+    <div class="container">
+        <img src="" alt="">
+    </div>
 </footer>
