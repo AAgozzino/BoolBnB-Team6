@@ -11,6 +11,8 @@
     <body>
         {{-- Partial Header --}}
         @include('layouts.partials.header')
+        @include('layouts.partials.hero')
+
 
         {{-- Yield main --}}
         @yield('main-section')
