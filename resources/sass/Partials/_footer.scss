@@ -1,14 +1,52 @@
 .footer_cl {
     background-color: #bfbfbf;
-    .container{
-        #copywright{
-            border-top: 1px solid black;
-
-            .col:not(:first-child):before{
-                content: "&middot;";
+    
+    section#footer_menu{
+        .container{
+            .row{
+                div[class^="col"]{
+                    padding: 48px 0;
+                }
             }
-
         }
+        
     }
 
+    section#copyright{
+        .container{
+            .row{
+                padding: 24px 0;
+                border-top: 1px solid black;
+
+                div[class^="col"]{
+                    .wrapper{
+                        display: flex;
+                    }
+                }
+
+                .copyright{
+                    
+                    .wrapper{
+                        
+                        .elm:not(:first-child)::before{
+                            content: "\00B7";
+                            margin: 5px;
+                        }
+                    }
+                }
+
+                .language{
+                    .language_menu{
+                        display: flex;
+
+                        .language_text{
+                            margin-left: 5px;
+                        }
+                    }
+                }
+
+            }
+        }
+    }
+    
 }
