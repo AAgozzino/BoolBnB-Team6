@@ -2,7 +2,7 @@
 
 @section('main-section')
 
-    <form action="{{route("houses.search")}}" method="POST">
+    {{-- <form action="{{route("houses.search")}}" method="POST">
         @csrf
         @method("POST")
 
@@ -12,6 +12,6 @@
         <input id="latitude" type="hidden" name="lat" value="">
         <input id="longitude" type="hidden" name="lon" value="">
         <input type="submit" value="Invia">
-    </form>
+    </form> --}}
 
 @endsection
