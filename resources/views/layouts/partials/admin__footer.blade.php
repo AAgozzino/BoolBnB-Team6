@@ -21,7 +21,7 @@
                 {{-- /Contributors --}}
 
                 {{-- Stack --}}
-                <div class="footer_menu col-12 col-md-3">
+                <div id="stack" class="footer_menu col-12 col-md-3">
                     <h4>Stack</h4>
                     <ul class="footer_menu_list">
                         <li class="footer_menu_list_item">HTML</li>
@@ -36,7 +36,7 @@
                 {{-- /Stack --}}
 
                 {{-- Thanks to --}}
-                <div class="footer_menu col-12 col-md-3">
+                <div id="thanks" class="footer_menu col-12 col-md-3">
                     <h4>Thanks to</h4>
                     <ul class="footer_menu_list">
                         <li class="footer_menu_list_item">
@@ -50,6 +50,13 @@
                         </li>
                         <li class="footer_menu_list_item">
                             <a href="https://www.linkedin.com/in/elisabetta-dah%C3%B2-a85083121/"><i class="fab fa-linkedin"></i> Elisabetta Dah&ograve;</a>
+                        </li>
+                        <li class="footer_menu_list_item">
+                            <a href="https://www.linkedin.com/in/margherita-ghidini-32227711b/"><i class="fab fa-linkedin"></i> Margherita Ghidini</a>
+                        </li>
+                        
+                        <li class="footer_menu_list_item">
+                            <a href="https://www.behance.net/giulialombardo"><i class="fab fa-behance-square"></i> Giulia Lombardo</a>
                         </li>
                     </ul>
                 </div>
@@ -74,20 +81,20 @@
                 {{-- /Copyright --}}
                 
                 {{-- Language --}}
-                <div class="col-2 language">
+                <div class="col-6 col-md-3 language">
                     <div class="wrapper d_flex">
                         <div class="language_menu">
                             <i class="fas fa-globe"></i> 
-                            <div class="language_text">Italiano (IT)</div>
+                            <div class="language_menu_text">Italiano (IT)</div>
                         </div>
                     </div>
                 </div>
                 {{-- /Language --}}
 
                 {{-- Social --}}
-                <div class="col-2 social">
-                    <div class="wrapper d_flex">
-                        <ul class="social_menu_list">
+                <div class="col col-md-2 social">
+                    <div class="wrapper">
+                        <ul class="social_menu_list d_flex">
                             <li class="social_menu_list_item">
                                 <a href="#"><i class="fab fa-facebook-square"></i></a>
                             </li>
