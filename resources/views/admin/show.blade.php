@@ -2,14 +2,18 @@
 
 @section('main-section')
     <div class="container">        
-        <div class="card">
-            <img class="card-img-top" src="{{asset('storage/'.$house->cover_img)}}" alt="Card image cap">
-            <div class="card-body">
-                <h5 class="card-title">{{$house->title}}</h5>
-                {{-- Controllare i due type uguali(nome tabella e colonna) r10 --}}
-                <h6 class="card-subtitle mb-2 text-muted">{{$house->type->type}}</h6>
-                <p class="card-text">{{$house->description}}</p>
-                <p>{{$house->address}}</p>
+        <div class="show">
+            <div><h5 class="show-title">{{$house->title}}</h5></div>
+            <h6 class="house-type">{{$house->type->type}} a {{$house->address}}</h6>
+            <img class="show-img" src="{{asset('storage/'.$house->cover_img)}}" alt="Card image cap">
+            <div class="show-description show-box">
+                <ul>
+                    <li class="show-list-title">Descrizione</li>
+                    <li class="show-list-description"><p>{{$house->description}}</p></li>
+                </ul>
+
+                
+                {{-- <p>{{$house->address}}</p> --}}
                 <p><strong>Prezzo:</strong> {{$house->price}}</p>
             </div>
             <ul class="list-group list-group-flush">
