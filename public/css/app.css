@@ -1,19 +1,8 @@
-<<<<<<< HEAD
-@import url(https://fonts.googleapis.com/css?family=Nunito);@charset "UTF-8";
-
-/*!
- * Bootstrap Grid v4.5.3 (https://getbootstrap.com/)
- * Copyright 2011-2020 The Bootstrap Authors
- * Copyright 2011-2020 Twitter, Inc.
- * Licensed under MIT (https://github.com/twbs/bootstrap/blob/main/LICENSE)
- */
-
-html {
-=======
 @import url(https://fonts.googleapis.com/css2?family=Raleway:ital,wght@0,200;
 
-0,400;0,500;0,700;0,900;1,300;1,400;1,600&display=swap);html {
->>>>>>> Hero
+0,400;0,500;0,700;0,900;1,300;1,400;1,600&display=swap);@charset "UTF-8";
+
+html {
   box-sizing: border-box;
   -ms-overflow-style: scrollbar;
 }
@@ -4307,7 +4296,11 @@ html {
   margin: 0;
 }
 
-<<<<<<< HEAD
+body {
+  font-family: "Raleway", sans-serif;
+  color: #3c3c3c;
+}
+
 li {
   list-style: none;
 }
@@ -4322,6 +4315,7 @@ li {
 
 a {
   text-decoration: none;
+  color: #3c3c3c;
 }
 
 .index_search_btn {
@@ -4460,25 +4454,45 @@ header .navbar-expand-md .cont_flex #navbarSupportedContent .hambrg_menu .hamb_i
   header .navbar-expand-md .cont_flex #navbarSupportedContent .hambrg_menu .navbar_bar.hamb_auth a.nav-link:hover {
     color: #ba5160;
   }
-=======
-body {
-  font-family: "Raleway", sans-serif;
-  color: #3c3c3c;
->>>>>>> Hero
 }
 
 .footer_cl {
   background-color: #bfbfbf;
 }
 
-<<<<<<< HEAD
-.footer_cl section#footer_menu .container .row div[class^=col] {
+.footer_cl section#footer_menu .container .row {
   padding: 48px 0;
+}
+
+.footer_cl section#footer_menu .container .row #contributors h4,
+.footer_cl section#footer_menu .container .row #stack h4,
+.footer_cl section#footer_menu .container .row #thanks h4 {
+  margin-bottom: 10px;
+  color: #ba5160;
+}
+
+.footer_cl section#footer_menu .container .row #contributors .footer_menu_list_item,
+.footer_cl section#footer_menu .container .row #stack .footer_menu_list_item,
+.footer_cl section#footer_menu .container .row #thanks .footer_menu_list_item {
+  margin-top: 5px;
+}
+
+.footer_cl section#footer_menu .container .row #contributors .footer_menu_list_item a:hover,
+.footer_cl section#footer_menu .container .row #stack .footer_menu_list_item a:hover,
+.footer_cl section#footer_menu .container .row #thanks .footer_menu_list_item a:hover {
+  color: #ba5160;
+}
+
+@media screen and (max-width: 768px) {
+  .footer_cl section#footer_menu .container .row #stack {
+    margin: 24px 0;
+  }
 }
 
 .footer_cl section#copyright .container .row {
   padding: 24px 0;
   border-top: 1px solid black;
+  align-items: center;
 }
 
 .footer_cl section#copyright .container .row div[class^=col] .wrapper {
@@ -4490,13 +4504,35 @@ body {
   margin: 5px;
 }
 
-.footer_cl section#copyright .container .row .language .language_menu {
+.footer_cl section#copyright .container .row .language_menu {
   display: flex;
 }
 
-.footer_cl section#copyright .container .row .language .language_menu .language_text {
+.footer_cl section#copyright .container .row .language_menu_text {
   margin-left: 5px;
-=======
+}
+
+@media screen and (max-width: 768px) {
+  .footer_cl section#copyright .container .row .language {
+    order: -2;
+  }
+}
+
+.footer_cl section#copyright .container .row .social_menu_list_item {
+  margin: 0 5px;
+  font-size: 19px;
+}
+
+.footer_cl section#copyright .container .row .social_menu_list_item i {
+  color: #ba5160;
+}
+
+@media screen and (max-width: 768px) {
+  .footer_cl section#copyright .container .row .social {
+    order: -1;
+  }
+}
+
 #main-cover {
   height: 550px;
   width: 100%;
@@ -4521,6 +4557,5 @@ body {
 
 #wave {
   background-image: linear-gradient(90deg, #ba5160 0%, #fedea1 50%, #ba5160 100%);
->>>>>>> Hero
 }
 
