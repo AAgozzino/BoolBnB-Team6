@@ -1,4 +1,6 @@
-@import url(https://fonts.googleapis.com/css?family=Nunito);/*!
+@import url(https://fonts.googleapis.com/css?family=Nunito);@charset "UTF-8";
+
+/*!
  * Bootstrap Grid v4.5.3 (https://getbootstrap.com/)
  * Copyright 2011-2020 The Bootstrap Authors
  * Copyright 2011-2020 Twitter, Inc.
@@ -4301,5 +4303,31 @@ html {
 
 .footer_cl {
   background-color: #bfbfbf;
+}
+
+.footer_cl section#footer_menu .container .row div[class^=col] {
+  padding: 48px 0;
+}
+
+.footer_cl section#copyright .container .row {
+  padding: 24px 0;
+  border-top: 1px solid black;
+}
+
+.footer_cl section#copyright .container .row div[class^=col] .wrapper {
+  display: flex;
+}
+
+.footer_cl section#copyright .container .row .copyright .wrapper .elm:not(:first-child)::before {
+  content: "\B7";
+  margin: 5px;
+}
+
+.footer_cl section#copyright .container .row .language .language_menu {
+  display: flex;
+}
+
+.footer_cl section#copyright .container .row .language .language_menu .language_text {
+  margin-left: 5px;
 }
 
