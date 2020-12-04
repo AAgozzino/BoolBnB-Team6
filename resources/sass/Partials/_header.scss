@@ -1,24 +1,30 @@
 header {
-    & .navbar-expand-md{
+    & .navbar-expand-md {
         & .cont_flex {
             justify-content: space-between;
             align-items: center;
             padding: 15px 0;
 
-            & a.navbar-brand img {
-                height: auto;
+            // Left Side Of Navbar
+            & a.navbar-brand {
+                width: 15%;
                 max-width: 100px;
                 margin-right: 30px;
+
+                & img {
+                    height: auto;
+                    width: 100%;
+                }
             }
 
+            // Central Side Of Navbar / Input Search
             & .index_form {
-                width: 80%;
+                width: 70%;
         
                 & .add_input_search {
                     display: flex;
             
                     & #address-input {
-                        width: 100%;
                         border-radius: 20px;
 
                         &::placeholder {
@@ -28,22 +34,86 @@ header {
             
                     & .index_search_btn{
                         width: 100px;
-                        margin-left: 20px;
+                        margin-left: 10px;
+                        background-color: #ba5160;
+                        color: #ffffff;
+                        border-radius: 20px;
+                        border: transparent;
+                        cursor: pointer;
+
+                        &:hover {
+                            background-color: radial-gradient(
+                                at center,  rgba(254,222,161,1), rgba(186,81,96,1)
+                            );
+                        }
                     }
                 }
             }
-        }
 
-        & #navbarSupportedContent {
-            & .navbar-nav {
-                display: flex;
-                align-items: center;
-            }
+            // Right Side Of Navbar
+            & #navbarSupportedContent {
+                width: 15%;
 
-            & .nav-item {
-                margin-left: 15px;
+                & .navbar-nav {
+                    display: flex;
+                    align-items: center;
+                    justify-content: flex-end;
+
+                    @media screen and (max-width: 992px) {
+                        display: none;
+                    }
+
+                    & a.nav-link {
+                        text-transform: uppercase;
+                        font-size: 14px;
+
+                        &:hover {
+                            color: #ba5160;
+                        }
+                    }
+                }
+
+                & .nav-item:not(:first-child)::before {
+                    padding: 5px 1px;
+                    margin: 0 10px;
+                    content: "";
+                    background-color: #BFBFBF;
+                }
+
+                & .hambrg_menu {
+                    text-align: right;
+                    @media screen and (max-width: 992px) {
+                        display: block;
+                    }
+
+                    & .hamb_icon{
+                        font-size: 20px;
+                        color: #BFBFBF;
+                        border: 1px solid #BFBFBF;
+                        padding: 8px 8px;
+                        border-radius: 10px;
+                        cursor: pointer;
+                    }
+
+                    @media screen and (max-width: 992px) {
+                        & .navbar_bar.hamb_auth {
+                            display: flex;
+                            background-color: #BFBFBF;
+                            z-index: 10;
+                            flex-direction: column;
+
+                            & a.nav-link {
+                                text-transform: uppercase;
+                                font-size: 14px;
+        
+                                &:hover {
+                                    color: #ba5160;
+                                }
+                            }
+                        }
+                    }  
+                }
             }
         }
-    }
-    
+    }  
 }

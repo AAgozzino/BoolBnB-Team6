@@ -15,13 +15,12 @@ $(document).ready(function(){
         var $address = document.querySelector('#address-value')
         placesAutocomplete.on('change', function (e) {
             $address.textContent = e.suggestion.value
+
             var latitudine = e.suggestion.latlng.lat;
             var inputLat = $("#latitude").val(latitudine);
-            // console.log(latitudine);
+            
             var longitudine = e.suggestion.latlng.lng;
             var inputLng = $("#longitude").val(longitudine);
-            // console.log(longitudine);
-
         });
 
         placesAutocomplete.on('clear', function () {

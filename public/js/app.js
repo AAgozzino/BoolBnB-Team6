@@ -52849,6 +52849,8 @@ __webpack_require__(/*! ./places.js */ "./resources/js/places.js");
 
 __webpack_require__(/*! ./search.js */ "./resources/js/search.js");
 
+__webpack_require__(/*! ./valid_layouts.js */ "./resources/js/valid_layouts.js");
+
 /***/ }),
 
 /***/ "./resources/js/bootstrap.js":
@@ -52921,10 +52923,9 @@ $(document).ready(function () {
     placesAutocomplete.on('change', function (e) {
       $address.textContent = e.suggestion.value;
       var latitudine = e.suggestion.latlng.lat;
-      var inputLat = $("#latitude").val(latitudine); // console.log(latitudine);
-
+      var inputLat = $("#latitude").val(latitudine);
       var longitudine = e.suggestion.latlng.lng;
-      var inputLng = $("#longitude").val(longitudine); // console.log(longitudine);
+      var inputLng = $("#longitude").val(longitudine);
     });
     placesAutocomplete.on('clear', function () {
       $address.textContent = 'none';
@@ -53008,6 +53009,48 @@ function renderHouse(data) {
     var html = template(house);
     $('#houses-list').append(html);
   }
+}
+
+/***/ }),
+
+/***/ "./resources/js/valid_layouts.js":
+/*!***************************************!*\
+  !*** ./resources/js/valid_layouts.js ***!
+  \***************************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+$(document).ready(function () {
+  mouseBtnGrad();
+  hambMenu();
+}); // FUNCTIONS
+
+function mouseBtnGrad() {
+  $('.index_search_btn').mousemove(function (event) {
+    btnWidth = $(this).width();
+    btnHeight = $(this).height();
+    mouseXpercentage = Math.round(event.pageX / btnWidth * 100);
+    mouseYpercentage = Math.round(event.pageY / btnHeight * 100);
+    $('.index_search_btn').css('background', 'radial-gradient(at ' + mouseXpercentage + '% ' + mouseYpercentage + '%, rgba(254,222,161,1), rgba(186,81,96,1))');
+  });
+} // function hamburger button
+
+
+function hambMenu() {
+  $(window).resize(function () {
+    if ($(window).width() < 992) {
+      $('#navbarSupportedContent .navbar-nav.auth_list').hide();
+      $('.hambrg_menu').show();
+      $('.hambrg_menu .navbar_nav').hide();
+    } else {
+      $('#navbarSupportedContent .navbar-nav.auth_list').show();
+      $('.hambrg_menu').hide();
+    }
+
+    $('.hamb_icon').click(function () {
+      $('.hambrg_menu .navbar_nav').toggle();
+    });
+  });
 }
 
 /***/ }),

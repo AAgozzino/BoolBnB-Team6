@@ -19,3 +19,20 @@ li {
 a {
     text-decoration: none;
 }
+
+// common button gradient
+.index_search_btn{
+    width: 100px;
+    margin-left: 10px;
+    background-color: #ba5160;
+    color: #ffffff;
+    border-radius: 20px;
+    border: transparent;
+    cursor: pointer;
+
+    &:hover {
+        background-color: radial-gradient(
+            at center,  rgba(254,222,161,1), rgba(186,81,96,1)
+        );
+    }
+}
