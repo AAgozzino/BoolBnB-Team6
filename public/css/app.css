@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 @import url(https://fonts.googleapis.com/css?family=Nunito);@charset "UTF-8";
 
 /*!
@@ -8,6 +9,11 @@
  */
 
 html {
+=======
+@import url(https://fonts.googleapis.com/css2?family=Raleway:ital,wght@0,200;
+
+0,400;0,500;0,700;0,900;1,300;1,400;1,600&display=swap);html {
+>>>>>>> Hero
   box-sizing: border-box;
   -ms-overflow-style: scrollbar;
 }
@@ -4301,6 +4307,7 @@ html {
   margin: 0;
 }
 
+<<<<<<< HEAD
 li {
   list-style: none;
 }
@@ -4453,12 +4460,18 @@ header .navbar-expand-md .cont_flex #navbarSupportedContent .hambrg_menu .hamb_i
   header .navbar-expand-md .cont_flex #navbarSupportedContent .hambrg_menu .navbar_bar.hamb_auth a.nav-link:hover {
     color: #ba5160;
   }
+=======
+body {
+  font-family: "Raleway", sans-serif;
+  color: #3c3c3c;
+>>>>>>> Hero
 }
 
 .footer_cl {
   background-color: #bfbfbf;
 }
 
+<<<<<<< HEAD
 .footer_cl section#footer_menu .container .row div[class^=col] {
   padding: 48px 0;
 }
@@ -4483,5 +4496,31 @@ header .navbar-expand-md .cont_flex #navbarSupportedContent .hambrg_menu .hamb_i
 
 .footer_cl section#copyright .container .row .language .language_menu .language_text {
   margin-left: 5px;
+=======
+#main-cover {
+  height: 550px;
+  width: 100%;
+  background-image: url("/images/hero.JPG");
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: 50% 83%;
+}
+
+#main-cover .hero-flex {
+  display: flex;
+  height: 550px;
+  align-items: center;
+}
+
+#main-cover h1 {
+  color: white;
+  font-size: 60px;
+  font-weight: 900;
+  text-shadow: 0px 2px 5px rgba(0, 0, 0, 0.5);
+}
+
+#wave {
+  background-image: linear-gradient(90deg, #ba5160 0%, #fedea1 50%, #ba5160 100%);
+>>>>>>> Hero
 }
 
