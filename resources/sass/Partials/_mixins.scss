@@ -1,3 +1,12 @@
 @mixin gradientWave {
     background: linear-gradient(90deg, rgba(186,81,96,1) 0%, rgba(254,222,161,1) 50%, rgba(186,81,96,1) 100%);
 }
+
+@mixin box-house {
+    width: 350px;
+    height: 230px;
+    border-radius: 10px;
+    box-shadow: 0px 2px 7px 0px rgba(0,0,0,0.73);
+    -webkit-box-shadow: 0px 2px 7px 0px rgba(0,0,0,0.73);
+    -moz-box-shadow: 0px 2px 7px 0px rgba(0,0,0,0.73);
+}
