@@ -4,8 +4,26 @@
     section#footer_menu{
         .container{
             .row{
-                div[class^="col"]{
-                    padding: 48px 0;
+                padding: 48px 0;
+                #contributors, #stack, #thanks{
+                    h4{
+                        margin-bottom: 10px;
+                        color: $mainColor;
+                    }
+                    .footer_menu_list{
+                        &_item{
+                            margin-top: 5px;
+
+                            a:hover{
+                                color: $mainColor;
+                            }
+                        }
+                    }
+                }
+                #stack{
+                    @media screen and (max-width: 768px){
+                        margin: 24px 0;
+                    }
                 }
             }
         }
@@ -17,7 +35,8 @@
             .row{
                 padding: 24px 0;
                 border-top: 1px solid black;
-
+                align-items: center;
+                
                 div[class^="col"]{
                     .wrapper{
                         display: flex;
@@ -33,15 +52,35 @@
                             margin: 5px;
                         }
                     }
+                    
                 }
 
                 .language{
-                    .language_menu{
+                    &_menu{
                         display: flex;
 
-                        .language_text{
+                        &_text{
                             margin-left: 5px;
                         }
+                    }
+                    @media screen and (max-width: 768px) {
+                        order:-2
+                    }
+                }
+
+                .social{
+                    &_menu_list{
+                        &_item{
+                            margin: 0 5px;
+                            font-size: 19px;
+                            i{
+                                color: $mainColor;
+                            }
+                        }
+
+                    }
+                    @media screen and (max-width: 768px) {
+                        order:-1
                     }
                 }
 

@@ -1,7 +1,7 @@
 $(document).ready(function(){
     mouseBtnGrad();
+    hoverInfo();
     hambMenu();
-
   
 });
 
@@ -20,18 +20,17 @@ function mouseBtnGrad () {
 
 // function hamburger button
 function hambMenu() {
-    $(window).resize(function(){     
-        if ($(window).width() < 992 ){
-            $('#navbarSupportedContent .navbar-nav.auth_list').hide();
-            $('.hambrg_menu').show();
-            $('.hambrg_menu .navbar_nav').hide();
-        } else {
-            $('#navbarSupportedContent .navbar-nav.auth_list').show();
-            $('.hambrg_menu').hide();
+    $('.hambrg_menu .navbar_nav').hide(); 
+    $(document).on('click', '.hamb_icon', function(){   
+        if ($(window).width() < 768 ){
+            $('.hambrg_menu .navbar_nav').slideToggle();
         }
+    });
+}
 
-        $('.hamb_icon').click(function() {
-                $('.hambrg_menu .navbar_nav').toggle();
-        });
+// function hover welcome_name
+function hoverInfo() {
+    $(document).on('mouseenter', '.welcome_name', function() {
+        $('.tend_menu').slideToggle();
     });
 }
