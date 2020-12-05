@@ -1,6 +1,9 @@
 if (document.URL.includes("login")) {
-    $(document).ready(function() { 
-        $('#navbarSupportedContent').hide();
-        $('#main-cover').hide();
-    });
+    $('#navbarSupportedContent').hide();
+    $('#main-cover').hide();
+}
+
+if (document.URL.includes("reset")) {
+    $('#navbarSupportedContent').hide();
+    $('#main-cover').hide();
 }

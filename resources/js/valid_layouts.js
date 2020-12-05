@@ -17,7 +17,7 @@ function mouseBtnGrad () {
         mouseYpercentage = Math.round(event.pageY / btnHeight * 100);
         
         $('.index_search_btn').css('background', 'radial-gradient(at ' + mouseXpercentage + '% ' + mouseYpercentage + '%, rgba(254,222,161,1), rgba(186,81,96,1))');
-      });
+    });
 }
 
 // function hamburger button

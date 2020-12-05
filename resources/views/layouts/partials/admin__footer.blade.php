@@ -5,7 +5,7 @@
             <div class="row justify-content-between">
                 {{-- Contributors --}}
                 <div id="contributors" class="col-12 col-md-3">
-                    <h4>Controbutors</h4>
+                    <h4>Contributors</h4>
                     <ul class="footer_menu_list">
                         <li class="footer_menu_list_item">
                             <a href="https://www.linkedin.com/in/davide-cesare-a53045200/"><i class="fab fa-linkedin"></i> Davide Cesare</a>
