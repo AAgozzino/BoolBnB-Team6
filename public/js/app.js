@@ -52851,6 +52851,8 @@ __webpack_require__(/*! ./search.js */ "./resources/js/search.js");
 
 __webpack_require__(/*! ./valid_layouts.js */ "./resources/js/valid_layouts.js");
 
+__webpack_require__(/*! ./form-log-reg.js */ "./resources/js/form-log-reg.js");
+
 /***/ }),
 
 /***/ "./resources/js/bootstrap.js":
@@ -52895,6 +52897,22 @@ window.axios.defaults.headers.common['X-Requested-With'] = 'XMLHttpRequest';
 //     cluster: process.env.MIX_PUSHER_APP_CLUSTER,
 //     forceTLS: true
 // });
+
+/***/ }),
+
+/***/ "./resources/js/form-log-reg.js":
+/*!**************************************!*\
+  !*** ./resources/js/form-log-reg.js ***!
+  \**************************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+if (document.URL.includes("login")) {
+  $(document).ready(function () {
+    $('#navbarSupportedContent').hide();
+    $('#main-cover').hide();
+  });
+}
 
 /***/ }),
 
@@ -53025,6 +53043,7 @@ $(document).ready(function () {
   hoverInfo();
   hambMenu();
 }); // FUNCTIONS
+// function gradient hover
 
 function mouseBtnGrad() {
   $('.index_search_btn').mousemove(function (event) {

@@ -6,6 +6,8 @@ $(document).ready(function(){
 });
 
 // FUNCTIONS
+
+// function gradient hover
 function mouseBtnGrad () {
     $('.index_search_btn').mousemove(function(event) {
         btnWidth = $(this).width();
