@@ -4332,6 +4332,13 @@ a {
   background-color: radial-gradient(at center, #fedea1, #ba5160);
 }
 
+header {
+  position: fixed;
+  width: 100%;
+  background-color: rgba(255, 255, 255, 0.7);
+  top: 0;
+}
+
 header .navbar-expand-md .cont_flex {
   justify-content: space-between;
   align-items: center;
@@ -4665,6 +4672,7 @@ header .navbar-expand-md .cont_flex #navbarSupportedContent .hambrg_menu .hamb_i
   background-repeat: no-repeat;
   background-size: cover;
   background-position: 50% 83%;
+  margin-top: 74px;
 }
 
 #main-cover .hero-flex {

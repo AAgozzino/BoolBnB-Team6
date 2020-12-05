@@ -1,4 +1,9 @@
 header {
+    position: fixed;
+    width: 100%;
+    background-color: rgba(255,255,255,0.7);
+    top: 0;
+
     & .navbar-expand-md {
         & .cont_flex {
             justify-content: space-between;
