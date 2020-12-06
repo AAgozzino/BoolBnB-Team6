@@ -52917,6 +52917,11 @@ if (document.URL.includes("reset")) {
   $('#main-cover').hide();
 }
 
+if (document.URL.includes("register")) {
+  $('#navbarSupportedContent').hide();
+  $('#main-cover h1').html('Registrati adesso!');
+}
+
 /***/ }),
 
 /***/ "./resources/js/places.js":
@@ -52926,9 +52931,7 @@ if (document.URL.includes("reset")) {
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
-var _require = __webpack_require__(/*! lodash */ "./node_modules/lodash/lodash.js"),
-    create = _require.create;
-
+// const { create } = require('lodash');
 var places = __webpack_require__(/*! places.js */ "./node_modules/places.js/index.js");
 
 $(document).ready(function () {

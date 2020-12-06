@@ -3,6 +3,7 @@ header {
     width: 100%;
     background-color: rgba(255,255,255,0.7);
     top: 0;
+    z-index: 100;
 
     & .navbar-expand-md {
         & .cont_flex {

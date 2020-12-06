@@ -44,7 +44,7 @@
     </div>
     {{-- /Address --}}
 
-    {{-- Latitudine Longitudine- DA CANCELLARE IN FUTURO --}}
+    {{-- Latitudine Longitudine --}}
     <div class="form-group">
         <label for="latitude">Latitude</label>
         <input type="hidden" name="latitude" id="latitude" step="0.000001" placeholder="Latitudine" value="{{old('latitude')}}">

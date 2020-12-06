@@ -4337,6 +4337,7 @@ header {
   width: 100%;
   background-color: rgba(255, 255, 255, 0.7);
   top: 0;
+  z-index: 100;
 }
 
 header .navbar-expand-md .cont_flex {
@@ -4831,6 +4832,64 @@ header .navbar-expand-md .cont_flex #navbarSupportedContent .hambrg_menu .hamb_i
 }
 
 .reset_form .btn_reset .btn_reset_psw:hover {
+  transform: scale(1.1);
+}
+
+.register_form {
+  margin-bottom: 120px;
+}
+
+.register_form .cont_regis_us {
+  margin-bottom: 25px;
+}
+
+.register_form .cont_regis_us label {
+  color: #ba5160;
+  align-self: center;
+  font-size: 18px;
+}
+
+.register_form .cont_regis_us input {
+  width: 100%;
+  padding: 10px;
+  border-radius: 10px;
+  border: 2px solid #bfbfbf;
+  outline: none;
+  vertical-align: middle;
+}
+
+.register_form .cont_regis_us input:focus {
+  border: 2px solid #ba5160;
+}
+
+.register_form .cont_regis_us input::-moz-placeholder {
+  font-size: 12px;
+}
+
+.register_form .cont_regis_us input:-ms-input-placeholder {
+  font-size: 12px;
+}
+
+.register_form .cont_regis_us input::placeholder {
+  font-size: 12px;
+}
+
+.register_form .btn_register {
+  text-align: center;
+}
+
+.register_form .btn_register .btn_register_send {
+  width: 100px;
+  margin: auto;
+  background-color: #ba5160;
+  color: #ffffff;
+  border-radius: 10px;
+  border: transparent;
+  cursor: pointer;
+  padding: 15px;
+}
+
+.register_form .btn_register .btn_register_send:hover {
   transform: scale(1.1);
 }
 

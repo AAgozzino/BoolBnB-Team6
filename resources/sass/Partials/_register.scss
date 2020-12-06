@@ -1,0 +1,49 @@
+.register_form {
+    margin-bottom: 120px;
+
+    & .cont_regis_us {
+        margin-bottom: 25px;
+
+        & label {
+            color: $mainColor;
+            align-self: center;
+            font-size: 18px;
+        }
+
+        & input {
+            width: 100%;
+            padding: 10px;
+            border-radius: 10px;
+            border: 2px solid #bfbfbf;
+            outline: none;
+            vertical-align: middle;
+
+            &:focus {
+                border: 2px solid $mainColor;
+            }
+
+            &::placeholder {
+                font-size: 12px;
+            }
+        }
+    }
+
+    & .btn_register {
+        text-align: center;
+
+        & .btn_register_send {
+            width: 100px;
+            margin: auto;
+            background-color: $mainColor;
+            color: #ffffff;
+            border-radius: 10px;
+            border: transparent;
+            cursor: pointer;
+            padding: 15px;
+
+            &:hover {
+                transform: scale(1.1);
+            }
+        }
+    }
+}
