@@ -39,18 +39,18 @@
     {{-- Address --}}
     <div class="form-group">
         <label for="address">Indirizzo</label>
-        <input type="text" name="address" id="address" placeholder="Inserisci indirizzo del tuo alloggio" value="{{old('address') ?  old('address') : $house->address}}">
+        <input type="text" name="address" id="address-input" placeholder="Inserisci indirizzo del tuo alloggio" value="{{old('address') ?  old('address') : $house->address}}">
     </div>
     {{-- /Address --}}
 
     {{-- Latitudine Longitudine- DA CANCELLARE IN FUTURO --}}
     <div class="form-group">
-        <label for="latitude">Indirizzo</label>
-        <input type="number" name="latitude" id="latitude" placeholder="Latitudine"  step="0.000001" value="{{old('latitude') ?? $house->latitude}}">
+        <label for="latitude">Latitudine</label>
+        <input type="hidden" name="latitude" id="latitude" placeholder="Latitudine"  step="0.000001" value="{{old('latitude') ?? $house->latitude}}">
     </div>
     <div class="form-group">
-        <label for="longitude">Indirizzo</label>
-        <input type="number" name="longitude" id="longitude" placeholder="Longitudine" step="0.000001" value="{{old('longitude') ?? $house->longitude}}">
+        <label for="longitude">Longitudine</label>
+        <input type="hidden" name="longitude" id="longitude" placeholder="Longitudine" step="0.000001" value="{{old('longitude') ?? $house->longitude}}">
     </div>
     {{-- /Latitude Longitudine --}}
 
@@ -122,7 +122,7 @@
     {{-- Slug non modificabile dall'utente perchè creato in automatico con js a partire dal titolo (aggiungere readonly alla input) --}}
     <div class="form-group">
         <label for="slug">Slug</label>
-        <input type="text"  name="slug" id="slug" placeholder="Inserisci lo slug" value="{{old('slug') ?? $house->slug}}">
+        <input type="hidden"  name="slug" id="slug" placeholder="Inserisci lo slug" value="{{old('slug') ?? $house->slug}}">
     </div>
     {{-- /Slug --}}
 

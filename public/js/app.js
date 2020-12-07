@@ -52926,6 +52926,10 @@ if (document.URL.includes("create")) {
   $('.add_input_search').remove();
 }
 
+if (document.URL.includes("edit")) {
+  $('.add_input_search').remove();
+}
+
 /***/ }),
 
 /***/ "./resources/js/places.js":

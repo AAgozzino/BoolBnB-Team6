@@ -42,11 +42,11 @@
 
                             <div class="d_none tend_menu dropdown-menu">
                                 <div class="cont_tend_menu dropdown-item">
-                                    <a class="your_houses" href="">I TUOI APPARTAMENTI</a>
+                                    <a class="your_houses" href="{{route('admin.houses.index')}}">I TUOI APPARTAMENTI</a>
                                 </div>
 
                                 <div class="cont_tend_menu dropdown-item">
-                                    <a id="navbarDropdown" class="nav-link dropdown-toggle message_link" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
+                                    <a class="message_link" href="{{route('admin.messages')}}">
                                         MESSAGGI
                                     </a>
                                 </div>
@@ -83,11 +83,11 @@
                             @endif
                         @else
                             <li class="nav-item dropdown">
-                                <a id="navbarDropdown" class="nav-link dropdown-toggle profile_link" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
+                                <a id="navbarDropdown" class="nav-link dropdown-toggle profile_link" href="{{route('admin.houses.index')}}" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
                                     <i class="fas fa-user profile_icon"></i>
                                 </a>
 
-                                <a id="navbarDropdown" class="nav-link dropdown-toggle message_link" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
+                                <a id="navbarDropdown" class="nav-link dropdown-toggle message_link" href="{{route('admin.messages')}}" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
                                     MESSAGGI
                                 </a>
     
