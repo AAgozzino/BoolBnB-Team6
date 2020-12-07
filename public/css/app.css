@@ -4512,16 +4512,15 @@ header .navbar-expand-md .cont_flex #navbarSupportedContent .hambrg_menu .hamb_i
 }
 
 .show-box {
-  padding: 20px 0;
+  padding: 20px 0 30px;
   border-bottom: 1px solid #c6c6c6;
 }
 
 .show-title {
   font-size: 40px;
   font-weight: 900;
-  margin-bottom: 12px;
   border-bottom: 1px solid #c6c6c6;
-  padding-bottom: 12px;
+  padding-bottom: 20px;
 }
 
 .show-title::before {
@@ -4537,7 +4536,7 @@ header .navbar-expand-md .cont_flex #navbarSupportedContent .hambrg_menu .hamb_i
 }
 
 .house-type {
-  margin-bottom: 18px;
+  margin: 15px 0;
   font-size: 16px;
   font-weight: 400;
 }
@@ -4569,11 +4568,149 @@ header .navbar-expand-md .cont_flex #navbarSupportedContent .hambrg_menu .hamb_i
 }
 
 .show-img {
-  background-image: url;
-  background-repeat: no-repeat;
-  background-size: cover;
   border-radius: 10px;
   width: 550px;
   height: 550px;
+}
+
+.show-img img {
+  height: 550px;
+  width: 550px;
+  -o-object-fit: cover;
+     object-fit: cover;
+  border-radius: 10px;
+}
+
+.show-subinfo {
+  display: flex;
+  border-bottom: 1px solid #c6c6c6;
+}
+
+.show-subinfo li {
+  margin: 15px 0;
+}
+
+.show-subinfo li::after {
+  content: "";
+  background-color: #ba5160;
+  vertical-align: middle;
+  padding: 2px;
+  display: inline-block;
+  border-radius: 100px;
+  margin: 0 10px;
+}
+
+.show-subinfo li:last-child:after {
+  content: none;
+}
+
+.show-info {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 50px;
+}
+
+.show-info .show-house {
+  display: flex;
+  flex-direction: column;
+}
+
+.show-info .recap {
+  display: flex;
+  flex-wrap: wrap;
+  width: 350px;
+  justify-content: space-between;
+}
+
+.show-info .recap li {
+  width: 150px;
+  padding: 15px 20px;
+  border-radius: 10px;
+  border: 1px solid #c6c6c6;
+  margin-top: 20px;
+}
+
+.show-info .show-services {
+  display: flex;
+  flex-wrap: wrap;
+  width: 100%;
+  justify-content: space-between;
+}
+
+.show-info .show-services li {
+  width: calc(100% / 2);
+  padding: 15px 20px;
+}
+
+.show-info .service-icon {
+  max-width: 55px;
+  padding: 15px 15px 15px 0;
+  vertical-align: middle;
+}
+
+.show-info .service-icon:last-child {
+  margin-bottom: 0px;
+}
+
+.show-info .admin-action {
+  display: flex;
+  justify-content: flex-end;
+  padding: 20px 8px;
+}
+
+.show-info .admin-action #modal-delete {
+  display: none;
+}
+
+.show-info .admin-action a {
+  color: #ba5160;
+  font-weight: 800;
+  padding: 0 10px;
+}
+
+.show-info .admin-action a:first-child {
+  border-right: 1px solid #3c3c3c;
+}
+
+.show-info .admin-action a:hover {
+  color: #e7697c;
+}
+
+.show-info .highlight {
+  width: 350px;
+  max-height: 200px;
+  padding: 20px;
+  border-radius: 10px;
+  justify-content: space-between;
+  border: 1px solid #c6c6c6;
+  box-shadow: 0px 0px 5px 1px rgba(82, 82, 82, 0.2);
+  margin: 30px;
+  margin-left: 45px;
+}
+
+.show-info .highlight .show-list-title::before {
+  content: none;
+}
+
+.show-info .highlight .price {
+  color: #ba5160;
+  font-size: 30px;
+  font-weight: 500;
+  display: inline-block;
+}
+
+.show-info .highlight .message {
+  align-self: center;
+}
+
+@media (max-width: 992px) {
+  .show-info {
+    flex-direction: column-reverse;
+  }
+
+  .show-info .highlight {
+    margin: 30px;
+    align-self: center;
+  }
 }
 

@@ -2,7 +2,7 @@
 
 @section('main-section')
     <div class="container">
-        ciaone
+        
         @foreach ($houses as $house)
             <div class="card">
                 <img class="card-img-top" src="{{asset('storage/'.$house->cover_img)}}" alt="Card image cap">

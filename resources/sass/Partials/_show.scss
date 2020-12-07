@@ -1,6 +1,6 @@
 //Box elementi
 .show-box{
-    padding:20px 0;
+    padding:20px 0 30px;
     border-bottom: 1px solid #c6c6c6;
 
 }
@@ -9,9 +9,9 @@
 .show-title{
     font-size: 40px;
     font-weight: 900;
-    margin-bottom: 12px;
+    // margin-bottom: 12px;
     border-bottom: 1px solid #c6c6c6;
-    padding-bottom: 12px;
+    padding-bottom: 20px;
     
 
     &::before{
@@ -30,7 +30,7 @@
 
 //Tipo show
 .house-type{
-    margin-bottom: 18px;
+    margin: 15px 0;
     font-size: 16px;
     font-weight: 400;
 }
@@ -62,11 +62,175 @@
     text-align: justify;
 }
 
+//Immagine
 .show-img{
-    background-image: url;
-    background-repeat: no-repeat;
-    background-size: cover;
     border-radius: 10px;
     width: 550px;
     height: 550px;
+
+
+    img{     
+        height: 550px;
+        width: 550px;
+        object-fit: cover;
+        border-radius: 10px;
+    }
+}
+
+
+//Sottotitolo infoshow
+.show-subinfo{
+    display: flex;
+    border-bottom: 1px solid #c6c6c6;
+
+    li{
+        margin: 15px 0;
+      
+
+            &::after{
+                content:"";
+                background-color: $mainColor;
+                vertical-align: middle;
+                padding: 2px;
+                display: inline-block;
+                border-radius: 100px;
+                margin: 0 10px;
+
+            }
+
+            &:last-child:after{
+                 content: none;
+
+            }
+    }
+}
+
+
+//Informazioni casa
+.show-info{
+    display: flex;
+    justify-content: space-between;
+    margin-bottom:50px;
+
+    .show-house{
+        display: flex;
+        flex-direction: column;
+    
+    }
+
+    .recap{
+        display: flex;
+        flex-wrap: wrap;
+        width: 350px;
+        justify-content: space-between;
+        
+        
+        li{
+            width: 150px;
+            padding: 15px 20px;
+            border-radius: 10px;
+            border: 1px solid #c6c6c6;
+            margin-top: 20px; 
+        }
+    
+       
+    }
+
+    .show-services{
+        display: flex;
+        flex-wrap: wrap;
+        width: 100%;
+        justify-content: space-between;
+
+        li{
+            width: calc(100% / 2);
+            padding: 15px 20px;
+        }
+    }
+
+    .service-icon{
+        max-width: 55px;
+        padding:15px 15px 15px 0;
+        vertical-align: middle;
+
+        &:last-child{
+            margin-bottom: 0px;
+        }
+    }
+
+
+
+
+    //Box Azioni Admin
+    .admin-action{
+        display: flex;
+        justify-content: flex-end;
+        padding:20px 8px;
+
+        #modal-delete{
+            display: none;
+        }
+
+       
+
+        a{
+            color: $mainColor;
+            font-weight: 800;
+            padding:0 10px;
+
+            &:first-child{
+            border-right: 1px solid $textColor;
+            }
+
+            &:hover{
+                color: #e7697c;
+            }
+        }
+    }
+    
+
+    //Box Destro
+    .highlight{
+        width: 350px;
+        max-height: 200px;
+        padding: 20px;
+        border-radius: 10px;
+        justify-content: space-between;
+        border: 1px solid #c6c6c6;
+        -webkit-box-shadow: 0px 0px 5px 1px rgba(0,0,0,0.2); 
+        box-shadow: 0px 0px 5px 1px rgba(82, 82, 82, 0.2);
+        margin: 30px;
+        margin-left: 45px;
+
+        
+        .show-list-title::before{
+            content: none;
+        }
+    
+        .price{
+            color: $mainColor;
+            font-size: 30px;
+            font-weight: 500;
+            display: inline-block;
+        }
+    
+        .message{
+            align-self: center;
+
+        }
+    }
+}
+
+@media (max-width: 992px){
+    .show-info{
+        flex-direction: column-reverse;
+        
+
+        .highlight{
+            margin:30px;
+            align-self: center;
+        }
+    }
+
+
 }

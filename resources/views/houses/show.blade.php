@@ -23,7 +23,6 @@
                         </ul>
                     </div>
                         
-                        {{-- <p>{{$house->address}}</p> --}}
 
                     {{-- Recap house --}}
                     <div class="show-box">    
@@ -46,35 +45,6 @@
                                 <li><span><img class="service-icon" src="{{asset($service->path_icon)}}" alt="Icona {{$service->name_serv}}"></span>{{$service->name_serv}}</li>
                             @endforeach
                         </ul>
-                    </div>
-                    <div>
-
-                        {{-- DIV toggle (si apre il div al click per visualizzare le statistiche) --}}
-                        {{-- <h3>STATISTICHE</h3> --}}
-                    </div>
-
-                    {{-- Admin-Action --}}
-                    <div class="admin-action">
-                        <a href="{{route('admin.houses.edit',  $house->slug)}}">Modifica</a>
-                        <a href="#">Sponsorizza</a>
-                        <p id="open-modal">Elimina</p>
-
-                        {{-- Delete Modal --}}
-                        <div id="modal-delete" class="modal">
-                            <div class="modal-warp">
-                                <span class="modal-close">X</span>
-                                <p>Sei sicuro di cancellare questo alloggio?</p>
-                                <div class="btn-back modal-close">Annulla</div>
-                                <form action="{{route('admin.houses.destroy', $house->slug)}}" method="POST">
-                                    @csrf
-                                    @method('DELETE')
-
-                                    <input type="submit" value="Delete">
-
-                                </form>
-                            </div>
-                        </div>
-
                     </div>
                 </div>
 

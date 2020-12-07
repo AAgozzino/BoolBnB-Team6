@@ -52851,6 +52851,8 @@ __webpack_require__(/*! ./search.js */ "./resources/js/search.js");
 
 __webpack_require__(/*! ./valid_layouts.js */ "./resources/js/valid_layouts.js");
 
+__webpack_require__(/*! ./modal.js */ "./resources/js/modal.js");
+
 /***/ }),
 
 /***/ "./resources/js/bootstrap.js":
@@ -52895,6 +52897,26 @@ window.axios.defaults.headers.common['X-Requested-With'] = 'XMLHttpRequest';
 //     cluster: process.env.MIX_PUSHER_APP_CLUSTER,
 //     forceTLS: true
 // });
+
+/***/ }),
+
+/***/ "./resources/js/modal.js":
+/*!*******************************!*\
+  !*** ./resources/js/modal.js ***!
+  \*******************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+$("#open-modal").click(function (e) {
+  $("#modal-delete").show();
+});
+$(".modal-close").click(function (e) {
+  close();
+});
+
+function close() {
+  $("#modal-delete").hide();
+}
 
 /***/ }),
 
