@@ -3,10 +3,9 @@
 
     & .btn_back_lnk {
         margin-bottom: 120px;
+        width: 100px;
 
         & .btn_back {
-            width: 100px;
-            margin: auto;
             background-color: $mainColor;
             color: #ffffff;
             border-radius: 15px;
@@ -14,19 +13,39 @@
             cursor: pointer;
             padding: 10px;
 
-            &:hover {
-                transform: scale(1.1);
-            }
+        }
+
+        &:hover {
+            transform: scale(1.1);
+        }
+    }
+
+    & .select_dv select{
+        width: 30%;
+        padding: 10px;
+        border-radius: 10px;
+        border: 2px solid #bfbfbf;
+        outline: none;
+        vertical-align: middle;
+        margin-bottom: 20px;
+        margin-left: 15px;
+
+        &:focus {
+            border: 2px solid $mainColor;
+        }
+
+        & option {
+            font-size: 18px;
+            color: $mainColor;
         }
     }
 
     & .form_div_mb {
-        margin-bottom: 20px;
+        padding: 0;
 
         & label {
             color: $mainColor;
             font-size: 18px;
-            margin-left: 20px;
         }
 
         & input.txt_input_cr {
@@ -36,18 +55,102 @@
             border: 2px solid #bfbfbf;
             outline: none;
             vertical-align: middle;
+            margin-bottom: 20px;
 
             &:focus {
                 border: 2px solid $mainColor;
             }
 
-            &:focus ::placeholder{
-                color: green;
+            &:focus::placeholder {
+               font-style: italic;
             }
 
             &::placeholder {
                 font-size: 12px;
             }
+        }
+
+        & .nmbr_dv{
+            padding: 0;
+            margin-bottom: 20px;
+
+            & .nmbr_input_cr {
+                width: 100%;
+                padding: 10px;
+                border-radius: 10px;
+                border: 2px solid #bfbfbf;
+                outline: none;
+                vertical-align: middle;
+
+                &:focus {
+                    border: 2px solid $mainColor;
+                }
+    
+                &:focus::placeholder {
+                   font-style: italic;
+                }
+    
+                &::placeholder {
+                    font-size: 12px;
+                }
+            }
+
+            & .price_input {
+                margin-left: 15px;
+            }
+        }
+    }
+ 
+    & .serv_list_cnt {
+        margin: 20px 0;
+
+        & h4 {
+            font-size: 18px;
+            color: $mainColor;
+            font-weight: 100;
+            padding: 0;
+            margin-bottom: 15px;
+        }
+
+        & .srv_chkbox {
+            margin-bottom: 10px;
+            padding: 0;
+        }
+    }
+
+    & .textar_input {
+        margin-bottom: 20px;
+
+        & textarea {
+            width: 100%;
+            padding: 10px;
+            border-radius: 10px;
+            border: 2px solid #bfbfbf;
+            outline: none;
+
+            &:focus {
+                border: 2px solid $mainColor;
+            }
+        }
+    }
+
+    & .file_img_sd input{
+        outline: none;
+        margin-top: 10px;
+    }
+
+    & .create_ndx_btn {
+        background-color: $mainColor;
+        color: #ffffff;
+        border-radius: 15px;
+        border: transparent;
+        cursor: pointer;
+        padding: 10px;
+        outline: none;
+        margin-top: 30px;
+
+        &:hover {
+            transform: scale(1.1);
         }
     }
 }

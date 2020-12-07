@@ -4899,11 +4899,10 @@ header .navbar-expand-md .cont_flex #navbarSupportedContent .hambrg_menu .hamb_i
 
 .create_hs_cstm .btn_back_lnk {
   margin-bottom: 120px;
+  width: 100px;
 }
 
 .create_hs_cstm .btn_back_lnk .btn_back {
-  width: 100px;
-  margin: auto;
   background-color: #ba5160;
   color: #ffffff;
   border-radius: 15px;
@@ -4912,18 +4911,37 @@ header .navbar-expand-md .cont_flex #navbarSupportedContent .hambrg_menu .hamb_i
   padding: 10px;
 }
 
-.create_hs_cstm .btn_back_lnk .btn_back:hover {
+.create_hs_cstm .btn_back_lnk:hover {
   transform: scale(1.1);
 }
 
-.create_hs_cstm .form_div_mb {
+.create_hs_cstm .select_dv select {
+  width: 30%;
+  padding: 10px;
+  border-radius: 10px;
+  border: 2px solid #bfbfbf;
+  outline: none;
+  vertical-align: middle;
   margin-bottom: 20px;
+  margin-left: 15px;
+}
+
+.create_hs_cstm .select_dv select:focus {
+  border: 2px solid #ba5160;
+}
+
+.create_hs_cstm .select_dv select option {
+  font-size: 18px;
+  color: #ba5160;
+}
+
+.create_hs_cstm .form_div_mb {
+  padding: 0;
 }
 
 .create_hs_cstm .form_div_mb label {
   color: #ba5160;
   font-size: 18px;
-  margin-left: 20px;
 }
 
 .create_hs_cstm .form_div_mb input.txt_input_cr {
@@ -4933,22 +4951,23 @@ header .navbar-expand-md .cont_flex #navbarSupportedContent .hambrg_menu .hamb_i
   border: 2px solid #bfbfbf;
   outline: none;
   vertical-align: middle;
+  margin-bottom: 20px;
 }
 
 .create_hs_cstm .form_div_mb input.txt_input_cr:focus {
   border: 2px solid #ba5160;
 }
 
-.create_hs_cstm .form_div_mb input.txt_input_cr:focus ::-moz-placeholder {
-  color: green;
+.create_hs_cstm .form_div_mb input.txt_input_cr:focus::-moz-placeholder {
+  font-style: italic;
 }
 
-.create_hs_cstm .form_div_mb input.txt_input_cr:focus :-ms-input-placeholder {
-  color: green;
+.create_hs_cstm .form_div_mb input.txt_input_cr:focus:-ms-input-placeholder {
+  font-style: italic;
 }
 
-.create_hs_cstm .form_div_mb input.txt_input_cr:focus ::placeholder {
-  color: green;
+.create_hs_cstm .form_div_mb input.txt_input_cr:focus::placeholder {
+  font-style: italic;
 }
 
 .create_hs_cstm .form_div_mb input.txt_input_cr::-moz-placeholder {
@@ -4961,5 +4980,104 @@ header .navbar-expand-md .cont_flex #navbarSupportedContent .hambrg_menu .hamb_i
 
 .create_hs_cstm .form_div_mb input.txt_input_cr::placeholder {
   font-size: 12px;
+}
+
+.create_hs_cstm .form_div_mb .nmbr_dv {
+  padding: 0;
+  margin-bottom: 20px;
+}
+
+.create_hs_cstm .form_div_mb .nmbr_dv .nmbr_input_cr {
+  width: 100%;
+  padding: 10px;
+  border-radius: 10px;
+  border: 2px solid #bfbfbf;
+  outline: none;
+  vertical-align: middle;
+}
+
+.create_hs_cstm .form_div_mb .nmbr_dv .nmbr_input_cr:focus {
+  border: 2px solid #ba5160;
+}
+
+.create_hs_cstm .form_div_mb .nmbr_dv .nmbr_input_cr:focus::-moz-placeholder {
+  font-style: italic;
+}
+
+.create_hs_cstm .form_div_mb .nmbr_dv .nmbr_input_cr:focus:-ms-input-placeholder {
+  font-style: italic;
+}
+
+.create_hs_cstm .form_div_mb .nmbr_dv .nmbr_input_cr:focus::placeholder {
+  font-style: italic;
+}
+
+.create_hs_cstm .form_div_mb .nmbr_dv .nmbr_input_cr::-moz-placeholder {
+  font-size: 12px;
+}
+
+.create_hs_cstm .form_div_mb .nmbr_dv .nmbr_input_cr:-ms-input-placeholder {
+  font-size: 12px;
+}
+
+.create_hs_cstm .form_div_mb .nmbr_dv .nmbr_input_cr::placeholder {
+  font-size: 12px;
+}
+
+.create_hs_cstm .form_div_mb .nmbr_dv .price_input {
+  margin-left: 15px;
+}
+
+.create_hs_cstm .serv_list_cnt {
+  margin: 20px 0;
+}
+
+.create_hs_cstm .serv_list_cnt h4 {
+  font-size: 18px;
+  color: #ba5160;
+  font-weight: 100;
+  padding: 0;
+  margin-bottom: 15px;
+}
+
+.create_hs_cstm .serv_list_cnt .srv_chkbox {
+  margin-bottom: 10px;
+  padding: 0;
+}
+
+.create_hs_cstm .textar_input {
+  margin-bottom: 20px;
+}
+
+.create_hs_cstm .textar_input textarea {
+  width: 100%;
+  padding: 10px;
+  border-radius: 10px;
+  border: 2px solid #bfbfbf;
+  outline: none;
+}
+
+.create_hs_cstm .textar_input textarea:focus {
+  border: 2px solid #ba5160;
+}
+
+.create_hs_cstm .file_img_sd input {
+  outline: none;
+  margin-top: 10px;
+}
+
+.create_hs_cstm .create_ndx_btn {
+  background-color: #ba5160;
+  color: #ffffff;
+  border-radius: 15px;
+  border: transparent;
+  cursor: pointer;
+  padding: 10px;
+  outline: none;
+  margin-top: 30px;
+}
+
+.create_hs_cstm .create_ndx_btn:hover {
+  transform: scale(1.1);
 }
 
