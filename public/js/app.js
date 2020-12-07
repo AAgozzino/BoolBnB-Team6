@@ -52922,6 +52922,10 @@ if (document.URL.includes("register")) {
   $('#main-cover h1').html('Registrati adesso!');
 }
 
+if (document.URL.includes("create")) {
+  $('.add_input_search').remove();
+}
+
 /***/ }),
 
 /***/ "./resources/js/places.js":
@@ -52931,7 +52935,9 @@ if (document.URL.includes("register")) {
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
-// const { create } = require('lodash');
+var _require = __webpack_require__(/*! lodash */ "./node_modules/lodash/lodash.js"),
+    create = _require.create;
+
 var places = __webpack_require__(/*! places.js */ "./node_modules/places.js/index.js");
 
 $(document).ready(function () {

@@ -1,4 +1,4 @@
-// const { create } = require('lodash');
+const { create } = require('lodash');
 var places = require('places.js');
 
 $(document).ready(function(){
