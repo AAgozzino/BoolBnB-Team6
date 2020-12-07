@@ -14,11 +14,12 @@ class HouseController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    // public function index()
-    // {
-        // $houses = House::all();
-        // return view("houses.index", compact('houses'));
-    // }
+    public function index()
+    {
+        $houses = House::all();
+        
+        return view("houses.index", compact('houses'));
+    }
 
     /**
      * Display the specified resource.
@@ -26,16 +27,19 @@ class HouseController extends Controller
      * @param  \App\House  $house
      * @return \Illuminate\Http\Response
      */
-    public function show()
+    public function show($slug)
     {
-        //
+        $house = House::where('slug', $slug)->first();
+        return view('houses.show', compact('house'));
     }
 
-    public function index()
-    {
-        // TODO SPONSORIZED HOUSES FILTER
-        return view('houses.index');
-    }
+    // public function index()
+    // {
+    //     $houses = House::all();
+    //     dd($houses);
+    //     // TODO SPONSORIZED HOUSES FILTER
+    //     return view('houses.index', compact('house'));
+    // }
 
     public function search(Request $request)
     {

@@ -52851,6 +52851,8 @@ __webpack_require__(/*! ./search.js */ "./resources/js/search.js");
 
 __webpack_require__(/*! ./valid_layouts.js */ "./resources/js/valid_layouts.js");
 
+__webpack_require__(/*! ./modal.js */ "./resources/js/modal.js");
+
 __webpack_require__(/*! ./form-log-reg.js */ "./resources/js/form-log-reg.js");
 
 /***/ }),
@@ -52930,6 +52932,30 @@ if (document.URL.includes("create")) {
 if (document.URL.includes("edit")) {
   $('.add_input_search').remove();
   $('#main-cover').hide();
+}
+
+if (document.URL.includes("admin/houses")) {
+  $('#main-cover').hide();
+}
+
+/***/ }),
+
+/***/ "./resources/js/modal.js":
+/*!*******************************!*\
+  !*** ./resources/js/modal.js ***!
+  \*******************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+$("#open-modal").click(function (e) {
+  $("#modal-delete").show();
+});
+$(".modal-close").click(function (e) {
+  close();
+});
+
+function close() {
+  $("#modal-delete").hide();
 }
 
 /***/ }),
@@ -53060,6 +53086,11 @@ $(document).ready(function () {
   mouseBtnGrad();
   hoverInfo();
   hambMenu();
+  var pwTitle = $(this).text();
+  console.log(pwTitle);
+  var textCropped = cropText(pwTitle, 15);
+  console.log(textCropped);
+  pwTitle = textCropped;
 }); // FUNCTIONS
 // function gradient hover
 
@@ -53088,7 +53119,21 @@ function hoverInfo() {
   $(document).on('mouseenter', '.welcome_name', function () {
     $('.tend_menu').slideToggle();
   });
+} // function crop text
+
+
+function cropText(text, num) {
+  // If text shorter than fixed character number
+  if (text.length <= num) {
+    return text;
+  } else {
+    // Slice text
+    var subText = text.substr(0, num - 1);
+    return subText.substr(0, subText.lastIndexOf(" ")) + " ...";
+  }
 }
+
+;
 
 /***/ }),
 
@@ -53110,8 +53155,8 @@ function hoverInfo() {
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
-__webpack_require__(/*! C:\Users\User\Desktop\Boolean\boolbnb-team6\resources\js\app.js */"./resources/js/app.js");
-module.exports = __webpack_require__(/*! C:\Users\User\Desktop\Boolean\boolbnb-team6\resources\sass\app.scss */"./resources/sass/app.scss");
+__webpack_require__(/*! /Users/annaagozzino/Desktop/boolean/esercizi/boolbnb-team6/resources/js/app.js */"./resources/js/app.js");
+module.exports = __webpack_require__(/*! /Users/annaagozzino/Desktop/boolean/esercizi/boolbnb-team6/resources/sass/app.scss */"./resources/sass/app.scss");
 
 
 /***/ }),
