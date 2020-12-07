@@ -14,12 +14,14 @@ use Illuminate\Support\Facades\Auth;
 |
 */
 
-Route::get('/', function () {
-    return view('houses.index');
-});
+// GUEST ROUTES
+Route::get('/', 'HouseController@index')->name('houses');
+Route::get('houses/{slug}', 'HouseController@show')->name('houses.show');
+Route::post('houses/search', 'HouseController@search')->name('houses.search');
+
 
 Auth::routes();
-
+// ADMIN ROUTES
 Route::prefix('admin')
     ->name('admin.')
     ->namespace('Admin')
@@ -29,7 +31,4 @@ Route::prefix('admin')
         Route::resource('houses', 'HouseController');
     });
 
-Route::get('houses.index', 'HouseController@index')->name('houses');
-Route::get('houses/{slug}', 'HouseController@show')->name('houses.show');
-Route::post('houses/search', 'HouseController@search')->name('houses.search');
 

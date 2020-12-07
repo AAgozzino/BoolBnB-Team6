@@ -14,11 +14,12 @@ class HouseController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    // public function index()
-    // {
-        // $houses = House::all();
-        // return view("houses.index", compact('houses'));
-    // }
+    public function index()
+    {
+        $houses = House::all();
+        
+        return view("houses.index", compact('houses'));
+    }
 
     /**
      * Display the specified resource.
@@ -31,11 +32,13 @@ class HouseController extends Controller
         //
     }
 
-    public function index()
-    {
-        // TODO SPONSORIZED HOUSES FILTER
-        return view('houses.index');
-    }
+    // public function index()
+    // {
+    //     $houses = House::all();
+    //     dd($houses);
+    //     // TODO SPONSORIZED HOUSES FILTER
+    //     return view('houses.index', compact('house'));
+    // }
 
     public function search(Request $request)
     {
