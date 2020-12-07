@@ -7,6 +7,8 @@
             <a class="btn_back" href="{{route('admin.houses.index')}}">Indietro</a>
         </div>
 
+        <h2>CREA IL TUO APPARTAMENTO</h2>
+
         <form action="{{route('admin.houses.store')}}" method="POST" enctype="multipart/form-data">
             @csrf
             @method('POST')
@@ -14,7 +16,6 @@
             {{-- House Type --}}
             <div class="form-group row form_div_mb select_dv">
                 <label for="type_id" class="col-md-12 col-form-label text-md-right">Tipologia di alloggio</label>
-                {{-- <small class="form-text text-muted">Scegli la tipologia di alloggio</small> --}}
                 <select name="type_id" id="type_id">
                     @foreach ($types as $type)
                         <option value="{{old($type->type)}}">

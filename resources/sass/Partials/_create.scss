@@ -1,6 +1,11 @@
 .create_hs_cstm {
     margin-bottom: 120px;
 
+    & h2 {
+        margin-bottom: 30px;
+        color: $textColor;
+    }
+
     & .btn_back_lnk {
         margin-bottom: 120px;
         width: 100px;
@@ -98,6 +103,10 @@
             & .price_input {
                 margin-left: 15px;
             }
+        }
+
+        & .img_storage_upd {
+            width: 100%;
         }
     }
  

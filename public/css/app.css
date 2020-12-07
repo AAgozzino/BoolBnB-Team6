@@ -4897,6 +4897,11 @@ header .navbar-expand-md .cont_flex #navbarSupportedContent .hambrg_menu .hamb_i
   margin-bottom: 120px;
 }
 
+.create_hs_cstm h2 {
+  margin-bottom: 30px;
+  color: #3c3c3c;
+}
+
 .create_hs_cstm .btn_back_lnk {
   margin-bottom: 120px;
   width: 100px;
@@ -5026,6 +5031,10 @@ header .navbar-expand-md .cont_flex #navbarSupportedContent .hambrg_menu .hamb_i
 
 .create_hs_cstm .form_div_mb .nmbr_dv .price_input {
   margin-left: 15px;
+}
+
+.create_hs_cstm .form_div_mb .img_storage_upd {
+  width: 100%;
 }
 
 .create_hs_cstm .serv_list_cnt {

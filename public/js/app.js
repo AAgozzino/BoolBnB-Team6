@@ -52924,10 +52924,12 @@ if (document.URL.includes("register")) {
 
 if (document.URL.includes("create")) {
   $('.add_input_search').remove();
+  $('#main-cover').hide();
 }
 
 if (document.URL.includes("edit")) {
   $('.add_input_search').remove();
+  $('#main-cover').hide();
 }
 
 /***/ }),
