@@ -1,3 +1,4 @@
+//Cover Hero
 #main-cover{
     height: 550px;
     width: 100%;
@@ -7,13 +8,14 @@
     background-position: 50% 83%;
     margin-top: 74px;
 
+    //Content hero
     .hero-flex{
         display: flex;
-        height: 550px;;
-        
+        height: 550px;        
         align-items: center; 
     }
 
+    //Title
     h1{
         color: white;
         font-size: 60px;
@@ -23,6 +25,7 @@
     
 }
 
+//Onda
 #wave {
     background-image: linear-gradient(90deg, #ba5160 0%, #fedea1 50%, rgba(186,81,96,1) 100%); 
   

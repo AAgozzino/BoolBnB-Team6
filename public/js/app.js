@@ -52851,6 +52851,8 @@ __webpack_require__(/*! ./search.js */ "./resources/js/search.js");
 
 __webpack_require__(/*! ./valid_layouts.js */ "./resources/js/valid_layouts.js");
 
+__webpack_require__(/*! ./modal.js */ "./resources/js/modal.js");
+
 __webpack_require__(/*! ./form-log-reg.js */ "./resources/js/form-log-reg.js");
 
 /***/ }),
@@ -52930,6 +52932,26 @@ if (document.URL.includes("create")) {
 if (document.URL.includes("edit")) {
   $('.add_input_search').remove();
   $('#main-cover').hide();
+}
+
+/***/ }),
+
+/***/ "./resources/js/modal.js":
+/*!*******************************!*\
+  !*** ./resources/js/modal.js ***!
+  \*******************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+$("#open-modal").click(function (e) {
+  $("#modal-delete").show();
+});
+$(".modal-close").click(function (e) {
+  close();
+});
+
+function close() {
+  $("#modal-delete").hide();
 }
 
 /***/ }),
@@ -53110,8 +53132,8 @@ function hoverInfo() {
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
-__webpack_require__(/*! C:\Users\User\Desktop\Boolean\boolbnb-team6\resources\js\app.js */"./resources/js/app.js");
-module.exports = __webpack_require__(/*! C:\Users\User\Desktop\Boolean\boolbnb-team6\resources\sass\app.scss */"./resources/sass/app.scss");
+__webpack_require__(/*! D:\Boolean\Progetto finale\boolbnb-team6\resources\js\app.js */"./resources/js/app.js");
+module.exports = __webpack_require__(/*! D:\Boolean\Progetto finale\boolbnb-team6\resources\sass\app.scss */"./resources/sass/app.scss");
 
 
 /***/ }),

@@ -26,9 +26,10 @@ class HouseController extends Controller
      * @param  \App\House  $house
      * @return \Illuminate\Http\Response
      */
-    public function show()
+    public function show($slug)
     {
-        //
+        $house = House::where('slug', $slug)->first();
+        return view('houses.show', compact('house'));
     }
 
     public function index()
