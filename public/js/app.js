@@ -52917,6 +52917,10 @@ if (document.URL.includes("reset")) {
   $('#main-cover').hide();
 }
 
+if (document.URL.includes("admin/houses")) {
+  $('#main-cover').hide();
+}
+
 /***/ }),
 
 /***/ "./resources/js/places.js":
@@ -53095,8 +53099,8 @@ function hoverInfo() {
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
-__webpack_require__(/*! C:\Users\User\Desktop\Boolean\boolbnb-team6\resources\js\app.js */"./resources/js/app.js");
-module.exports = __webpack_require__(/*! C:\Users\User\Desktop\Boolean\boolbnb-team6\resources\sass\app.scss */"./resources/sass/app.scss");
+__webpack_require__(/*! /Users/annaagozzino/Desktop/boolean/esercizi/boolbnb-team6/resources/js/app.js */"./resources/js/app.js");
+module.exports = __webpack_require__(/*! /Users/annaagozzino/Desktop/boolean/esercizi/boolbnb-team6/resources/sass/app.scss */"./resources/sass/app.scss");
 
 
 /***/ }),
