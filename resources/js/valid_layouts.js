@@ -3,7 +3,14 @@ $(document).ready(function(){
     hoverInfo();
     hambMenu();
   
+    var pwTitle = $(this).text();
+    console.log(pwTitle);
+    var textCropped = cropText(pwTitle, 15);
+    console.log(textCropped);
+    pwTitle = textCropped
 });
+
+
 
 // FUNCTIONS
 
@@ -36,3 +43,15 @@ function hoverInfo() {
         $('.tend_menu').slideToggle();
     });
 }
+
+// function crop text
+function cropText(text, num) {
+    // If text shorter than fixed character number
+    if (text.length <= num) {
+      return text
+    }else {
+      // Slice text
+      var subText = text.substr(0, num-1);
+      return subText.substr(0, subText.lastIndexOf(" ")) + " ..."
+    }
+  };

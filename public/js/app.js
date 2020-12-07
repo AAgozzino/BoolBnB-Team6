@@ -52934,6 +52934,10 @@ if (document.URL.includes("edit")) {
   $('#main-cover').hide();
 }
 
+if (document.URL.includes("admin/houses")) {
+  $('#main-cover').hide();
+}
+
 /***/ }),
 
 /***/ "./resources/js/modal.js":
@@ -53082,6 +53086,11 @@ $(document).ready(function () {
   mouseBtnGrad();
   hoverInfo();
   hambMenu();
+  var pwTitle = $(this).text();
+  console.log(pwTitle);
+  var textCropped = cropText(pwTitle, 15);
+  console.log(textCropped);
+  pwTitle = textCropped;
 }); // FUNCTIONS
 // function gradient hover
 
@@ -53110,7 +53119,21 @@ function hoverInfo() {
   $(document).on('mouseenter', '.welcome_name', function () {
     $('.tend_menu').slideToggle();
   });
+} // function crop text
+
+
+function cropText(text, num) {
+  // If text shorter than fixed character number
+  if (text.length <= num) {
+    return text;
+  } else {
+    // Slice text
+    var subText = text.substr(0, num - 1);
+    return subText.substr(0, subText.lastIndexOf(" ")) + " ...";
+  }
 }
+
+;
 
 /***/ }),
 
@@ -53132,8 +53155,8 @@ function hoverInfo() {
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
-__webpack_require__(/*! D:\Boolean\Progetto finale\boolbnb-team6\resources\js\app.js */"./resources/js/app.js");
-module.exports = __webpack_require__(/*! D:\Boolean\Progetto finale\boolbnb-team6\resources\sass\app.scss */"./resources/sass/app.scss");
+__webpack_require__(/*! /Users/annaagozzino/Desktop/boolean/esercizi/boolbnb-team6/resources/js/app.js */"./resources/js/app.js");
+module.exports = __webpack_require__(/*! /Users/annaagozzino/Desktop/boolean/esercizi/boolbnb-team6/resources/sass/app.scss */"./resources/sass/app.scss");
 
 
 /***/ }),
