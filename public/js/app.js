@@ -52855,6 +52855,8 @@ __webpack_require__(/*! ./modal.js */ "./resources/js/modal.js");
 
 __webpack_require__(/*! ./form-log-reg.js */ "./resources/js/form-log-reg.js");
 
+__webpack_require__(/*! ./map.js */ "./resources/js/map.js");
+
 /***/ }),
 
 /***/ "./resources/js/bootstrap.js":
@@ -52937,6 +52939,29 @@ if (document.URL.includes("edit")) {
 if (document.URL.includes("admin/houses")) {
   $('#main-cover').hide();
 }
+
+/***/ }),
+
+/***/ "./resources/js/map.js":
+/*!*****************************!*\
+  !*** ./resources/js/map.js ***!
+  \*****************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+var mapLat = $('#house-lat').data("lat");
+var mapLon = $('#house-lon').data("lon");
+console.log(mapLat);
+var mymap = L.map('mapid').setView([mapLat, mapLon], 13);
+L.tileLayer('https://api.maptiler.com/maps/streets/{z}/{x}/{y}.png?key=g4tVPhdOiCmsJLWTlyc1', {
+  attribution: 'Map data &copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors, Imagery © <a href="https://www.mapbox.com/">Mapbox</a>',
+  maxZoom: 18,
+  id: 'mapbox/streets-v11',
+  tileSize: 512,
+  zoomOffset: -1,
+  accessToken: 'your.mapbox.access.token'
+}).addTo(mymap);
+var marker = L.marker([mapLat, mapLon]).addTo(mymap);
 
 /***/ }),
 
@@ -53031,8 +53056,8 @@ $(document).ready(function () {
     var serv_id = [];
     $("input:checkbox[name=service_id]:checked").each(function () {
       serv_id.push(parseInt($(this).val()));
-    });
-    console.log(serv_id); // var query = $(this).serialize();
+    }); // console.log(serv_id);
+    // var query = $(this).serialize();
     // console.log(query);
     // console.log($("#price").val());
 
@@ -53052,8 +53077,7 @@ $(document).ready(function () {
       },
       "success": function success(data) {
         $('#houses-list').html("");
-        renderHouse(data.response);
-        console.log(data);
+        renderHouse(data.response); // console.log(data);
       },
       "error": function error(_error) {
         alert("ERRORE!");
@@ -53086,10 +53110,10 @@ $(document).ready(function () {
   mouseBtnGrad();
   hoverInfo();
   hambMenu();
-  var pwTitle = $(this).text();
-  console.log(pwTitle);
-  var textCropped = cropText(pwTitle, 15);
-  console.log(textCropped);
+  var pwTitle = $(this).text(); // console.log(pwTitle);
+
+  var textCropped = cropText(pwTitle, 15); // console.log(textCropped);
+
   pwTitle = textCropped;
 }); // FUNCTIONS
 // function gradient hover

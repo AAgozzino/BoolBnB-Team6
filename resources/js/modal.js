@@ -6,8 +6,6 @@ $(".modal-close").click(function(e){
     close();
 });
 
-
-
 function close(){
     $("#modal-delete").hide();
 }

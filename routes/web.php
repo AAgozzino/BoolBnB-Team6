@@ -31,5 +31,3 @@ Route::prefix('admin')
         Route::get('messages', 'MessageController@index')->name('messages');
         Route::resource('houses', 'HouseController');
     });
-
-

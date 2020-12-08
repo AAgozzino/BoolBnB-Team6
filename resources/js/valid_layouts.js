@@ -4,9 +4,9 @@ $(document).ready(function(){
     hambMenu();
   
     var pwTitle = $(this).text();
-    console.log(pwTitle);
+    // console.log(pwTitle);
     var textCropped = cropText(pwTitle, 15);
-    console.log(textCropped);
+    // console.log(textCropped);
     pwTitle = textCropped
 });
 

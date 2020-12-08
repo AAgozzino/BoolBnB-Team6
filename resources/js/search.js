@@ -11,7 +11,7 @@ $(document).ready(function(){
         $("input:checkbox[name=service_id]:checked").each(function(){
             serv_id.push(parseInt($(this).val()));
         });
-        console.log(serv_id);
+        // console.log(serv_id);
         
         // var query = $(this).serialize();
         // console.log(query);
@@ -34,7 +34,7 @@ $(document).ready(function(){
                 "success": function (data) {
                     $('#houses-list').html("");
                     renderHouse(data.response);
-                    console.log(data);
+                    // console.log(data);
                 },
                 "error": function (error) {
                     alert("ERRORE!");
