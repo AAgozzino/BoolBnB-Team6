@@ -7,7 +7,7 @@
             <a class="btn_back" href="{{route('admin.houses.index')}}">Indietro</a>
         </div>
 
-        <h2>CREA IL TUO APPARTAMENTO</h2>
+        <h2>Crea il tuo alloggio</h2>
 
         <form action="{{route('admin.houses.store')}}" method="POST" enctype="multipart/form-data">
             @csrf
