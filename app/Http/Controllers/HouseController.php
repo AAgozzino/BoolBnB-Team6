@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\House;
 use App\Service;
+use App\User;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 
@@ -30,6 +31,7 @@ class HouseController extends Controller
     public function show($slug)
     {
         $house = House::where('slug', $slug)->first();
+        $user = User::where('id', $house->user_id)->get();
         return view('houses.show', compact('house'));
     }
 

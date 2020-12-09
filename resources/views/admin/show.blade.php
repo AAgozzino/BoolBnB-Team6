@@ -51,7 +51,7 @@
                                     <h5 class="show-list-title">Servizi aggiuntivi</h5>                        
                                 <ul class="show-services">
                                     @foreach ($house->services as $service)
-                                        <li><span><img class="service-icon" src="{{asset($service->path_icon)}}" alt="Icona {{$service->name_serv}}"></span>{{$service->name_serv}}</li>
+                                        <li><span><img class="service-icon" src="{{asset($service->path_icon)}}" alt="Icona {{$service->name_serv}}"></span><span>{{$service->name_serv}}</span></li>
                                     @endforeach
                                 </ul>
                             </div>

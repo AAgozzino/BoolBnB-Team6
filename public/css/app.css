@@ -5161,8 +5161,9 @@ header .navbar-expand-md .cont_flex #navbarSupportedContent .hambrg_menu .hamb_i
 
 @media (max-width: 768px) {
   .show-img {
-    width: 350px;
+    width: 100%;
     max-height: 350px;
+    margin: auto;
   }
 }
 
@@ -5232,7 +5233,7 @@ header .navbar-expand-md .cont_flex #navbarSupportedContent .hambrg_menu .hamb_i
 }
 
 .show-info .service-icon {
-  max-width: 55px;
+  width: 50px;
   padding: 15px 15px 15px 0;
   vertical-align: middle;
 }

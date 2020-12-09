@@ -145,7 +145,7 @@
             <div class="form-group row form_div_mb textar_input">
                 <label for="description" class="col-md-8 col-form-label text-md-right">Inserisci descrizione</label>
                 <div class="col-md-12">
-                    <textarea name="description" class="form-control" id="description" name="description" cols="30" rows="10" maxlength="500"> {{old('description')}}</textarea>
+                    <textarea name="description" class="form-control" id="description" cols="30" rows="10" maxlength="500"> {{old('description')}}</textarea>
                 </div>
             </div>
             {{-- /Descrizione --}}
