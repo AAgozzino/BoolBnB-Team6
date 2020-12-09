@@ -15,6 +15,7 @@
 
                 <div class="add_input_search">
                     <input type="text" name="address" id="address-input" placeholder="Dove vuoi andare?" value="{{old('address')}}">
+                    <p class="d_none">Selected: <strong id="address-value">none</strong></p>
                     <input id="latitude" type="hidden" name="lat" value="">
                     <input id="longitude" type="hidden" name="lon" value="">
                     <input type="submit" class="index_search_btn" value="INVIA">
@@ -46,7 +47,7 @@
                                 </div>
 
                                 <div class="cont_tend_menu dropdown-item">
-                                    <a class="message_link" href="{{route('admin.messages')}}">
+                                    <a class="message_link" href="{{route('messages.index')}}">
                                         MESSAGGI
                                     </a>
                                 </div>
@@ -87,7 +88,7 @@
                                     <i class="fas fa-user profile_icon"></i>
                                 </a>
 
-                                <a id="navbarDropdown" class="nav-link dropdown-toggle message_link" href="{{route('admin.messages')}}" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
+                                <a id="navbarDropdown" class="nav-link dropdown-toggle message_link" href="{{route('messages.index')}}" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
                                     MESSAGGI
                                 </a>
     

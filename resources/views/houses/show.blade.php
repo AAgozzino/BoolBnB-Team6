@@ -18,6 +18,7 @@
                         <li>Camere da letto: {{$house->bedrooms}}</li>
                         <li>Bagni: {{$house->bathrooms}}</li>
                         <li>mq: {{$house->mq}}</li>
+                        <li>appartamento di {{$house->user->name}}</li>
                     </ul>
             </div>
 
@@ -70,6 +71,30 @@
                                 <div id="mapid"></div>
                             </div>                                           
                         </div>                        
+                    </div>
+                </div>
+
+                {{-- Box-right --}}
+                 <div class="highlight">
+                    <p class="show-list-title">Prezzo: <span class="price">{{$house->price}}</span></p> 
+                    <div class="message">
+                        
+                        <form action="{{route("messages.store")}}" class="index_form" method="POST">
+                            @csrf
+                            @method("POST")
+
+                            <input type="hidden" name="house_id" id="house_id" class="hdn_npt_hid" value="{{$house->id}}">
+                            <input type="text" name="email_msg" id="email_msg" placeholder="Inserisci la tua mail">
+                            @error('email_msg')
+                                <div class="alert alert-danger">{{ 'Inserire una Email' }}</div>
+                            @enderror
+                            <textarea name="content_msg" id="content_msg" cols="10" rows="10">{{old('content_msg')}}</textarea>
+                            @error('content_msg')
+                                <div class="alert alert-danger">{{ 'Inserire un contenuto' }}</div>
+                            @enderror
+                            <button type="submit" class="message-btn">INVIA UN MESSAGGIO</button>
+                        </form>
+
                     </div>
                 </div>
             </div>

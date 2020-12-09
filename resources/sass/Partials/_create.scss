@@ -1,13 +1,8 @@
 .create_hs_cstm {
     margin-bottom: 120px;
 
-    & h2 {
-        margin-bottom: 30px;
-        color: $textColor;
-    }
-
     & .btn_back_lnk {
-        margin-bottom: 120px;
+        margin-bottom: 60px;
         width: 100px;
 
         & .btn_back {
@@ -23,6 +18,11 @@
         &:hover {
             transform: scale(1.1);
         }
+    }
+
+    & h2 {
+        margin-bottom: 30px;
+        color: $textColor;
     }
 
     & .select_dv select{
@@ -73,6 +73,10 @@
             &::placeholder {
                 font-size: 12px;
             }
+        }
+
+        & .ap-input-icon svg {
+            top: 33%;
         }
 
         & .nmbr_dv{

@@ -52843,17 +52843,22 @@ module.exports = function(module) {
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
-__webpack_require__(/*! ./bootstrap */ "./resources/js/bootstrap.js");
+__webpack_require__(/*! ./bootstrap */ "./resources/js/bootstrap.js"); // Remove element on pages
 
-__webpack_require__(/*! ./places.js */ "./resources/js/places.js");
 
-__webpack_require__(/*! ./search.js */ "./resources/js/search.js");
+__webpack_require__(/*! ./form-log-reg.js */ "./resources/js/form-log-reg.js"); // Autocomplete address and create slug
 
-__webpack_require__(/*! ./valid_layouts.js */ "./resources/js/valid_layouts.js");
+
+__webpack_require__(/*! ./places.js */ "./resources/js/places.js"); // AJAX for advanced search
+
+
+__webpack_require__(/*! ./search.js */ "./resources/js/search.js"); // Graphic features
+
+
+__webpack_require__(/*! ./valid_layouts.js */ "./resources/js/valid_layouts.js"); // Modal
+
 
 __webpack_require__(/*! ./modal.js */ "./resources/js/modal.js");
-
-__webpack_require__(/*! ./form-log-reg.js */ "./resources/js/form-log-reg.js");
 
 __webpack_require__(/*! ./map.js */ "./resources/js/map.js");
 
@@ -52940,6 +52945,11 @@ if (document.URL.includes("admin/houses")) {
   $('#main-cover').hide();
 }
 
+<<<<<<< HEAD
+if (document.URL.includes("admin/messages")) {
+  $('#main-cover').hide();
+}
+
 /***/ }),
 
 /***/ "./resources/js/map.js":
@@ -52949,9 +52959,11 @@ if (document.URL.includes("admin/houses")) {
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-var mapLat = $('#house-lat').data("lat");
-var mapLon = $('#house-lon').data("lon");
-console.log(mapLat);
+// Prendo la latitudine
+var mapLat = $('#house-lat').data("lat"); // Prendo la longitidine
+
+var mapLon = $('#house-lon').data("lon"); // Inizializzo la mappa
+
 var mymap = L.map('mapid').setView([mapLat, mapLon], 13);
 L.tileLayer('https://api.maptiler.com/maps/streets/{z}/{x}/{y}.png?key=g4tVPhdOiCmsJLWTlyc1', {
   attribution: 'Map data &copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors, Imagery © <a href="https://www.mapbox.com/">Mapbox</a>',
@@ -52960,9 +52972,17 @@ L.tileLayer('https://api.maptiler.com/maps/streets/{z}/{x}/{y}.png?key=g4tVPhdOi
   tileSize: 512,
   zoomOffset: -1,
   accessToken: 'your.mapbox.access.token'
-}).addTo(mymap);
+}).addTo(mymap); // Variabile pin
+
 var marker = L.marker([mapLat, mapLon]).addTo(mymap);
 
+=======
+if (document.URL.includes("houses/search")) {
+  $('.add_input_search').remove();
+  $('#main-cover').hide();
+}
+
+>>>>>>> FixSearch
 /***/ }),
 
 /***/ "./resources/js/modal.js":
@@ -53056,23 +53076,27 @@ $(document).ready(function () {
     var serv_id = [];
     $("input:checkbox[name=service_id]:checked").each(function () {
       serv_id.push(parseInt($(this).val()));
+<<<<<<< HEAD
     }); // console.log(serv_id);
     // var query = $(this).serialize();
     // console.log(query);
     // console.log($("#price").val());
 
+=======
+    });
+>>>>>>> FixSearch
     $.ajax({
       "url": "http://localhost:8000/api/houses",
       "method": "GET",
       "data": {
-        "guests": $("#guests").val(),
+        "lat": $("#latitude").val(),
+        "lon": $("#longitude").val(),
         "radius": $(".radius_radio").val(),
+        "price": $("#price").val(),
+        "guests": $("#guests").val(),
         "rooms": $("#rooms").val(),
         "bedrooms": $("#bedrooms").val(),
         "beds": $("#beds").val(),
-        "price": $("#price").val(),
-        "lat": $("#latitude").val(),
-        "lon": $("#longitude").val(),
         "services": serv_id
       },
       "success": function success(data) {
@@ -53110,11 +53134,10 @@ $(document).ready(function () {
   mouseBtnGrad();
   hoverInfo();
   hambMenu();
-  var pwTitle = $(this).text(); // console.log(pwTitle);
-
-  var textCropped = cropText(pwTitle, 15); // console.log(textCropped);
-
-  pwTitle = textCropped;
+<<<<<<< HEAD
+  viewMsg();
+=======
+>>>>>>> FixSearch
 }); // FUNCTIONS
 // function gradient hover
 
@@ -53143,21 +53166,23 @@ function hoverInfo() {
   $(document).on('mouseenter', '.welcome_name', function () {
     $('.tend_menu').slideToggle();
   });
+<<<<<<< HEAD
 } // function crop text
 
 
-function cropText(text, num) {
-  // If text shorter than fixed character number
-  if (text.length <= num) {
-    return text;
-  } else {
-    // Slice text
-    var subText = text.substr(0, num - 1);
-    return subText.substr(0, subText.lastIndexOf(" ")) + " ...";
-  }
+function viewMsg() {
+  $('.msg_uniq').click(function () {
+    var houseId = $(this).children('small').html();
+    var emailUser = $(this).children('h5').html();
+    var contentMail = $(this).children('p').html();
+    $('.msg_show').removeClass('d_none');
+    $('.msg_show').find('h3').html(houseId);
+    $('.msg_show').find('small').html(emailUser);
+    $('.msg_show').find('p').html(contentMail);
+  });
+=======
+>>>>>>> FixSearch
 }
-
-;
 
 /***/ }),
 
@@ -53179,8 +53204,8 @@ function cropText(text, num) {
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
-__webpack_require__(/*! D:\Boolean\Progetto finale\boolbnb-team6\resources\js\app.js */"./resources/js/app.js");
-module.exports = __webpack_require__(/*! D:\Boolean\Progetto finale\boolbnb-team6\resources\sass\app.scss */"./resources/sass/app.scss");
+__webpack_require__(/*! /Users/annaagozzino/Desktop/boolean/esercizi/boolbnb-team6/resources/js/app.js */"./resources/js/app.js");
+module.exports = __webpack_require__(/*! /Users/annaagozzino/Desktop/boolean/esercizi/boolbnb-team6/resources/sass/app.scss */"./resources/sass/app.scss");
 
 
 /***/ }),
