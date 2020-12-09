@@ -30,3 +30,8 @@ if (document.URL.includes("admin/houses")) {
 if (document.URL.includes("admin/messages")) {
     $('#main-cover').hide();
 }
+
+if (document.URL.includes("houses/search")) {
+    $('.add_input_search').remove();
+    $('#main-cover').hide();
+}

@@ -1,74 +1,99 @@
 @extends('layouts.main')
 
 @section('main-section')
-<form id="search-advance">
-    {{-- address --}}
-    <input type="text" name="address" id="address-input" placeholder="Inserisci indirizzo del tuo alloggio" value="{{$data["address"]}}">
-    <p>Selected: <strong id="address-value">none</strong></p>
-    <input id="latitude" type="hidden" name="lat" value="{{$data["lat"]}}">
-    <input id="longitude" type="hidden" name="lon" value="{{$data["lon"]}}">
-    {{-- /address --}}
-    {{-- <input type="number" placeholder="20" id="radius"> --}}
+    <div class="container create_hs_cstm">
+        <h2>Appartamenti ricercati</h2>
+        <form id="search-advance">
+        
+            {{-- address --}}
+            <div class="form-group row form_div_mb">
+                <div class="col-md-8">
+                    <input id="latitude" type="hidden" name="lat" value="{{$data["lat"]}}">
+                    <input id="longitude" type="hidden" name="lon" value="{{$data["lon"]}}">
+                    <input type="text" class="txt_input_cr" name="address" id="address-input" placeholder="Inserisci indirizzo del tuo alloggio" value="{{$data["address"]}}">
+                    <p class="d_none">Selected: <strong id="address-value">none</strong></p>
+                </div>
+            </div>
+            {{-- /address --}}
 
-    {{-- radius --}}
-    <input type="radio" name="radius" id="20km" class="radius_radio" value="20" checked>
-    <label for="radius">20KM</label>
-    <input type="radio" name="radius" id="50km" class="radius_radio" value="50">
-    <label for="radius">50KM</label>
-    <input type="radio" name="radius" id="100km" class="radius_radio" value="100">
-    <label for="radius">100KM</label>
-    {{-- /radius --}}
+            {{-- radius --}}
+            <input type="radio" name="radius" id="20km" class="radius_radio" value="20" checked>
+            <label for="radius">20KM</label>
+            <input type="radio" name="radius" id="50km" class="radius_radio" value="50">
+            <label for="radius">50KM</label>
+            <input type="radio" name="radius" id="100km" class="radius_radio" value="100">
+            <label for="radius">100KM</label>
+            {{-- /radius --}}
+            
+            <div class="form-group row form_div_mb">
+                {{-- guests --}}
+                <div class="col-md-4 nmbr_dv">
+                    <label for="guests" class="col-md-12 col-form-label text-md-right">Numero ospiti</label>
+                    <div class="col-md-12">
+                        <input type="number" name="guests" id="guests" class="nmbr_input_cr" min="1" max="100" value="">
+                    </div>
+                </div> 
+                {{-- /guests --}}
 
-    {{-- services --}}
-    <div class="form-group">
-        @foreach ($services as $service)
-            <input type="checkbox" id="{{$service->id}}" name="service_id" value="{{$service->id}}">
-            <label for="{{$service->name_serv}}">{{$service->name_serv}}</label>
+                {{-- Rooms --}}
+                <div class="col-md-4 nmbr_dv">            
+                    <label for="rooms" class="col-md-12 col-form-label text-md-right">Numero di stanze</label>
+                    <div class="col-md-12">
+                        <input type="number" id="rooms" name="rooms" class="nmbr_input_cr" min="1" max="20" value="">
+                    </div>
+                </div>    
+                {{-- /Rooms --}}
+
+                {{-- Bedrooms --}}
+                <div class="col-md-4 nmbr_dv">
+                    <label for="bedrooms" class="col-md-12 col-form-label text-md-right">Numero di camere da letto</label>
+                    <div class="col-md-12">
+                        <input type="number" id="bedrooms" name="bedrooms" class="nmbr_input_cr" min="1" max="20" value="">
+                    </div>
+                </div>    
+                {{-- /Bedrooms --}}
+            
+                {{-- Beds --}}
+                <div class="col-md-4 nmbr_dv">
+                    <label for="beds" class="col-md-12 col-form-label text-md-right">Numero di letti</label>
+                    <div class="col-md-12">
+                        <input type="number" id="beds" name="beds" class="nmbr_input_cr" min="1" max="20" value="">
+                    </div>
+                </div>    
+                {{-- /Beds --}}
+            </div>
+
+            {{-- services --}}
+            <div class="form-group row form_div_mb serv_list_cnt">
+                <h4 class="col-md-12">Servizi</h4>
+                @foreach ($services as $service)
+                    <div class="col-md-3 srv_chkbox">
+                        <input type="checkbox" id="{{$service->id}}" name="service_id" value="{{$service->id}}">
+                        <label for="{{$service->name_serv}}" class="col-form-label text-md-right">{{$service->name_serv}}</label>
+                    </div>
+                @endforeach
+            </div>
+            {{-- /services --}}
+
+            {{-- Price --}}
+            <div class="form-group">
+                <label for="price">Prezzo</label>
+                <input type="range" id="price" name="price" min="1" max="999" step="0.01">
+            </div>
+            {{-- /Price --}}
+
+            <div class="create_btn">
+                <button type="submit" class="create_ndx_btn">Cerca</button>
+            </div>
+                {{-- <input type="submit" value="Invia"> --}}
+        </form>
+    </div>
+    
+    <div class="container" id="houses-list">
+        @foreach ($houses_filtered as $house)
+            @include('layouts.partials.card_preview')
         @endforeach
     </div>
-    {{-- /services --}}
-
-    {{-- guests --}}
-    <label for="guests">Numero ospiti</label>
-    <div class="form-group">
-        <input type="number" name="guests" id="guests" min="1" max="100" value="">
-    </div>
-    {{-- /guests --}}
-
-    {{-- Rooms --}}
-    <div class="form-group">
-        <label for="rooms">Numero di stanze</label>
-        <input type="number" id="rooms" name="rooms" min="1" max="20" value="">
-    </div>
-    {{-- /Rooms --}}
-
-    {{-- Bedrooms --}}
-    <div class="form-group">
-        <label for="bedrooms">Numero di camere da letto</label>
-        <input type="number" id="bedrooms" name="bedrooms" min="1" max="20" value="">
-    </div>
-    {{-- /Bedrooms --}}
-    
-    {{-- Beds --}}
-    <div class="form-group">
-        <label for="beds">Numero di letti</label>
-        <input type="number" id="beds" name="beds" min="1" max="20" value="">
-    </div>
-    {{-- /Beds --}}
-
-    {{-- Price --}}
-    <div class="form-group">
-        <label for="price">Prezzo</label>
-        <input type="range" id="price" name="price" min="1" max="999" step="0.01">
-    </div>
-    {{-- /Price --}}
-
-    <input type="submit" value="Invia">
-</form>
-
-<div class="container" id="houses-list">
-
-</div>
 
  <script id="houses-template" type="text/x-handlebars-template">
         <div class="card">
@@ -83,8 +108,6 @@
         </div>        
 </script>
 
-@foreach ($houses_filtered as $item)
-    <p>{{ $item->title }}</p>
-@endforeach
+
 
 @endsection 

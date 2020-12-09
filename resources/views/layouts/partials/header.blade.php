@@ -15,6 +15,7 @@
 
                 <div class="add_input_search">
                     <input type="text" name="address" id="address-input" placeholder="Dove vuoi andare?" value="{{old('address')}}">
+                    <p class="d_none">Selected: <strong id="address-value">none</strong></p>
                     <input id="latitude" type="hidden" name="lat" value="">
                     <input id="longitude" type="hidden" name="lon" value="">
                     <input type="submit" class="index_search_btn" value="INVIA">

@@ -52843,17 +52843,22 @@ module.exports = function(module) {
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
-__webpack_require__(/*! ./bootstrap */ "./resources/js/bootstrap.js");
+__webpack_require__(/*! ./bootstrap */ "./resources/js/bootstrap.js"); // Remove element on pages
 
-__webpack_require__(/*! ./places.js */ "./resources/js/places.js");
 
-__webpack_require__(/*! ./search.js */ "./resources/js/search.js");
+__webpack_require__(/*! ./form-log-reg.js */ "./resources/js/form-log-reg.js"); // Autocomplete address and create slug
 
-__webpack_require__(/*! ./valid_layouts.js */ "./resources/js/valid_layouts.js");
+
+__webpack_require__(/*! ./places.js */ "./resources/js/places.js"); // AJAX for advanced search
+
+
+__webpack_require__(/*! ./search.js */ "./resources/js/search.js"); // Graphic features
+
+
+__webpack_require__(/*! ./valid_layouts.js */ "./resources/js/valid_layouts.js"); // Modal
+
 
 __webpack_require__(/*! ./modal.js */ "./resources/js/modal.js");
-
-__webpack_require__(/*! ./form-log-reg.js */ "./resources/js/form-log-reg.js");
 
 __webpack_require__(/*! ./map.js */ "./resources/js/map.js");
 
@@ -52940,6 +52945,7 @@ if (document.URL.includes("admin/houses")) {
   $('#main-cover').hide();
 }
 
+<<<<<<< HEAD
 if (document.URL.includes("admin/messages")) {
   $('#main-cover').hide();
 }
@@ -52970,6 +52976,13 @@ L.tileLayer('https://api.maptiler.com/maps/streets/{z}/{x}/{y}.png?key=g4tVPhdOi
 
 var marker = L.marker([mapLat, mapLon]).addTo(mymap);
 
+=======
+if (document.URL.includes("houses/search")) {
+  $('.add_input_search').remove();
+  $('#main-cover').hide();
+}
+
+>>>>>>> FixSearch
 /***/ }),
 
 /***/ "./resources/js/modal.js":
@@ -53063,23 +53076,27 @@ $(document).ready(function () {
     var serv_id = [];
     $("input:checkbox[name=service_id]:checked").each(function () {
       serv_id.push(parseInt($(this).val()));
+<<<<<<< HEAD
     }); // console.log(serv_id);
     // var query = $(this).serialize();
     // console.log(query);
     // console.log($("#price").val());
 
+=======
+    });
+>>>>>>> FixSearch
     $.ajax({
       "url": "http://localhost:8000/api/houses",
       "method": "GET",
       "data": {
-        "guests": $("#guests").val(),
+        "lat": $("#latitude").val(),
+        "lon": $("#longitude").val(),
         "radius": $(".radius_radio").val(),
+        "price": $("#price").val(),
+        "guests": $("#guests").val(),
         "rooms": $("#rooms").val(),
         "bedrooms": $("#bedrooms").val(),
         "beds": $("#beds").val(),
-        "price": $("#price").val(),
-        "lat": $("#latitude").val(),
-        "lon": $("#longitude").val(),
         "services": serv_id
       },
       "success": function success(data) {
@@ -53117,7 +53134,10 @@ $(document).ready(function () {
   mouseBtnGrad();
   hoverInfo();
   hambMenu();
+<<<<<<< HEAD
   viewMsg();
+=======
+>>>>>>> FixSearch
 }); // FUNCTIONS
 // function gradient hover
 
@@ -53146,6 +53166,7 @@ function hoverInfo() {
   $(document).on('mouseenter', '.welcome_name', function () {
     $('.tend_menu').slideToggle();
   });
+<<<<<<< HEAD
 } // function crop text
 
 
@@ -53159,6 +53180,8 @@ function viewMsg() {
     $('.msg_show').find('small').html(emailUser);
     $('.msg_show').find('p').html(contentMail);
   });
+=======
+>>>>>>> FixSearch
 }
 
 /***/ }),
@@ -53181,8 +53204,8 @@ function viewMsg() {
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
-__webpack_require__(/*! D:\Boolean\Progetto finale\boolbnb-team6\resources\js\app.js */"./resources/js/app.js");
-module.exports = __webpack_require__(/*! D:\Boolean\Progetto finale\boolbnb-team6\resources\sass\app.scss */"./resources/sass/app.scss");
+__webpack_require__(/*! /Users/annaagozzino/Desktop/boolean/esercizi/boolbnb-team6/resources/js/app.js */"./resources/js/app.js");
+module.exports = __webpack_require__(/*! /Users/annaagozzino/Desktop/boolean/esercizi/boolbnb-team6/resources/sass/app.scss */"./resources/sass/app.scss");
 
 
 /***/ }),
