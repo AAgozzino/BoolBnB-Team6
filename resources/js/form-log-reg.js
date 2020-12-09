@@ -26,3 +26,8 @@ if (document.URL.includes("edit")) {
 if (document.URL.includes("admin/houses")) {
     $('#main-cover').hide();
 }
+
+if (document.URL.includes("houses/search")) {
+    $('.add_input_search').remove();
+    $('#main-cover').hide();
+}

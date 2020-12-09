@@ -1,7 +1,7 @@
    
     <div class="col-12 col-md-6 col-lg-4">
         <div class="preview">
-            <a href="{{route('admin.houses.show', $house->slug)}}" class="preview-link">
+            <a href="{{route('houses.show', $house->slug)}}" class="preview-link">
                 {{-- Box image --}}
                 <div class="preview-image-box">
                     <img class="preview-img" src="{{asset('storage/'.$house->cover_img)}}" alt="Card image cap">

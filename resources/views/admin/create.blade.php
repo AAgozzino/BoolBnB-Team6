@@ -8,17 +8,17 @@
         </div>
 
         <h2>CREA IL TUO APPARTAMENTO</h2>
-
+        {{-- @dd($types) --}}
         <form action="{{route('admin.houses.store')}}" method="POST" enctype="multipart/form-data">
             @csrf
             @method('POST')
-
+            
             {{-- House Type --}}
             <div class="form-group row form_div_mb select_dv">
                 <label for="type_id" class="col-md-12 col-form-label text-md-right">Tipologia di alloggio</label>
                 <select name="type_id" id="type_id">
                     @foreach ($types as $type)
-                        <option value="{{old($type->type)}}">
+                        <option value="{{$type->id}}">
                             {{$type->type}}
                         </option>
                     @endforeach
@@ -40,6 +40,7 @@
                 <label for="address" class="col-md-6 col-form-label text-md-right">Indirizzo</label>
                 <div class="col-md-8">
                     <input type="text" name="address" class="form-control txt_input_cr" id="address-input" placeholder="Inserisci indirizzo del tuo alloggio" value="{{old('address')}}">
+                    <p class="d_none">Selected: <strong id="address-value">none</strong></p>
                 </div>
             </div>
             {{-- /Address --}}
@@ -127,7 +128,7 @@
                 <h4 class="col-md-12">Servizi</h4>
                 @foreach ($services as $service)
                     <div class="col-md-3 srv_chkbox">
-                        <input type="checkbox" id="{{$service->id}}" name="service_id[]" value="{{old($service->id)}}">
+                        <input type="checkbox" id="{{$service->id}}" name="service_id[]" value="{{$service->id}}">
                         <label for="{{$service->name_serv}}" class="col-form-label text-md-right">{{$service->name_serv}}</label>
                     </div>
                 @endforeach

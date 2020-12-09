@@ -26,25 +26,23 @@
                                         <li class="show-list-description"><p>{{$house->description}}</p></li>
                                     </ul>
                                 </div>
-                                    
-                                    {{-- <p>{{$house->address}}</p> --}}
 
                                 {{-- Recap house --}}
                                 <div class="show-box">    
                                     <h5 class="show-list-title">Riepilogo alloggio</h5>
-                                        <ul class="recap row">
-                                            <li class="col-5"><strong>Ospiti:</strong> {{$house->guests}}</li>
-                                            <li class="col-5"><strong>Stanze:</strong> {{$house->rooms}}</li>
-                                            <li class="col-5"><strong>Camere da letto:</strong> {{$house->bedrooms}}</li>
-                                            <li class="col-5"><strong>Letti:</strong> {{$house->beds}}</li>
-                                            <li class="col-5"><strong>Bagni:</strong> {{$house->bathrooms}}</li>
-                                            <li class="col-5"><strong>Mq:</strong> {{$house->mq}}</li>
-                                        </ul>
+                                    <ul class="recap row">
+                                        <li class="col-5"><strong>Ospiti:</strong> {{$house->guests}}</li>
+                                        <li class="col-5"><strong>Stanze:</strong> {{$house->rooms}}</li>
+                                        <li class="col-5"><strong>Camere da letto:</strong> {{$house->bedrooms}}</li>
+                                        <li class="col-5"><strong>Letti:</strong> {{$house->beds}}</li>
+                                        <li class="col-5"><strong>Bagni:</strong> {{$house->bathrooms}}</li>
+                                        <li class="col-5"><strong>Mq:</strong> {{$house->mq}}</li>
+                                    </ul>
                                 </div>
 
                                 {{-- Service List --}}
                                 <div class="show-box">
-                                        <h5 class="show-list-title">Servizi aggiuntivi</h5>                        
+                                    <h5 class="show-list-title">Servizi aggiuntivi</h5>                        
                                     <ul class="show-services">
                                         @foreach ($house->services as $service)
                                             <li><span><img class="service-icon" src="{{asset($service->path_icon)}}" alt="Icona {{$service->name_serv}}"></span>{{$service->name_serv}}</li>
@@ -63,7 +61,8 @@
                             </div>
                         </div>
                     </div>
+                </div>
             </div>
-          </div>
+        </div>
     </div>
 @endsection
