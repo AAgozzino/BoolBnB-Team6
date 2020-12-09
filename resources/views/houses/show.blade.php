@@ -18,6 +18,7 @@
                         <li>Camere da letto: {{$house->bedrooms}}</li>
                         <li>Bagni: {{$house->bathrooms}}</li>
                         <li>mq: {{$house->mq}}</li>
+                        <li>appartamento di {{$house->user->name}}</li>
                     </ul>
             </div>
 

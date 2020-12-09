@@ -1,7 +1,9 @@
+// Prendo la latitudine
 var mapLat = $('#house-lat').data("lat");
+// Prendo la longitidine
 var mapLon = $('#house-lon').data("lon");
-console.log(mapLat);
 
+// Inizializzo la mappa
 var mymap = L.map('mapid').setView([mapLat, mapLon], 13);
 
 L.tileLayer('https://api.maptiler.com/maps/streets/{z}/{x}/{y}.png?key=g4tVPhdOiCmsJLWTlyc1', {
@@ -13,6 +15,7 @@ L.tileLayer('https://api.maptiler.com/maps/streets/{z}/{x}/{y}.png?key=g4tVPhdOi
     accessToken: 'your.mapbox.access.token'
 }).addTo(mymap);
 
+// Variabile pin
 var marker = L.marker([mapLat, mapLon]).addTo(mymap);
 
 
