@@ -4897,13 +4897,8 @@ header .navbar-expand-md .cont_flex #navbarSupportedContent .hambrg_menu .hamb_i
   margin-bottom: 120px;
 }
 
-.create_hs_cstm h2 {
-  margin-bottom: 30px;
-  color: #3c3c3c;
-}
-
 .create_hs_cstm .btn_back_lnk {
-  margin-bottom: 120px;
+  margin-bottom: 60px;
   width: 100px;
 }
 
@@ -4918,6 +4913,11 @@ header .navbar-expand-md .cont_flex #navbarSupportedContent .hambrg_menu .hamb_i
 
 .create_hs_cstm .btn_back_lnk:hover {
   transform: scale(1.1);
+}
+
+.create_hs_cstm h2 {
+  margin-bottom: 30px;
+  color: #3c3c3c;
 }
 
 .create_hs_cstm .select_dv select {
@@ -4985,6 +4985,10 @@ header .navbar-expand-md .cont_flex #navbarSupportedContent .hambrg_menu .hamb_i
 
 .create_hs_cstm .form_div_mb input.txt_input_cr::placeholder {
   font-size: 12px;
+}
+
+.create_hs_cstm .form_div_mb .ap-input-icon svg {
+  top: 33%;
 }
 
 .create_hs_cstm .form_div_mb .nmbr_dv {
@@ -5462,5 +5466,66 @@ header .navbar-expand-md .cont_flex #navbarSupportedContent .hambrg_menu .hamb_i
 .preview-banner-subtitle {
   white-space: nowrap;
   font-weight: normal;
+}
+
+.contnr_msgs .btn_back_lnk {
+  margin-bottom: 60px;
+  width: 200px;
+}
+
+.contnr_msgs .btn_back_lnk .btn_back {
+  background-color: #ba5160;
+  color: #ffffff;
+  border-radius: 15px;
+  border: transparent;
+  cursor: pointer;
+  padding: 10px;
+}
+
+.contnr_msgs .btn_back_lnk:hover {
+  transform: scale(1.1);
+}
+
+.contnr_msgs h2 {
+  margin-bottom: 30px;
+  color: #3c3c3c;
+}
+
+.contnr_msgs .cont_msg_fl {
+  border: 1px solid #bfbfbf;
+  margin: 50px 0;
+}
+
+.contnr_msgs .cont_msg_fl .msg_lst {
+  width: 350px;
+  border-right: 1px solid #bfbfbf;
+}
+
+.contnr_msgs .cont_msg_fl .msg_lst .msg_uniq {
+  padding: 10px;
+  cursor: pointer;
+}
+
+.contnr_msgs .cont_msg_fl .msg_lst .msg_uniq:not(:last-child) {
+  border-bottom: 1px solid #bfbfbf;
+}
+
+.contnr_msgs .cont_msg_fl .msg_lst .msg_uniq .brk_msg_point {
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.contnr_msgs .cont_msg_fl .msg_show {
+  width: 100%;
+}
+
+.contnr_msgs .cont_msg_fl .msg_show .head_msg_info {
+  border-bottom: 1px solid #bfbfbf;
+  padding: 10px;
+}
+
+.contnr_msgs .cont_msg_fl .msg_show .content_msg_us {
+  padding: 10px;
 }
 

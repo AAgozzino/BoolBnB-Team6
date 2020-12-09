@@ -52940,6 +52940,10 @@ if (document.URL.includes("admin/houses")) {
   $('#main-cover').hide();
 }
 
+if (document.URL.includes("admin/messages")) {
+  $('#main-cover').hide();
+}
+
 /***/ }),
 
 /***/ "./resources/js/map.js":
@@ -53110,11 +53114,7 @@ $(document).ready(function () {
   mouseBtnGrad();
   hoverInfo();
   hambMenu();
-  var pwTitle = $(this).text(); // console.log(pwTitle);
-
-  var textCropped = cropText(pwTitle, 15); // console.log(textCropped);
-
-  pwTitle = textCropped;
+  viewMsg();
 }); // FUNCTIONS
 // function gradient hover
 
@@ -53146,18 +53146,17 @@ function hoverInfo() {
 } // function crop text
 
 
-function cropText(text, num) {
-  // If text shorter than fixed character number
-  if (text.length <= num) {
-    return text;
-  } else {
-    // Slice text
-    var subText = text.substr(0, num - 1);
-    return subText.substr(0, subText.lastIndexOf(" ")) + " ...";
-  }
+function viewMsg() {
+  $('.msg_uniq').click(function () {
+    var houseId = $(this).children('small').html();
+    var emailUser = $(this).children('h5').html();
+    var contentMail = $(this).children('p').html();
+    $('.msg_show').removeClass('d_none');
+    $('.msg_show').find('h3').html(houseId);
+    $('.msg_show').find('small').html(emailUser);
+    $('.msg_show').find('p').html(contentMail);
+  });
 }
-
-;
 
 /***/ }),
 
@@ -53179,8 +53178,8 @@ function cropText(text, num) {
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
-__webpack_require__(/*! D:\Boolean\Progetto finale\boolbnb-team6\resources\js\app.js */"./resources/js/app.js");
-module.exports = __webpack_require__(/*! D:\Boolean\Progetto finale\boolbnb-team6\resources\sass\app.scss */"./resources/sass/app.scss");
+__webpack_require__(/*! C:\Users\User\Desktop\Boolean\boolbnb-team6\resources\js\app.js */"./resources/js/app.js");
+module.exports = __webpack_require__(/*! C:\Users\User\Desktop\Boolean\boolbnb-team6\resources\sass\app.scss */"./resources/sass/app.scss");
 
 
 /***/ }),

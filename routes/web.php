@@ -18,6 +18,7 @@ use Illuminate\Support\Facades\Auth;
 Route::get('/', 'HouseController@index')->name('houses');
 Route::get('houses/{slug}', 'HouseController@show')->name('houses.show');
 Route::post('houses/search', 'HouseController@search')->name('houses.search');
+Route::resource('messages', 'MessageController');
 
 
 Auth::routes();
@@ -28,6 +29,5 @@ Route::prefix('admin')
     ->middleware('auth')
     ->group(function () {
         Route::get('/', 'HomeController@index')->name('home');
-        Route::get('messages', 'MessageController@index')->name('messages');
         Route::resource('houses', 'HouseController');
     });

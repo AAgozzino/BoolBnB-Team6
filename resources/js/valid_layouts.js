@@ -2,12 +2,8 @@ $(document).ready(function(){
     mouseBtnGrad();
     hoverInfo();
     hambMenu();
-  
-    var pwTitle = $(this).text();
-    // console.log(pwTitle);
-    var textCropped = cropText(pwTitle, 15);
-    // console.log(textCropped);
-    pwTitle = textCropped
+    viewMsg();
+    
 });
 
 
@@ -45,13 +41,15 @@ function hoverInfo() {
 }
 
 // function crop text
-function cropText(text, num) {
-    // If text shorter than fixed character number
-    if (text.length <= num) {
-      return text
-    }else {
-      // Slice text
-      var subText = text.substr(0, num-1);
-      return subText.substr(0, subText.lastIndexOf(" ")) + " ..."
-    }
-  };
+function viewMsg() {
+    $('.msg_uniq').click(function(){
+        var houseId = $(this).children('small').html();
+        var emailUser = $(this).children('h5').html();
+        var contentMail = $(this).children('p').html();
+
+        $('.msg_show').removeClass('d_none');
+        $('.msg_show').find('h3').html(houseId);
+        $('.msg_show').find('small').html(emailUser);
+        $('.msg_show').find('p').html(contentMail);
+    });
+}

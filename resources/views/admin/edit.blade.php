@@ -7,7 +7,7 @@
             <a class="btn_back" href="{{route('admin.houses.show',  $house->slug)}}">Indietro</a>
         </div>
 
-        <h2>MODIFICA IL TUO ALLOGGIO</h2>
+        <h2>Modifica il tuo alloggio</h2>
 
         <form action="{{route('admin.houses.update', $house->slug)}}" method="POST" enctype="multipart/form-data">
             @csrf
@@ -127,10 +127,10 @@
                 <h4 class="col-md-12">Servizi</h4>
 
                 @php
-                $house_service = [];
-                foreach ($house->services as $serv) {
-                    $house_service[] = $serv->id;
-                }          
+                    $house_service = [];
+                    foreach ($house->services as $serv) {
+                        $house_service[] = $serv->id;
+                    }          
                 @endphp
 
                 @foreach ($services as $service)

@@ -26,3 +26,7 @@ if (document.URL.includes("edit")) {
 if (document.URL.includes("admin/houses")) {
     $('#main-cover').hide();
 }
+
+if (document.URL.includes("admin/messages")) {
+    $('#main-cover').hide();
+}

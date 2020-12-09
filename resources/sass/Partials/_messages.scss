@@ -1,0 +1,63 @@
+.contnr_msgs {
+
+    & .btn_back_lnk {
+        margin-bottom: 60px;
+        width: 200px;
+
+        & .btn_back {
+            background-color: $mainColor;
+            color: #ffffff;
+            border-radius: 15px;
+            border: transparent;
+            cursor: pointer;
+            padding: 10px;
+
+        }
+
+        &:hover {
+            transform: scale(1.1);
+        }
+    }
+
+    & h2 {
+        margin-bottom: 30px;
+        color: $textColor;
+    }
+
+    .cont_msg_fl {
+        border: 1px solid #bfbfbf;
+        margin: 50px 0;
+
+        & .msg_lst {
+            width: 350px;
+            border-right: 1px solid #bfbfbf;
+
+            & .msg_uniq {
+                padding: 10px;
+                cursor: pointer;
+
+                &:not(:last-child) {
+                    border-bottom: 1px solid #bfbfbf;
+                }
+
+                & .brk_msg_point {
+                    white-space: nowrap;
+                    overflow: hidden;  
+                    text-overflow: ellipsis;
+                }
+            }
+        }
+
+        & .msg_show {
+            width: 100%;
+            & .head_msg_info {
+                border-bottom: 1px solid #bfbfbf;
+                padding: 10px;
+            }
+
+            & .content_msg_us {
+                padding: 10px;
+            }
+        }
+    }
+}

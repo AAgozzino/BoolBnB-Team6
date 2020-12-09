@@ -46,7 +46,7 @@
                                 </div>
 
                                 <div class="cont_tend_menu dropdown-item">
-                                    <a class="message_link" href="{{route('admin.messages')}}">
+                                    <a class="message_link" href="{{route('messages.index')}}">
                                         MESSAGGI
                                     </a>
                                 </div>
@@ -87,7 +87,7 @@
                                     <i class="fas fa-user profile_icon"></i>
                                 </a>
 
-                                <a id="navbarDropdown" class="nav-link dropdown-toggle message_link" href="{{route('admin.messages')}}" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
+                                <a id="navbarDropdown" class="nav-link dropdown-toggle message_link" href="{{route('messages.index')}}" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
                                     MESSAGGI
                                 </a>
     
