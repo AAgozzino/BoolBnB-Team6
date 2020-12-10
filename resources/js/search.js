@@ -1,8 +1,15 @@
 const $ = require("jquery");
 var places = require('places.js');
 const Handlebars = require("handlebars");
+$('#services-container').hide();
+
 $(document).ready(function(){
-   
+    rangeSlider();
+
+    $('#services-title').click(function(){
+        $('#services-container').slideToggle();
+    });
+
     // CHIAMATA AJAX - RICERCA CON FILTRI
     $('#search-advance').submit(function(e){
         e.preventDefault();
@@ -20,7 +27,7 @@ $(document).ready(function(){
                     "lat" : $("#latitude").val(),
                     "lon" : $("#longitude").val(),
                     "radius" : $(".radius_radio").val(),
-                    "price" : $("#price").val(),
+                    "price" : $('.range-slider__value').text(),
                     "guests" : $("#guests").val(),
                     "rooms" : $("#rooms").val(),
                     "bedrooms" : $("#bedrooms").val(),
@@ -54,5 +61,25 @@ function renderHouse(data) {
 
         $('#houses-list').append(html);
     }
-} 
+};
+
+// FUNCTION RANGE SLIDER 
+function rangeSlider(){
+    var slider = $('.range-slider'),
+        range = $('.range-slider__range'),
+        value = $('.range-slider__value');
+    
+  slider.each(function(){
+
+    value.each(function(){
+      var value = $(this).prev().attr('value');
+      $(this).html(value);
+    });
+
+    range.on('input', function(){
+      $(this).next(value).html(this.value);
+    });
+  });
+};
+
 

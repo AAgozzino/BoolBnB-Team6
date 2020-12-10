@@ -52,7 +52,60 @@
             color: $mainColor;
             font-size: 18px;
         }
+        .range-slider{
+            margin-left: 20px;
+            width: 100%;
+            align-items: center;
 
+            .range-slider__range{
+                -webkit-appearance: none;
+                appearance: none;
+                width: calc(100% - (#{$label-width + 13px}));
+                height: $range-height;
+                border-radius: 5px;
+                background: #bfbfbf;
+                outline: none;
+                padding: 0;
+                margin: 0;
+                
+                &::-webkit-slider-thumb{
+                    -webkit-appearance: none;
+                    appearance: none;
+                    width: 15px;
+                    height: 15px;
+                    border-radius: 50%;
+                    background: $mainColor;
+                    cursor: pointer;
+                }
+            }
+
+            .range-slider__value{
+                display: inline-block;
+                position: relative;
+                width: 60px;
+                color: honeydew;
+                line-height: 18px;
+                text-align: center;
+                border-radius: 3px;
+                background-color: $mainColor;
+                padding: 5px 10px;
+                margin-left: 8px;
+
+                &:after {
+                    position: absolute;
+                    top: 8px;
+                    left: -7px;
+                    width: 0;
+                    height: 0;
+                    border-top: 7px solid transparent;
+                    border-right: 7px solid $mainColor;
+                    border-bottom: 7px solid transparent;
+                    content: '';
+                  }
+            }
+            
+        }
+            
         & input.txt_input_cr {
             width: 100%;
             padding: 10px;
@@ -119,15 +172,14 @@
 
         & h4 {
             font-size: 18px;
-            color: $mainColor;
-            font-weight: 100;
+            color: $textColor;
             padding: 0;
             margin-bottom: 15px;
         }
 
         & .srv_chkbox {
             margin-bottom: 10px;
-            padding: 0;
+            // padding: 0;
         }
     }
 

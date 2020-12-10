@@ -52945,8 +52945,12 @@ if (document.URL.includes("admin/houses")) {
   $('#main-cover').hide();
 }
 
-<<<<<<< HEAD
 if (document.URL.includes("admin/messages")) {
+  $('#main-cover').hide();
+}
+
+if (document.URL.includes("houses/search")) {
+  $('.add_input_search').remove();
   $('#main-cover').hide();
 }
 
@@ -52976,13 +52980,6 @@ L.tileLayer('https://api.maptiler.com/maps/streets/{z}/{x}/{y}.png?key=g4tVPhdOi
 
 var marker = L.marker([mapLat, mapLon]).addTo(mymap);
 
-=======
-if (document.URL.includes("houses/search")) {
-  $('.add_input_search').remove();
-  $('#main-cover').hide();
-}
-
->>>>>>> FixSearch
 /***/ }),
 
 /***/ "./resources/js/modal.js":
@@ -53069,22 +53066,19 @@ var places = __webpack_require__(/*! places.js */ "./node_modules/places.js/inde
 
 var Handlebars = __webpack_require__(/*! handlebars */ "./node_modules/handlebars/dist/cjs/handlebars.js");
 
+$('#services-container').hide();
 $(document).ready(function () {
-  // CHIAMATA AJAX - RICERCA CON FILTRI
+  rangeSlider();
+  $('#services-title').click(function () {
+    $('#services-container').slideToggle();
+  }); // CHIAMATA AJAX - RICERCA CON FILTRI
+
   $('#search-advance').submit(function (e) {
     e.preventDefault();
     var serv_id = [];
     $("input:checkbox[name=service_id]:checked").each(function () {
       serv_id.push(parseInt($(this).val()));
-<<<<<<< HEAD
-    }); // console.log(serv_id);
-    // var query = $(this).serialize();
-    // console.log(query);
-    // console.log($("#price").val());
-
-=======
     });
->>>>>>> FixSearch
     $.ajax({
       "url": "http://localhost:8000/api/houses",
       "method": "GET",
@@ -53092,7 +53086,7 @@ $(document).ready(function () {
         "lat": $("#latitude").val(),
         "lon": $("#longitude").val(),
         "radius": $(".radius_radio").val(),
-        "price": $("#price").val(),
+        "price": $('.range-slider__value').text(),
         "guests": $("#guests").val(),
         "rooms": $("#rooms").val(),
         "bedrooms": $("#bedrooms").val(),
@@ -53121,6 +53115,25 @@ function renderHouse(data) {
   }
 }
 
+; // FUNCTION RANGE SLIDER 
+
+function rangeSlider() {
+  var slider = $('.range-slider'),
+      range = $('.range-slider__range'),
+      value = $('.range-slider__value');
+  slider.each(function () {
+    value.each(function () {
+      var value = $(this).prev().attr('value');
+      $(this).html(value);
+    });
+    range.on('input', function () {
+      $(this).next(value).html(this.value);
+    });
+  });
+}
+
+;
+
 /***/ }),
 
 /***/ "./resources/js/valid_layouts.js":
@@ -53134,10 +53147,7 @@ $(document).ready(function () {
   mouseBtnGrad();
   hoverInfo();
   hambMenu();
-<<<<<<< HEAD
   viewMsg();
-=======
->>>>>>> FixSearch
 }); // FUNCTIONS
 // function gradient hover
 
@@ -53166,7 +53176,6 @@ function hoverInfo() {
   $(document).on('mouseenter', '.welcome_name', function () {
     $('.tend_menu').slideToggle();
   });
-<<<<<<< HEAD
 } // function crop text
 
 
@@ -53180,8 +53189,6 @@ function viewMsg() {
     $('.msg_show').find('small').html(emailUser);
     $('.msg_show').find('p').html(contentMail);
   });
-=======
->>>>>>> FixSearch
 }
 
 /***/ }),

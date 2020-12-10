@@ -16,17 +16,32 @@
             </div>
             {{-- /address --}}
 
-            {{-- radius --}}
-            <input type="radio" name="radius" id="20km" class="radius_radio" value="20" checked>
-            <label for="radius">20KM</label>
-            <input type="radio" name="radius" id="50km" class="radius_radio" value="50">
-            <label for="radius">50KM</label>
-            <input type="radio" name="radius" id="100km" class="radius_radio" value="100">
-            <label for="radius">100KM</label>
-            {{-- /radius --}}
-            
             <div class="form-group row form_div_mb">
-                {{-- guests --}}
+                {{-- radius --}}
+                <div class="col-md-5">
+                    <input type="radio" name="radius" id="20km" class="radius_radio" value="20" checked>
+                    <label for="radius">20KM</label>
+                    <input type="radio" name="radius" id="50km" class="radius_radio" value="50">
+                    <label for="radius">50KM</label>
+                    <input type="radio" name="radius" id="100km" class="radius_radio" value="100">
+                    <label for="radius">100KM</label>
+                </div>
+                {{-- /radius --}}
+                
+                {{-- Price --}}
+                <div class="col-md-5 d_flex">
+                    <label for="price">Prezzo</label>
+                    <div class="range-slider">
+                        <input type="range" class="range-slider__range" id="price" name="price" min="1" max="999" step="0.50" value="500">
+                        <span class="range-slider__value">0</span>
+                    </div>  
+                </div>
+                {{-- /Price --}}
+            </div>
+
+            
+            {{-- guests --}}
+            <div class="form-group row form_div_mb">
                 <div class="col-md-4 nmbr_dv">
                     <label for="guests" class="col-md-12 col-form-label text-md-right">Numero ospiti</label>
                     <div class="col-md-12">
@@ -37,7 +52,7 @@
 
                 {{-- Rooms --}}
                 <div class="col-md-4 nmbr_dv">            
-                    <label for="rooms" class="col-md-12 col-form-label text-md-right">Numero di stanze</label>
+                    <label for="rooms" class="col-md-12 col-form-label text-md-right">Numero stanze</label>
                     <div class="col-md-12">
                         <input type="number" id="rooms" name="rooms" class="nmbr_input_cr" min="1" max="20" value="">
                     </div>
@@ -46,7 +61,7 @@
 
                 {{-- Bedrooms --}}
                 <div class="col-md-4 nmbr_dv">
-                    <label for="bedrooms" class="col-md-12 col-form-label text-md-right">Numero di camere da letto</label>
+                    <label for="bedrooms" class="col-md-12 col-form-label text-md-right">Numero camere da letto</label>
                     <div class="col-md-12">
                         <input type="number" id="bedrooms" name="bedrooms" class="nmbr_input_cr" min="1" max="20" value="">
                     </div>
@@ -55,7 +70,7 @@
             
                 {{-- Beds --}}
                 <div class="col-md-4 nmbr_dv">
-                    <label for="beds" class="col-md-12 col-form-label text-md-right">Numero di letti</label>
+                    <label for="beds" class="col-md-12 col-form-label text-md-right">Numero letti</label>
                     <div class="col-md-12">
                         <input type="number" id="beds" name="beds" class="nmbr_input_cr" min="1" max="20" value="">
                     </div>
@@ -65,22 +80,19 @@
 
             {{-- services --}}
             <div class="form-group row form_div_mb serv_list_cnt">
-                <h4 class="col-md-12">Servizi</h4>
-                @foreach ($services as $service)
-                    <div class="col-md-3 srv_chkbox">
-                        <input type="checkbox" id="{{$service->id}}" name="service_id" value="{{$service->id}}">
-                        <label for="{{$service->name_serv}}" class="col-form-label text-md-right">{{$service->name_serv}}</label>
+                <h4 class="col-md-12" id="services-title">Servizi <i class="fas fa-angle-down"></i></h4>
+                <div id="services-container" class="col-12">
+                    <div class="row">
+                        @foreach ($services as $service)
+                            <div class="col-md-4 col-lg-3 srv_chkbox">
+                                <input type="checkbox" id="{{$service->id}}" name="service_id" value="{{$service->id}}">
+                                <label for="{{$service->name_serv}}" class="col-form-label text-md-right">{{$service->name_serv}}</label>
+                            </div>
+                        @endforeach
                     </div>
-                @endforeach
+                </div>
             </div>
             {{-- /services --}}
-
-            {{-- Price --}}
-            <div class="form-group">
-                <label for="price">Prezzo</label>
-                <input type="range" id="price" name="price" min="1" max="999" step="0.01">
-            </div>
-            {{-- /Price --}}
 
             <div class="create_btn">
                 <button type="submit" class="create_ndx_btn">Cerca</button>
