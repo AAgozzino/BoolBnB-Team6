@@ -37,7 +37,7 @@ $(document).ready(function(){
                 "success": function (data) {
                     $('#houses-list').html("");
                     renderHouse(data.response);
-                    // console.log(data);
+                    console.log(data);
                 },
                 "error": function (error) {
                     alert("ERRORE!");

@@ -103,23 +103,43 @@
     
     <div class="container" id="houses-list">
         @foreach ($houses_filtered as $house)
-            @include('layouts.partials.card_preview')
+            @include('layouts.partials.card_preview_search')
         @endforeach
     </div>
 
- <script id="houses-template" type="text/x-handlebars-template">
-        <div class="card">
-           <img class="card-img-top" src="/storage/@{{cover_img}}" alt="Card image cap">
-            <div class="card-body">
-                <h5 class="card-title">@{{title}}</h5>
-                                    
-                <p class="card-text">@{{description}}</p>
-                <a href="houses/@{{slug}}" class="btn btn-primary">More</a>
-                
+    {{-- HANDLEBARS TEMPLATE --}}
+    <script id="houses-template" type="text/x-handlebars-template">
+        <div class="row">
+            <div class="col-12">
+                <div class="preview-search">
+                    <a href="@{{{slug}}}">
+                        
+                        <div class="image-box">
+                            <img class="preview-img" src="/storage/@{{{cover_img}}}" alt="Card image cap">
+                            <div class="sponsored">
+                                Sponsorizzato
+                                <i class="fas fa-star sponsored-star"></i>
+                            </div>
+                        </div>
+                        
+                        <div class="search-info">
+                            <div class="search-info-head">
+                                <div class="address">@{{address}}</div>
+                                <div class="title">@{{title}}</div>
+                            </div>
+                            <div class="search-info-body">
+                                <ul class="rooms-info">
+                                    <li>@{guests}} ospiti</li>
+                                    <li>@{{rooms}} stanze</li>
+                                    <li>@{{bedrooms}} camere</li>
+                                    <li>@{{bathrooms}} bagni</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </a>
+                </div>
             </div>
-        </div>        
-</script>
-
-
-
+        </div>
+    </script>
+    {{-- /HANDLEBARS TEMPLATE --}}
 @endsection 

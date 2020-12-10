@@ -1,0 +1,99 @@
+.preview-search{
+    padding: 20px 0;
+    width: 100%;
+    border-top: 1px solid #bfbfbf;
+
+    .image-box{
+        @include box-house;
+        overflow: hidden;
+        position: relative;
+        margin-bottom: 5px;
+        
+        .preview-img{
+            display: block;
+            object-fit: cover;
+            width: 100%;
+            
+        }
+        .sponsored{
+            position: absolute;
+            top: 10px;
+            right: 10px;
+            padding: 3px 5px;
+            border-radius: 5px;
+            font-size: 14px;
+            color: rgb(254,222,161,1);
+            background-color: rgba($color: #ba5160, $alpha: 0.7);
+
+            &-star{
+                font-size: 16px;
+            }
+        }
+    }
+
+    .search-info{
+        padding-left: 20px;
+
+        &-head{
+            padding-bottom: 10px;
+
+            .address{
+                font-style: italic;
+                font-size: 14px;
+            }
+
+            .title{
+                font-size: 18px;
+                font-weight: bold;
+                color: $mainColor;
+            }
+
+            @media screen and (max-width: 768px) {
+                border-bottom: none;
+            }
+        }
+        .separator{
+            width: 32px;
+            border-top: 1px solid #bfbfbf;
+
+            @media screen and (max-width: 768px) {
+                display: none;
+            }
+        }
+
+        &-body{
+
+            .rooms-info{
+                display: flex;
+
+                li{
+                    margin: 15px 0;
+
+                    &::after{
+                        content:"";
+                        background-color: $mainColor;
+                        vertical-align: middle;
+                        padding: 2px;
+                        display: inline-block;
+                        border-radius: 100px;
+                        margin: 0 10px;
+                    }
+                    &:last-child:after{
+                        content: none;
+    
+                    }
+                }
+            }  
+            @media screen and (max-width: 768px) {
+                display: none;
+            }
+        }
+    }
+
+    // &:not()
+}
+
+// .elm:not(:first-child)::before{
+//     content: "\00B7";
+//     margin: 5px;
+// }

@@ -4942,6 +4942,7 @@ header .navbar-expand-md .cont_flex #navbarSupportedContent .hambrg_menu .hamb_i
 
 .create_hs_cstm .form_div_mb {
   padding: 0;
+  margin-top: 10px;
 }
 
 .create_hs_cstm .form_div_mb label {
@@ -5580,5 +5581,107 @@ header .navbar-expand-md .cont_flex #navbarSupportedContent .hambrg_menu .hamb_i
 
 .contnr_msgs .cont_msg_fl .msg_show .content_msg_us {
   padding: 10px;
+}
+
+.preview-search {
+  padding: 20px 0;
+  width: 100%;
+  border-top: 1px solid #bfbfbf;
+}
+
+.preview-search .image-box {
+  border-radius: 10px;
+  box-shadow: 0px 2px 7px 0px rgba(0, 0, 0, 0.73);
+  -webkit-box-shadow: 0px 2px 7px 0px rgba(0, 0, 0, 0.73);
+  -moz-box-shadow: 0px 2px 7px 0px rgba(0, 0, 0, 0.73);
+  overflow: hidden;
+  position: relative;
+  margin-bottom: 5px;
+}
+
+.preview-search .image-box .preview-img {
+  display: block;
+  -o-object-fit: cover;
+     object-fit: cover;
+  width: 100%;
+}
+
+.preview-search .image-box .sponsored {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  padding: 3px 5px;
+  border-radius: 5px;
+  font-size: 14px;
+  color: #fedea1;
+  background-color: rgba(186, 81, 96, 0.7);
+}
+
+.preview-search .image-box .sponsored-star {
+  font-size: 16px;
+}
+
+.preview-search .search-info {
+  padding-left: 20px;
+}
+
+.preview-search .search-info-head {
+  padding-bottom: 10px;
+}
+
+.preview-search .search-info-head .address {
+  font-style: italic;
+  font-size: 14px;
+}
+
+.preview-search .search-info-head .title {
+  font-size: 18px;
+  font-weight: bold;
+  color: #ba5160;
+}
+
+@media screen and (max-width: 768px) {
+  .preview-search .search-info-head {
+    border-bottom: none;
+  }
+}
+
+.preview-search .search-info .separator {
+  width: 32px;
+  border-top: 1px solid #bfbfbf;
+}
+
+@media screen and (max-width: 768px) {
+  .preview-search .search-info .separator {
+    display: none;
+  }
+}
+
+.preview-search .search-info-body .rooms-info {
+  display: flex;
+}
+
+.preview-search .search-info-body .rooms-info li {
+  margin: 15px 0;
+}
+
+.preview-search .search-info-body .rooms-info li::after {
+  content: "";
+  background-color: #ba5160;
+  vertical-align: middle;
+  padding: 2px;
+  display: inline-block;
+  border-radius: 100px;
+  margin: 0 10px;
+}
+
+.preview-search .search-info-body .rooms-info li:last-child:after {
+  content: none;
+}
+
+@media screen and (max-width: 768px) {
+  .preview-search .search-info-body {
+    display: none;
+  }
 }
 

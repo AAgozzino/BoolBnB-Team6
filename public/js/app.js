@@ -53095,7 +53095,8 @@ $(document).ready(function () {
       },
       "success": function success(data) {
         $('#houses-list').html("");
-        renderHouse(data.response); // console.log(data);
+        renderHouse(data.response);
+        console.log(data);
       },
       "error": function error(_error) {
         alert("ERRORE!");
