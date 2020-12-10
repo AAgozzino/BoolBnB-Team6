@@ -17,7 +17,7 @@ class HouseController extends Controller
      */
     public function index()
     {
-        $houses = House::all();
+        $houses = House::inRandomOrder()->limit(6)->get();
         
         return view("houses.index", compact('houses'));
     }

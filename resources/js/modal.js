@@ -19,6 +19,12 @@ $(".modal-close").click(function(e){
     closeMsg();
 });
 
+$('.btn__snd').click(function() {
+    if ( $('#email_msg').val() == "" || $('#content_msg').val() == "" ) {
+        alert('Attenzione, compilare i campi richiesti');
+    }
+});
+
 function closeMsg(){
     $("#modal-send_msg").hide();
 }
