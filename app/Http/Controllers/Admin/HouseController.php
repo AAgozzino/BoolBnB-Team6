@@ -109,8 +109,10 @@ class HouseController extends Controller
      */
     public function show($slug)
     {
+        $user = Auth::user();
         $house = House::where('slug', $slug)->first();
-        return view('admin.show', compact('house'));
+        
+        return view('admin.show', compact('house', 'user'));
     }
 
     /**

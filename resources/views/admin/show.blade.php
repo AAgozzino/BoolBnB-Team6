@@ -91,7 +91,7 @@
                         <div class="col-12 col-md-4 col-lg-4">
                             <div class="highlight"> 
                                 <p class="show-list-title">Prezzo: <span class="price">{{$house->price}}€</span></p> 
-                                <div class="message">
+                                <div class="message d_none">
                                     <h4>Contatta l'host</h4>
                                     <div class="index_search_btn snd_msg_dv">INVIA UN MESSAGGIO</div>
 
@@ -106,7 +106,7 @@
                                                         @method("POST")
                             
                                                         <input type="hidden" name="house_id" id="house_id" class="hdn_npt_hid" value="{{$house->id}}">
-                                                        <input type="text" name="email_msg" id="email_msg" class="txt_input_cr" placeholder="Inserisci la tua mail">
+                                                        <input type="text" name="email_msg" id="email_msg" class="txt_input_cr" placeholder="Inserisci la tua mail" value="{{$user->email}}">
                                                         @error('email_msg')
                                                             <div class="alert alert-danger">{{ 'Inserire una Email' }}</div>
                                                         @enderror

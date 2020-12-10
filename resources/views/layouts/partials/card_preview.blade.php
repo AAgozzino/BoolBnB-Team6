@@ -4,7 +4,11 @@
             @guest
                 <a href="{{route('houses.show', $house->slug)}}" class="preview-link">
             @else
-                <a href="{{route('admin.houses.show', $house->slug)}}" class="preview-link">
+                @if ($house->user_id == $user->id)
+                    <a href="{{route('admin.houses.show', $house->slug)}}" class="preview-link">
+                @else
+                    <a href="{{route('houses.show', $house->slug)}}" class="preview-link">
+                @endif
             @endguest
                 {{-- Box image --}}
                 <div class="preview-image-box">

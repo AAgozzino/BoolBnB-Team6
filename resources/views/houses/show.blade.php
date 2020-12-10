@@ -70,22 +70,40 @@
                                             <div class="modal-content">
                                                 <i class="fas fa-times-circle modal-close"></i>
                                                 <div class="d_flex">
-            
-                                                    <form action="{{route("messages.store")}}" class="index_form d_flex" method="POST">
-                                                        @csrf
-                                                        @method("POST")
-                            
-                                                        <input type="hidden" name="house_id" id="house_id" class="hdn_npt_hid" value="{{$house->id}}">
-                                                        <input type="text" name="email_msg" id="email_msg" class="txt_input_cr" placeholder="Inserisci la tua mail">
-                                                        @error('email_msg')
-                                                            <div class="alert alert-danger">{{ 'Inserire una Email' }}</div>
-                                                        @enderror
-                                                        <textarea name="content_msg" id="content_msg" class="txt_input_cr" cols="10" rows="10">{{old('content_msg')}}</textarea>
-                                                        @error('content_msg')
-                                                            <div class="alert alert-danger">{{ 'Inserire un contenuto' }}</div>
-                                                        @enderror
-                                                        <button type="submit" class="message-btn btn__snd">INVIA</button>
-                                                    </form>
+
+                                                    @guest
+                                                        <form action="{{route("messages.store")}}" class="index_form d_flex" method="POST">
+                                                            @csrf
+                                                            @method("POST")
+                                
+                                                            <input type="hidden" name="house_id" id="house_id" class="hdn_npt_hid" value="{{$house->id}}">
+                                                            <input type="text" name="email_msg" id="email_msg" class="txt_input_cr" placeholder="Inserisci la tua mail">
+                                                            @error('email_msg')
+                                                                <div class="alert alert-danger">{{ 'Inserire una Email' }}</div>
+                                                            @enderror
+                                                            <textarea name="content_msg" id="content_msg" class="txt_input_cr" cols="10" rows="10">{{old('content_msg')}}</textarea>
+                                                            @error('content_msg')
+                                                                <div class="alert alert-danger">{{ 'Inserire un contenuto' }}</div>
+                                                            @enderror
+                                                            <button type="submit" class="message-btn btn__snd">INVIA</button>
+                                                        </form>
+                                                    @else
+                                                        <form action="{{route("messages.store")}}" class="index_form d_flex" method="POST">
+                                                            @csrf
+                                                            @method("POST")
+                                
+                                                            <input type="hidden" name="house_id" id="house_id" class="hdn_npt_hid" value="{{$house->id}}">
+                                                            <input type="text" name="email_msg" id="email_msg" class="txt_input_cr" placeholder="Inserisci la tua mail" value="{{$user_id->email}}">
+                                                            @error('email_msg')
+                                                                <div class="alert alert-danger">{{ 'Inserire una Email' }}</div>
+                                                            @enderror
+                                                            <textarea name="content_msg" id="content_msg" class="txt_input_cr" cols="10" rows="10">{{old('content_msg')}}</textarea>
+                                                            @error('content_msg')
+                                                                <div class="alert alert-danger">{{ 'Inserire un contenuto' }}</div>
+                                                            @enderror
+                                                            <button type="submit" class="message-btn btn__snd">INVIA</button>
+                                                        </form>
+                                                    @endguest
                                                     
                                                 </div>
                                             </div>
