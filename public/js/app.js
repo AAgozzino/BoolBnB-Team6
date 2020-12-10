@@ -53067,6 +53067,7 @@ var places = __webpack_require__(/*! places.js */ "./node_modules/places.js/inde
 var Handlebars = __webpack_require__(/*! handlebars */ "./node_modules/handlebars/dist/cjs/handlebars.js");
 
 $('#services-container').hide();
+$('.search-empty').hide();
 $(document).ready(function () {
   rangeSlider();
   $('#services-title').click(function () {
@@ -53095,8 +53096,12 @@ $(document).ready(function () {
       },
       "success": function success(data) {
         $('#houses-list').html("");
-        renderHouse(data.response);
-        console.log(data);
+
+        if (data.length > 0) {
+          renderHouse(data.response);
+        } else {
+          renderNotFound();
+        }
       },
       "error": function error(_error) {
         alert("ERRORE!");
@@ -53114,6 +53119,15 @@ function renderHouse(data) {
     var html = template(house);
     $('#houses-list').append(html);
   }
+}
+
+; // FUNCTION RENDER NOT FOUND
+
+function renderNotFound() {
+  var source = $('#notfound-template').html();
+  var template = Handlebars.compile(source);
+  var html = template();
+  $('#houses-list').append(html);
 }
 
 ; // FUNCTION RANGE SLIDER 

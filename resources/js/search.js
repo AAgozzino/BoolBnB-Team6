@@ -2,6 +2,7 @@ const $ = require("jquery");
 var places = require('places.js');
 const Handlebars = require("handlebars");
 $('#services-container').hide();
+$('.search-empty').hide();
 
 $(document).ready(function(){
     rangeSlider();
@@ -36,8 +37,11 @@ $(document).ready(function(){
                 },
                 "success": function (data) {
                     $('#houses-list').html("");
-                    renderHouse(data.response);
-                    console.log(data);
+                    if (data.length>0) {
+                        renderHouse(data.response);
+                    } else{
+                        renderNotFound();
+                    }
                 },
                 "error": function (error) {
                     alert("ERRORE!");
@@ -61,6 +65,14 @@ function renderHouse(data) {
 
         $('#houses-list').append(html);
     }
+};
+
+// FUNCTION RENDER NOT FOUND
+function renderNotFound(){
+    var source = $('#notfound-template').html();
+    var template = Handlebars.compile(source);
+    var html = template();
+    $('#houses-list').append(html);
 };
 
 // FUNCTION RANGE SLIDER 

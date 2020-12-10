@@ -107,7 +107,7 @@
         @endforeach
     </div>
 
-    {{-- HANDLEBARS TEMPLATE --}}
+    {{-- HANDLEBARS TEMPLATE SEARCH --}}
     <script id="houses-template" type="text/x-handlebars-template">
         <div class="row">
             <div class="col-12">
@@ -142,4 +142,10 @@
         </div>
     </script>
     {{-- /HANDLEBARS TEMPLATE --}}
+
+    {{-- HANDLEBARS TEMPLATE NOT FOUND --}}
+    <script id="notfound-template" type="text/x-handlebars-template">
+        <h2 class="search-empty">Nessun alloggio disponibile</h2>
+    </script>
+    {{-- /HANDLEBARS TEMPLATE NOT FOUND --}}
 @endsection 
