@@ -1,8 +1,16 @@
 const $ = require("jquery");
 var places = require('places.js');
 const Handlebars = require("handlebars");
+$('#services-container').hide();
+$('.search-empty').hide();
+
 $(document).ready(function(){
-   
+    rangeSlider();
+
+    $('#services-title').click(function(){
+        $('#services-container').slideToggle();
+    });
+
     // CHIAMATA AJAX - RICERCA CON FILTRI
     $('#search-advance').submit(function(e){
         e.preventDefault();
@@ -20,7 +28,7 @@ $(document).ready(function(){
                     "lat" : $("#latitude").val(),
                     "lon" : $("#longitude").val(),
                     "radius" : $(".radius_radio").val(),
-                    "price" : $("#price").val(),
+                    "price" : $('.range-slider__value').text(),
                     "guests" : $("#guests").val(),
                     "rooms" : $("#rooms").val(),
                     "bedrooms" : $("#bedrooms").val(),
@@ -29,7 +37,11 @@ $(document).ready(function(){
                 },
                 "success": function (data) {
                     $('#houses-list').html("");
-                    renderHouse(data.response);
+                    if (data.length>0) {
+                        renderHouse(data.response);
+                    } else{
+                        renderNotFound();
+                    }
                 },
                 "error": function (error) {
                     alert("ERRORE!");
@@ -53,13 +65,41 @@ function renderHouse(data) {
 
         $('#houses-list').append(html);
     }
-} 
+};
 
+// FUNCTION RENDER NOT FOUND
+function renderNotFound(){
+    var source = $('#notfound-template').html();
+    var template = Handlebars.compile(source);
+    var html = template();
+    $('#houses-list').append(html);
+};
 // function mapSearchLive() {
 //     // Prendo la latitudine
 //     var mapSearchLat = $('#latitude').val();
 //     // Prendo la longitidine
 //     var mapSearchLon = $('#longitude').val();
+
+// FUNCTION RANGE SLIDER 
+function rangeSlider(){
+    var slider = $('.range-slider'),
+        range = $('.range-slider__range'),
+        value = $('.range-slider__value');
+    
+  slider.each(function(){
+
+    value.each(function(){
+      var value = $(this).prev().attr('value');
+      $(this).html(value);
+    });
+
+    range.on('input', function(){
+      $(this).next(value).html(this.value);
+    });
+  });
+};
+
+
 
 //     // Inizializzo la mappa
 //     var mySearchMap = L.map('map-instantsearch-container').setView([mapSearchLat, mapSearchLon], 13);
