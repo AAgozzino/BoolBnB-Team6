@@ -10,4 +10,9 @@
             @endforeach
         </div>
     </div>
+
+    {{-- Become a Host section --}}
+    @include('layouts.partials.become_host')
 @endsection
+
+

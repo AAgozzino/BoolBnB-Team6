@@ -26,6 +26,13 @@ a {
     color: $textColor;
 }
 
+.h2-title{
+    font-size: 35px;
+    font-weight: 700;
+    border-bottom: 1px solid #c6c6c6;
+    padding-bottom: 15px;
+}
+
 // common button gradient
 .index_search_btn{
     width: 100px;
@@ -34,6 +41,7 @@ a {
     color: #ffffff;
     border-radius: 20px;
     border: transparent;
+    outline: none;
     cursor: pointer;
 
     &:hover {

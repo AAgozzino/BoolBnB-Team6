@@ -64,14 +64,15 @@
 
 //Immagine
 .show-img{
-    width: 550px;
-    max-height: 550px;
+    width: 100%;
+    // max-height: 550px;
     overflow: hidden;
     border-radius: 10px;
     
-    img{     
-        object-fit: cover;
+    img{
+        max-width: 100%;     
         border-radius: 10px;
+        object-fit: cover;
     }
 
 }
@@ -79,8 +80,8 @@
     @media (max-width: 768px){
         .show-img{
             width: 100%;
-            max-height: 350px;
             margin:auto;
+            border-radius: 10px;
         }
     }
 
@@ -91,8 +92,13 @@
     display: flex;
     border-bottom: 1px solid #c6c6c6;
 
+    ul{
+        width: 100%;
+    }
+
     li{
-        margin: 15px 0;
+        padding: 15px 0;
+        margin-right: 5px;
       
 
             &::after{
@@ -103,13 +109,18 @@
                 display: inline-block;
                 border-radius: 100px;
                 margin: 0 10px;
-
             }
 
             &:last-child:after{
                  content: none;
 
             }
+    }
+}
+
+@media (max-width: 768px){
+    .show-subinfo li::after{
+        content:none;
     }
 }
 
