@@ -30,7 +30,6 @@ $(document).ready(function(){
                 "success": function (data) {
                     $('#houses-list').html("");
                     renderHouse(data.response);
-                    // console.log(data);
                 },
                 "error": function (error) {
                     alert("ERRORE!");
@@ -38,7 +37,7 @@ $(document).ready(function(){
             }
         );
     });
-
+// mapSearchLive();
 });
     
 // FUNZIONE TEMPLATE HOUSE
@@ -56,3 +55,24 @@ function renderHouse(data) {
     }
 } 
 
+// function mapSearchLive() {
+//     // Prendo la latitudine
+//     var mapSearchLat = $('#latitude').val();
+//     // Prendo la longitidine
+//     var mapSearchLon = $('#longitude').val();
+
+//     // Inizializzo la mappa
+//     var mySearchMap = L.map('map-instantsearch-container').setView([mapSearchLat, mapSearchLon], 13);
+
+//     L.tileLayer('https://api.maptiler.com/maps/streets/{z}/{x}/{y}.png?key=g4tVPhdOiCmsJLWTlyc1', {
+//         attribution: 'Map data &copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors, Imagery © <a href="https://www.mapbox.com/">Mapbox</a>',
+//         maxZoom: 18,
+//         id: 'mapbox/streets-v11',
+//         tileSize: 512,
+//         zoomOffset: -1,
+//         accessToken: 'your.mapbox.access.token'
+//     }).addTo(mySearchMap);
+
+//     // Variabile pin
+//     var marker = L.marker([mapSearchLat, mapSearchLon]).addTo(mySearchMap);
+// }

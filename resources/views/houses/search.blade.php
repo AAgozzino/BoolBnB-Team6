@@ -85,9 +85,10 @@
             <div class="create_btn">
                 <button type="submit" class="create_ndx_btn">Cerca</button>
             </div>
-                {{-- <input type="submit" value="Invia"> --}}
         </form>
     </div>
+
+    {{-- <div id="map-instantsearch-container" style="height: 300px; width:300px"></div> --}}
     
     <div class="container" id="houses-list">
         @foreach ($houses_filtered as $house)
