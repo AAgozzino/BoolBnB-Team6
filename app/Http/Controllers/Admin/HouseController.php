@@ -6,6 +6,7 @@ use App\House;
 use App\Service;
 use App\User;
 use App\Type;
+use App\View;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\Auth;
@@ -88,7 +89,6 @@ class HouseController extends Controller
         $newHouse->bathrooms = $data['bathrooms'];
         $newHouse->mq = $data['mq'];
         $newHouse->price = $data['price'];
-        // $newHouse->service_id= $data['service_id'];
         $newHouse->slug = $data['slug'];
         $newHouse->description = $data['description'];
         $newHouse->cover_img = $path;
@@ -222,17 +222,5 @@ class HouseController extends Controller
         return redirect()->route('admin.houses.index');
     }
 
-    // public function ajaxRequest()
-    // {
-    //     return view('ajaxRequest');
-    // }
-
-    // public function ajaxRequestPost(Request $request)
-    // {
-    //     $response = array(
-    //         'status' => 'success',
-    //         'address' => $request->address,
-    //     );
-    //     return response()->json($response);
-    // }
 }
+

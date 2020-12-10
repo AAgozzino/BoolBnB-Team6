@@ -13,13 +13,15 @@
                 <div id="house-lon" data-lon="{{$house->longitude}}"></div>
                 {{-- Image --}}
                 <div class="show-img"><img src="{{asset('storage/'.$house->cover_img)}}" alt="Card image cap"></div>            
-                    <ul class="show-subinfo">
-                        <li>Ospiti: {{$house->guests}}</li>
-                        <li>Camere da letto: {{$house->bedrooms}}</li>
-                        <li>Bagni: {{$house->bathrooms}}</li>
-                        <li>mq: {{$house->mq}}</li>
-                        <li>appartamento di {{$house->user->name}}</li>
-                    </ul>
+                    <div class="show-subinfo col-12 ">
+                        <ul class="row ">
+                            <li class="col-6 col-md-2">Ospiti: {{$house->guests}}</li>
+                            <li class="col-6 col-md-2">Camere da letto: {{$house->bedrooms}}</li>
+                            <li class="col-6 col-md-2">Bagni: {{$house->bathrooms}}</li>
+                            <li class="col-6 col-md-2">mq: {{$house->mq}}</li>
+                            <li class="col-6 col-md-2">appartamento di {{$house->user->name}}</li>
+                        </ul>
+                    </div>
             </div>
 
             {{-- Info House --}}
