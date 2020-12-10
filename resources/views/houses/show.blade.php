@@ -13,13 +13,15 @@
                 <div id="house-lon" data-lon="{{$house->longitude}}"></div>
                 {{-- Image --}}
                 <div class="show-img"><img src="{{asset('storage/'.$house->cover_img)}}" alt="Card image cap"></div>            
-                    <ul class="show-subinfo">
-                        <li>Ospiti: {{$house->guests}}</li>
-                        <li>Camere da letto: {{$house->bedrooms}}</li>
-                        <li>Bagni: {{$house->bathrooms}}</li>
-                        <li>mq: {{$house->mq}}</li>
-                        <li>appartamento di {{$house->user->name}}</li>
-                    </ul>
+                    <div class="show-subinfo col-12 ">
+                        <ul class="row ">
+                            <li class="col-6 col-md-2">Ospiti: {{$house->guests}}</li>
+                            <li class="col-6 col-md-2">Camere da letto: {{$house->bedrooms}}</li>
+                            <li class="col-6 col-md-2">Bagni: {{$house->bathrooms}}</li>
+                            <li class="col-6 col-md-2">mq: {{$house->mq}}</li>
+                            <li class="col-6 col-md-2">appartamento di {{$house->user->name}}</li>
+                        </ul>
+                    </div>
             </div>
 
             {{-- Info House --}}
@@ -63,38 +65,59 @@
                                 <p class="show-list-title">Prezzo: <span class="price">{{$house->price}}€</span></p> 
                                 <div class="message">
                                     <h4>Contatta l'host</h4>
-                                    <button class="index_search_btn">INVIA UN MESSAGGIO</button>
+                                    <div class="index_search_btn snd_msg_dv">INVIA UN MESSAGGIO</div>
+
+                                    <div id="modal-send_msg" class="modale">
+                                        <div class="modal-wrap">                                                                            
+                                            <div class="modal-content">
+                                                <i class="fas fa-times-circle modal-close"></i>
+                                                <div class="d_flex">
+
+                                                    @guest
+                                                        <form action="{{route("messages.store")}}" class="index_form d_flex" method="POST">
+                                                            @csrf
+                                                            @method("POST")
+                                
+                                                            <input type="hidden" name="house_id" id="house_id" class="hdn_npt_hid" value="{{$house->id}}">
+                                                            <input type="text" name="email_msg" id="email_msg" class="txt_input_cr" placeholder="Inserisci la tua mail">
+                                                            @error('email_msg')
+                                                                <div class="alert alert-danger">{{ 'Inserire una Email' }}</div>
+                                                            @enderror
+                                                            <textarea name="content_msg" id="content_msg" class="txt_input_cr" cols="10" rows="10">{{old('content_msg')}}</textarea>
+                                                            @error('content_msg')
+                                                                <div class="alert alert-danger">{{ 'Inserire un contenuto' }}</div>
+                                                            @enderror
+                                                            <button type="submit" class="message-btn btn__snd">INVIA</button>
+                                                        </form>
+                                                    @else
+                                                        <form action="{{route("messages.store")}}" class="index_form d_flex" method="POST">
+                                                            @csrf
+                                                            @method("POST")
+                                
+                                                            <input type="hidden" name="house_id" id="house_id" class="hdn_npt_hid" value="{{$house->id}}">
+                                                            <input type="text" name="email_msg" id="email_msg" class="txt_input_cr" placeholder="Inserisci la tua mail" value="{{$user_id->email}}">
+                                                            @error('email_msg')
+                                                                <div class="alert alert-danger">{{ 'Inserire una Email' }}</div>
+                                                            @enderror
+                                                            <textarea name="content_msg" id="content_msg" class="txt_input_cr" cols="10" rows="10">{{old('content_msg')}}</textarea>
+                                                            @error('content_msg')
+                                                                <div class="alert alert-danger">{{ 'Inserire un contenuto' }}</div>
+                                                            @enderror
+                                                            <button type="submit" class="message-btn btn__snd">INVIA</button>
+                                                        </form>
+                                                    @endguest
+                                                    
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
                                 </div>
-                            </div> 
+                            </div>
                             {{-- Map --}}
                             <div id="map-show">
                                 <div id="mapid"></div>
-                            </div>                                           
+                            </div>                                        
                         </div>                        
-                    </div>
-                </div>
-
-                {{-- Box-right --}}
-                 <div class="highlight">
-                    <p class="show-list-title">Prezzo: <span class="price">{{$house->price}}</span></p> 
-                    <div class="message">
-                        
-                        <form action="{{route("messages.store")}}" class="index_form" method="POST">
-                            @csrf
-                            @method("POST")
-
-                            <input type="hidden" name="house_id" id="house_id" class="hdn_npt_hid" value="{{$house->id}}">
-                            <input type="text" name="email_msg" id="email_msg" placeholder="Inserisci la tua mail">
-                            @error('email_msg')
-                                <div class="alert alert-danger">{{ 'Inserire una Email' }}</div>
-                            @enderror
-                            <textarea name="content_msg" id="content_msg" cols="10" rows="10">{{old('content_msg')}}</textarea>
-                            @error('content_msg')
-                                <div class="alert alert-danger">{{ 'Inserire un contenuto' }}</div>
-                            @enderror
-                            <button type="submit" class="message-btn">INVIA UN MESSAGGIO</button>
-                        </form>
-
                     </div>
                 </div>
             </div>

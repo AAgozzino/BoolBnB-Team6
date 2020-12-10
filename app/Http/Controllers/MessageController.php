@@ -21,7 +21,7 @@ class MessageController extends Controller
             $houses_ids[] = $house->id;
         }
 
-        $messages = Message::whereIn('house_id', $houses_ids)->get();
+        $messages = Message::whereIn('house_id', $houses_ids)->orderByDesc('created_at')->get();
         
         return view('admin.messages', compact('messages'));
     }

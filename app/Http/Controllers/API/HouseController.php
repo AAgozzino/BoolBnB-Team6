@@ -51,7 +51,7 @@ class HouseController extends Controller
         $houses_filtered = $houses->filter(function ($house) use($data) {
           return $this->distance($data['lat'], $data['lon'], $house->latitude, $house->longitude) < $data['radius'];
         });
-
+        
         return response()->json(['response' => array_values($houses_filtered->toArray())]);
     }
 

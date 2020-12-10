@@ -1,9 +1,10 @@
 header {
     position: fixed;
     width: 100%;
-    background-color: rgba(255,255,255,0.7);
+    background-color: rgba(255,255,255,1);
     top: 0;
     z-index: 100;
+    box-shadow: 0px 2px 6px 0px rgba(50, 50, 50, 0.35);
 
     & .navbar-expand-md {
         & .cont_flex {
@@ -89,7 +90,7 @@ header {
                         }
 
                         & .tend_menu {
-                            background-color: #BFBFBF;
+                            background-color:#d4d4d4;
                             z-index: 10;
                             position: absolute;
                             right: 0;
@@ -101,7 +102,7 @@ header {
                             & .cont_tend_menu {
                                 & .your_houses {
                                     font-size: 14px;
-                                    color: #ffffff;
+                                    color: $textColor;
                                     margin-bottom: 10px;
 
                                     &:hover {
@@ -113,7 +114,7 @@ header {
                             & .cont_tend_menu {
                                 & .message_link {
                                     font-size: 14px;
-                                    color: #ffffff;
+                                    color: $textColor;
                                     margin-bottom: 10px;
 
                                     &:hover {
@@ -127,7 +128,7 @@ header {
                                 
                                 & .dropdown-item {
                                     font-size: 14px;
-                                    color: #ffffff;
+                                    color: $textColor;
 
                                     &:hover {
                                         color: $mainColor;
