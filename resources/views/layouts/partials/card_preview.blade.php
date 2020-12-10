@@ -1,7 +1,15 @@
    
     <div class="col-12 col-md-6 col-lg-4">
         <div class="preview">
-            <a href="{{route('houses.show', $house->slug)}}" class="preview-link">
+            @guest
+                <a href="{{route('houses.show', $house->slug)}}" class="preview-link">
+            @else
+                @if ($house->user_id == $user->id)
+                    <a href="{{route('admin.houses.show', $house->slug)}}" class="preview-link">
+                @else
+                    <a href="{{route('houses.show', $house->slug)}}" class="preview-link">
+                @endif
+            @endguest
                 {{-- Box image --}}
                 <div class="preview-image-box">
                     <img class="preview-img" src="{{asset('storage/'.$house->cover_img)}}" alt="Card image cap">

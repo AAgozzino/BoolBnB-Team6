@@ -46,7 +46,7 @@
 
                 {{-- Bedrooms --}}
                 <div class="col-md-4 nmbr_dv">
-                    <label for="bedrooms" class="col-md-12 col-form-label text-md-right">Numero di camere da letto</label>
+                    <label for="bedrooms" class="col-md-12 col-form-label text-md-right">Numero camere da letto</label>
                     <div class="col-md-12">
                         <input type="number" id="bedrooms" name="bedrooms" class="nmbr_input_cr" min="1" max="20" value="">
                     </div>
@@ -85,9 +85,10 @@
             <div class="create_btn">
                 <button type="submit" class="create_ndx_btn">Cerca</button>
             </div>
-                {{-- <input type="submit" value="Invia"> --}}
         </form>
     </div>
+
+    {{-- <div id="map-instantsearch-container" style="height: 300px; width:300px"></div> --}}
     
     <div class="container" id="houses-list">
         @foreach ($houses_filtered as $house)

@@ -7,6 +7,7 @@ use App\Service;
 use App\User;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
+use Illuminate\Support\Facades\Auth;
 
 class HouseController extends Controller
 {
@@ -17,9 +18,10 @@ class HouseController extends Controller
      */
     public function index()
     {
-        $houses = House::all();
+        $houses = House::inRandomOrder()->limit(6)->get();
+        $user = Auth::user();
         
-        return view("houses.index", compact('houses'));
+        return view("houses.index", compact('houses', 'user'));
     }
 
     /**
@@ -31,17 +33,10 @@ class HouseController extends Controller
     public function show($slug)
     {
         $house = House::where('slug', $slug)->first();
+        $user_id = Auth::user();
         $user = User::where('id', $house->user_id)->get();
-        return view('houses.show', compact('house'));
+        return view('houses.show', compact('house', 'user_id'));
     }
-
-    // public function index()
-    // {
-    //     $houses = House::all();
-    //     dd($houses);
-    //     // TODO SPONSORIZED HOUSES FILTER
-    //     return view('houses.index', compact('house'));
-    // }
 
     public function search(Request $request)
     {

@@ -52945,8 +52945,12 @@ if (document.URL.includes("admin/houses")) {
   $('#main-cover').hide();
 }
 
-<<<<<<< HEAD
 if (document.URL.includes("admin/messages")) {
+  $('#main-cover').hide();
+}
+
+if (document.URL.includes("houses/search")) {
+  $('.add_input_search').remove();
   $('#main-cover').hide();
 }
 
@@ -52976,13 +52980,6 @@ L.tileLayer('https://api.maptiler.com/maps/streets/{z}/{x}/{y}.png?key=g4tVPhdOi
 
 var marker = L.marker([mapLat, mapLon]).addTo(mymap);
 
-=======
-if (document.URL.includes("houses/search")) {
-  $('.add_input_search').remove();
-  $('#main-cover').hide();
-}
-
->>>>>>> FixSearch
 /***/ }),
 
 /***/ "./resources/js/modal.js":
@@ -53001,6 +52998,23 @@ $(".modal-close").click(function (e) {
 
 function close() {
   $("#modal-delete").hide();
+} //modale messages
+
+
+$('.snd_msg_dv').click(function () {
+  $("#modal-send_msg").show();
+});
+$(".modal-close").click(function (e) {
+  closeMsg();
+});
+$('.btn__snd').click(function () {
+  if ($('#email_msg').val() == "" || $('#content_msg').val() == "") {
+    alert('Attenzione, compilare i campi richiesti');
+  }
+});
+
+function closeMsg() {
+  $("#modal-send_msg").hide();
 }
 
 /***/ }),
@@ -53076,15 +53090,7 @@ $(document).ready(function () {
     var serv_id = [];
     $("input:checkbox[name=service_id]:checked").each(function () {
       serv_id.push(parseInt($(this).val()));
-<<<<<<< HEAD
-    }); // console.log(serv_id);
-    // var query = $(this).serialize();
-    // console.log(query);
-    // console.log($("#price").val());
-
-=======
     });
->>>>>>> FixSearch
     $.ajax({
       "url": "http://localhost:8000/api/houses",
       "method": "GET",
@@ -53101,13 +53107,13 @@ $(document).ready(function () {
       },
       "success": function success(data) {
         $('#houses-list').html("");
-        renderHouse(data.response); // console.log(data);
+        renderHouse(data.response);
       },
       "error": function error(_error) {
         alert("ERRORE!");
       }
     });
-  });
+  }); // mapSearchLive();
 }); // FUNZIONE TEMPLATE HOUSE
 
 function renderHouse(data) {
@@ -53119,7 +53125,24 @@ function renderHouse(data) {
     var html = template(house);
     $('#houses-list').append(html);
   }
-}
+} // function mapSearchLive() {
+//     // Prendo la latitudine
+//     var mapSearchLat = $('#latitude').val();
+//     // Prendo la longitidine
+//     var mapSearchLon = $('#longitude').val();
+//     // Inizializzo la mappa
+//     var mySearchMap = L.map('map-instantsearch-container').setView([mapSearchLat, mapSearchLon], 13);
+//     L.tileLayer('https://api.maptiler.com/maps/streets/{z}/{x}/{y}.png?key=g4tVPhdOiCmsJLWTlyc1', {
+//         attribution: 'Map data &copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors, Imagery © <a href="https://www.mapbox.com/">Mapbox</a>',
+//         maxZoom: 18,
+//         id: 'mapbox/streets-v11',
+//         tileSize: 512,
+//         zoomOffset: -1,
+//         accessToken: 'your.mapbox.access.token'
+//     }).addTo(mySearchMap);
+//     // Variabile pin
+//     var marker = L.marker([mapSearchLat, mapSearchLon]).addTo(mySearchMap);
+// }
 
 /***/ }),
 
@@ -53134,10 +53157,7 @@ $(document).ready(function () {
   mouseBtnGrad();
   hoverInfo();
   hambMenu();
-<<<<<<< HEAD
   viewMsg();
-=======
->>>>>>> FixSearch
 }); // FUNCTIONS
 // function gradient hover
 
@@ -53166,7 +53186,6 @@ function hoverInfo() {
   $(document).on('mouseenter', '.welcome_name', function () {
     $('.tend_menu').slideToggle();
   });
-<<<<<<< HEAD
 } // function crop text
 
 
@@ -53180,8 +53199,6 @@ function viewMsg() {
     $('.msg_show').find('small').html(emailUser);
     $('.msg_show').find('p').html(contentMail);
   });
-=======
->>>>>>> FixSearch
 }
 
 /***/ }),
@@ -53204,8 +53221,8 @@ function viewMsg() {
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
-__webpack_require__(/*! /Users/annaagozzino/Desktop/boolean/esercizi/boolbnb-team6/resources/js/app.js */"./resources/js/app.js");
-module.exports = __webpack_require__(/*! /Users/annaagozzino/Desktop/boolean/esercizi/boolbnb-team6/resources/sass/app.scss */"./resources/sass/app.scss");
+__webpack_require__(/*! C:\Users\User\Desktop\Boolean\boolbnb-team6\resources\js\app.js */"./resources/js/app.js");
+module.exports = __webpack_require__(/*! C:\Users\User\Desktop\Boolean\boolbnb-team6\resources\sass\app.scss */"./resources/sass/app.scss");
 
 
 /***/ }),
