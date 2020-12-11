@@ -205,7 +205,7 @@ class HouseController extends Controller
         }
         
 
-        return redirect()->route('admin.houses.index', $house);
+        return redirect()->route('admin.houses.show', $house->slug);
     }
 
     /**

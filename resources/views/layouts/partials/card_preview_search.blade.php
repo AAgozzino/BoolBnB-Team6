@@ -6,10 +6,6 @@
                 <div class="col-12 col-md-5 col-lg-4">
                     <div class="image-box">
                         <img class="preview-img" src="{{asset('storage/'.$house->cover_img)}}" alt="Card image cap">
-                        <div class="sponsored">
-                            Sponsorizzato
-                            <i class="fas fa-star sponsored-star"></i>
-                        </div>
                     </div>  
                 </div>
                 {{-- /Box image --}}

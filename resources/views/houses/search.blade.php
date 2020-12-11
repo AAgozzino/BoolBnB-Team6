@@ -112,33 +112,33 @@
     <script id="houses-template" type="text/x-handlebars-template">
         <div class="row">
             <div class="col-12">
-                <div class="preview-search">
-                    <a href="@{{{slug}}}">
-                        
-                        <div class="image-box">
-                            <img class="preview-img" src="/storage/@{{{cover_img}}}" alt="Card image cap">
-                            <div class="sponsored">
-                                Sponsorizzato
-                                <i class="fas fa-star sponsored-star"></i>
+                <a href="@{{{slug}}}">
+                    <div class="preview-search col-12">
+                        <div class="row">
+                            <div class="col-12 col-md-5 col-lg-4">
+                                <div class="image-box">
+                                    <img class="preview-img" src="/storage/@{{{cover_img}}}" alt="Card image cap">
+                                </div>
+                            </div>
+                            <div class="search-info col-12 col-md-7 col-lg-8">
+                                <div class="search-info-head">
+                                    <div class="address">@{{address}}</div>
+                                    <div class="title">@{{title}}</div>
+                                </div>
+                                <div class="separator"></div>
+                                <div class="search-info-body">
+                                    <ul class="rooms-info">
+                                        <li>@{{guests}} ospiti</li>
+                                        <li>@{{rooms}} stanze</li>
+                                        <li>@{{bedrooms}} camere</li>
+                                        <li>@{{bathrooms}} bagni</li>
+                                    </ul>
+                                </div>
                             </div>
                         </div>
-                        
-                        <div class="search-info">
-                            <div class="search-info-head">
-                                <div class="address">@{{address}}</div>
-                                <div class="title">@{{title}}</div>
-                            </div>
-                            <div class="search-info-body">
-                                <ul class="rooms-info">
-                                    <li>@{guests}} ospiti</li>
-                                    <li>@{{rooms}} stanze</li>
-                                    <li>@{{bedrooms}} camere</li>
-                                    <li>@{{bathrooms}} bagni</li>
-                                </ul>
-                            </div>
-                        </div>
-                    </a>
-                </div>
+                    </div>
+                   
+                 </a>
             </div>
         </div>
     </script>

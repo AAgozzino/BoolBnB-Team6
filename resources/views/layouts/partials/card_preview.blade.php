@@ -13,10 +13,6 @@
                 {{-- Box image --}}
                 <div class="preview-image-box">
                     <img class="preview-img" src="{{asset('storage/'.$house->cover_img)}}" alt="Card image cap">
-                    <div class="sponsored">
-                        Sponsorizzato
-                        <i class="fas fa-star sponsored-star"></i>
-                    </div>
                 </div>
                 {{-- /Box image --}}
 

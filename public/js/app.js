@@ -53115,7 +53115,7 @@ $(document).ready(function () {
       "success": function success(data) {
         $('#houses-list').html("");
 
-        if (data.length > 0) {
+        if (data.response.length > 0) {
           renderHouse(data.response);
         } else {
           renderNotFound();

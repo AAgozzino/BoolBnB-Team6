@@ -64,7 +64,7 @@
                                 {{-- Admin-Action --}}
                             <div class="admin-action">
                                 <a href="{{route('admin.houses.edit',  $house->slug)}}">Modifica</a>
-                                <a href="#">Sponsorizza</a>
+                                {{-- <a href="#">Sponsorizza</a> --}}
                                 <p id="open-modal">Elimina</p>
 
                                 {{-- Delete Modal --}}
