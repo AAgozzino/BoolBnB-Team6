@@ -43,13 +43,24 @@ function hoverInfo() {
 // function crop text
 function viewMsg() {
     $('.msg_uniq').click(function(){
+
+        $(".background-msg-selected").removeClass("background-msg-selected");
+
+            $(this).addClass("background-msg-selected");
+
+        
         var houseId = $(this).children('small').html();
         var emailUser = $(this).children('h5').html();
-        var contentMail = $(this).children('p').html();
+        var contentMail = $(this).children('.brk_msg_point').text();
+        var addressMail = $(this).find('.address-ms').html();
+        var contentImg = $(this).children('img').attr('src');
+        console.log(contentImg);
 
         $('.msg_show').removeClass('d_none');
         $('.msg_show').find('h3').html(houseId);
         $('.msg_show').find('small').html(emailUser);
-        $('.msg_show').find('p').html(contentMail);
+        $('.msg_show').find('#content-msg').html(contentMail);
+        $('.msg_show').find('.address-msg-show').html(addressMail);
+        $('.msg_show').find('img').attr('src', contentImg);
     });
 }

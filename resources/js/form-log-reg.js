@@ -23,11 +23,11 @@ if (document.URL.includes("edit")) {
     $('#main-cover').hide();
 }
 
-if (document.URL.includes("admin/houses")) {
+if (document.URL.includes("/houses")) {
     $('#main-cover').hide();
 }
 
-if (document.URL.includes("admin/messages")) {
+if (document.URL.includes("/messages")) {
     $('#main-cover').hide();
 }
 

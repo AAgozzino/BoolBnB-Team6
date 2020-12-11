@@ -9,4 +9,5 @@ require('./search.js');
 require('./valid_layouts.js');
 // Modal
 require('./modal.js');
+//Map
 require('./map.js');

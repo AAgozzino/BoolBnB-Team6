@@ -25,22 +25,49 @@
     }
 
     .cont_msg_fl {
-        border: 1px solid #bfbfbf;
+        border: 1px solid $mainColor;
         margin: 50px 0;
+        border-radius: 10px;
+        box-shadow: 0px 0px 5px 2px rgba(186, 81, 96, 0.4);
+        
 
         & .msg_lst {
             width: 350px;
-            border-right: 1px solid #bfbfbf;
+            border-right: 1px solid $mainColor;
+            
 
             & .msg_uniq {
-                padding: 10px;
+                padding: 10px 10px;
                 cursor: pointer;
+                margin: 15px 0;
+
+                small{
+                    font-weight: 700;
+                    font-size: 16px;
+                    margin-bottom: 8px;
+                }
+
+                .address-ms{
+                    font-size: 13px;
+                    
+                }
+                .email-send{
+                    font-size: 13px;
+                    
+                }
+
+                h5{
+                    display: inline-block;
+                }
+
+
 
                 &:not(:last-child) {
-                    border-bottom: 1px solid #bfbfbf;
+                    border-bottom: 1px solid $mainColor;
                 }
 
                 & .brk_msg_point {
+                    margin-top: 10px;
                     white-space: nowrap;
                     overflow: hidden;  
                     text-overflow: ellipsis;
@@ -51,13 +78,85 @@
         & .msg_show {
             width: 100%;
             & .head_msg_info {
-                border-bottom: 1px solid #bfbfbf;
+                border-bottom: 1px solid $mainColor;
                 padding: 10px;
-            }
+                margin-top: 12px;
+                background-color: $secondColor;
+                border-top-left-radius: 10px;
+                border-top-right-radius: 10px;
+
+                .barr{
+                    width: 75px;
+                    margin-top:8px
+                }
+            
+                .emailed{
+                    font-weight: 700;
+                    font-size: 15px;
+                    
+                    &::before{
+                        content: "";
+                        width: 5px;
+                        height: 5px;
+                        background-color: $mainColor;
+                        vertical-align: middle;
+                        padding: 4px;
+                        display: inline-block;
+                        margin-right: 8px;
+                        border-radius: 100px;
+                    }
+                }
+
+                p{
+                    font-size: 14px;
+                }
+
+                #content-msg{
+                    font-size: 16px;
+                    margin: 20px 0;
+                }
+            }   
 
             & .content_msg_us {
-                padding: 10px;
+                padding: 20px 10px;
+                
+
+                p{
+                    font-weight: 400;
+                    font-style: italic;
+                    margin-top: 8px;
+                }
+            
+                h3{
+                    font-size: 24px;
+                    color:$mainColor;
+                    font-weight: 800;
+                }
+            
             }
         }
     }
+
+.img-take{
+    display: none;
+}
+
+.msg-img{
+    max-height: 350px;
+    border-radius: 10px;
+    max-width: 350px;
+    overflow: hidden;
+
+    img{
+        object-fit: cover;
+        max-width: 100%;
+        max-height: 100%;
+    }
+}
+
+}
+
+.background-msg-selected{
+    background-color: $secondColor;
+    border-radius: 10px;
 }
